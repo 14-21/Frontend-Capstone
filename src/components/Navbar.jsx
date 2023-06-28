@@ -1,4 +1,4 @@
-import './Navbar.css';
+import './navbar.css';
 import { FaBars } from 'react-icons/fa';
 import { useContext } from 'react';
 import { LoginContext } from '../App';
@@ -25,6 +25,7 @@ function Navbar() {
             {/* // This link is only showed when user is logged in. */}
             <Link className="links" to="/">Home</Link>
             <Link className="links" to="/profile">My Profile</Link>
+            <Link className='links' to="/all-games">All Games</Link>
             <button id="logout-button"
               onClick={() => {
                 setIsLoggedIn(false);
@@ -40,9 +41,15 @@ function Navbar() {
             <Link className="links" to="/">
               Home
             </Link>
+
+            <Link className='links' to="/all-games">
+              All Games
+            </Link>
+
             <Link className="links" to="/login">
               Login
             </Link>
+
             <Link className="links" to="/register">
               Register
             </Link>

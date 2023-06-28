@@ -1,4 +1,5 @@
-import './Login.css';
+import './login.css';
+import { loginUser } from "../api-routes"
 import { useState, useContext } from "react";
 import { LoginContext } from '../App';
 import { useNavigate } from 'react-router-dom';
@@ -14,7 +15,7 @@ function Login() {
         console.log(username);
 
         try {
-            const result = await loginUser();
+            const result = await loginUser(username, password);
             console.log(result) 
 
             // Fetching only key-value pair for the token for the login.
@@ -29,29 +30,6 @@ function Login() {
         }
     }
     
-    
-  async function loginUser() {
-    try {
-        // MOCK API to see if function works, it does. URL will need to be changed once Our API is complete.
-      const response = await fetch(`https://64986b389543ce0f49e20545.mockapi.io/users`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user: {
-            username: username,
-            password: password,
-          },
-        }),
-      }); // Outside of fetch starting here.
-      const result = await response.json();
-      return result;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
 
 
     return (
