@@ -11,8 +11,8 @@ import "./bottomNav.css";
 
 function BottomNav() {
   return (
-    <div className="main-container">
-      <h2>Follow Us</h2>
+    <div className="bottomNav-main-container">
+      <h2 className="bottomNav-h2">Follow Us</h2>
       <div className="social-container">
         <a
           href="https://www.youtube.com/c/jamesqquick"
@@ -40,11 +40,17 @@ function BottomNav() {
         </a>
       </div>
       <div className="links-container">
-        <Link to="/home">Home</Link>
-        <Link to="/profile">Profile</Link>
-        <Link to="/about">About</Link>
+        <Link className="bottomNav-Link" to="/home">
+          Home
+        </Link>
+        <Link className="bottomNav-Link" to="/profile">
+          Profile
+        </Link>
+        <Link className="bottomNav-Link" to="/about">
+          About
+        </Link>
       </div>
-      <h3>Established 2023</h3>
+      <h3 className="bottomNav-h3">Established 2023</h3>
     </div>
   );
 }

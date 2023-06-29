@@ -1,10 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.main-container {
+.bottomNav-main-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,16 +6,17 @@
   height: 15rem;
   width: 100vw;
   background-color: #383636;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .social-container {
   margin: 1rem 0;
 }
 
-a {
-  pointer-events: none;
-  padding: 0 0.5rem 0.5rem 0.5rem;
-  color: #fff;
+.social {
+  padding: 0 0.3rem;
 }
 
 .youtube {
@@ -62,20 +57,20 @@ a {
 }
 
 .links-container {
-  margin-top: 2rem;
+  margin: 1rem 0;
 }
 
-Link {
+.bottomNavLink {
+  pointer-events: none;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.bottomNav-h2 {
   color: #fff;
 }
 
-h2 {
-  color: #fff;
-}
-
-h3 {
+.bottomNav-h3 {
   color: #fff;
   font-size: 1rem;
-  padding-top: 3rem;
   margin: 0;
 }
