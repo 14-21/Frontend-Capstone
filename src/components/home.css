@@ -1,0 +1,35 @@
+#game-spotlight-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+
+    border: solid palegreen;
+}
+
+.single-feat-game{
+    display: flex;
+    flex-direction: row;
+
+    margin: 1rem;
+    height: 25rem;
+    
+
+
+    border: solid yellow;
+
+}
+.feat-pic{
+    height: 100%;
+    width: 30rem;
+
+    border: solid orange;
+}
+
+.feat-game{
+    height: 100%;
+    width: 12rem;
+    border: solid red;
+    text-align: center;
+}
