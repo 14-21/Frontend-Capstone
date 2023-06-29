@@ -1,4 +1,3 @@
-
 import './app.css'
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
@@ -12,6 +11,7 @@ import Register from './components/Register';
 import Adventure from './components/Adventure';
 import Home from './components/Home'
 import SingleGame from './components/SingleGame'
+import BottomNav from "./components/BottomNav";
 
 export const LoginContext = createContext();
 
@@ -29,7 +29,6 @@ function App() {
       setIsLoggedIn(true);
     }
   }, []);
-
 
   // Fetching all games data
   useEffect(() => {
@@ -54,12 +53,6 @@ function App() {
     <LoginContext.Provider value={{isLoggedIn, setIsLoggedIn}}>
       <Navbar />
      
-
-
-
-
-
-
       <Routes>
         <Route path="/" element={<Home allGames={allGames} setAllGames={setAllGames}/>} />
         <Route path="/profile" element={<Profile />} />
@@ -71,7 +64,9 @@ function App() {
         <Route path="/adventure" element={<Adventure allGames={allGames} setAllGames={setAllGames}/>} />
 
       </Routes>
+
     </LoginContext.Provider>
+  <BottomNav />
 
     </>
   );
