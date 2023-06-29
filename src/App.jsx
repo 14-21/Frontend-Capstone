@@ -1,9 +1,11 @@
+
 import './app.css'
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useState, createContext, useEffect } from "react";
 import Navbar from './components/Navbar';
 import Profile from './components/Profile';
+import ProfileComments from "./components/ProfileComments";
 import AllReviews from './components/AllReviews';
 import Login from './components/Login';
 import Register from './components/Register';
@@ -27,6 +29,7 @@ function App() {
       setIsLoggedIn(true);
     }
   }, []);
+
 
   // Fetching all games data
   useEffect(() => {
@@ -60,6 +63,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home allGames={allGames} setAllGames={setAllGames}/>} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/mycomments" element={<ProfileComments />} />
         <Route path="/all-games" element={<AllReviews allGames={allGames} setAllGames={setAllGames} />} />
         <Route path="/all-games/:id" element={<SingleGame />} />
         <Route path="/login" element={<Login />} />
@@ -68,8 +72,9 @@ function App() {
 
       </Routes>
     </LoginContext.Provider>
+
     </>
-  )
+  );
 }
 
 export default App;
