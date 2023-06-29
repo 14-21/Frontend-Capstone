@@ -1,6 +1,8 @@
 import "./profile.css";
 import { useState, useEffect } from "react";
 
+import { Link } from "react-router-dom";
+
 function Profile() {
   const [username, setUsername] = useState("");
 
@@ -16,7 +18,9 @@ function Profile() {
     <>
       <div className="profile-nav">
         <ul>
-          <li>Comments</li>
+          <li>
+            <Link to="/mycomments">Comments</Link>
+          </li>
           <li>Liked Articles</li>
           <li>Reviews</li>
         </ul>
