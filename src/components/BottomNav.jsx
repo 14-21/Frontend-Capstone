@@ -8,7 +8,6 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import "./bottomNav.css";
-import "./bottomNav.css";
 
 function BottomNav() {
   return (
