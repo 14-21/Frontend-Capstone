@@ -1,9 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { userComments } from "../api-routes";
+import { FaCommentSlash } from "react-icons/fa";
 
 function ProfileComments() {
   const [username, setUsername] = useState("");
-  let [myReviews, setMyReviews] = useState([]);
+  let [myComments, setMyComments] = useState([]);
 
   //Fetching username so it can display on each user profile page.
   useEffect(() => {
