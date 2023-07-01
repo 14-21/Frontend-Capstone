@@ -48,30 +48,17 @@ function App() {
     <>
       {/* Giving access to login info to all components */}
       <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-        {/* Nav bar not showing up */}
+     
         <Navbar />
         <Routes>
-          <Route
-            path="/"
-            element={<Home allGames={allGames} setAllGames={setAllGames} />}
-          />
+          <Route path="/" element={<Home allGames={allGames} setAllGames={setAllGames} />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/mycomments" element={<ProfileComments />} />
-          <Route
-            path="/all-games"
-            element={
-              <AllReviews allGames={allGames} setAllGames={setAllGames} />
-            }
-          />
-          <Route path="/all-games/:id" element={<SingleGame />} />
+          <Route path="/games" element={<AllReviews allGames={allGames} setAllGames={setAllGames} /> }/>
+          <Route path="/games/:id" element={<SingleGame />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route
-            path="/adventure"
-            element={
-              <Adventure allGames={allGames} setAllGames={setAllGames} />
-            }
-          />
+          <Route path="/adventure" element={<Adventure allGames={allGames} setAllGames={setAllGames} />}/>
         </Routes>
       </LoginContext.Provider>
       <BottomNav />
