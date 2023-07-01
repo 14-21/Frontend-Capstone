@@ -1,0 +1,76 @@
+.bottomNav-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 15rem;
+  width: 100vw;
+  background-color: #383636;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.social-container {
+  margin: 1rem 0;
+}
+
+.social {
+  padding: 0 0.3rem;
+}
+
+.youtube {
+  color: rgb(255, 0, 0);
+}
+.facebook {
+  color: rgb(24, 119, 242);
+}
+.twitter {
+  color: rgb(29, 161, 242);
+}
+.instagram {
+  background: #f09433;
+  background: -moz-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+}
+
+.links-container {
+  margin: 1rem 0;
+}
+
+.bottomNavLink {
+  pointer-events: none;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.bottomNav-h2 {
+  color: #fff;
+}
+
+.bottomNav-h3 {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0;
+}
