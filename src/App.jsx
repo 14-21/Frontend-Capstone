@@ -60,8 +60,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home allGames={allGames} setAllGames={setAllGames}/>} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/all-games" element={<AllReviews allGames={allGames} setAllGames={setAllGames} />} />
-        <Route path="/all-games/:id" element={<SingleGame />} />
+        <Route path="/games" element={<AllReviews allGames={allGames} setAllGames={setAllGames} />} />
+        <Route path="/games/:id" element={<SingleGame allGames={allGames} setAllGames={setAllGames}/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/adventure" element={<Adventure allGames={allGames} setAllGames={setAllGames}/>} />
