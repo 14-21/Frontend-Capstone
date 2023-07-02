@@ -5,15 +5,48 @@ import { Link } from 'react-router-dom';
 
 
 function AllReviews(props) {
+    const [searchQuery, setSearchQuery] = useState(""); //Storing the search query.
+
+    // This function allows lowercase letters to be included in the filter.
+    let filteredGame = props.allGames.filter((game) => {
+        let lowercaseTitle = game.title.toLowerCase();
+        let lowercaseQuery = searchQuery.toLowerCase();
+
+        if(lowercaseTitle.includes(lowercaseQuery)) {
+            return game;
+        }
+    });
+
+
+
     return(
         <>
+        <br/>
+            <form id="searchbar">
+                <label htmlFor='title'></label>
+                <input id="search"
+                    name="search-query"
+                    type='text'
+                    placeholder='Search'
+                    value={searchQuery}
+                    onChange={(event) => {
+                        //This allows users to change the search box.
+                        console.log(event.target.value);
+                        setSearchQuery(event.target.value);
+                    }}
+                ></input>
+            </form>
+
+            <br/>
+            <br/>
+
             <h1>All games</h1>
             <div id="allgames">
-                {props.allGames.length ? (
-                    props.allGames.map((e) => {
+                {filteredGame.length ? (
+                    filteredGame.map((e) => {
                         return(
                             <div className="single-game-card"key={e.gameId}>
-                               <Link to="/all-games/:id">
+                               <Link to={`/games/${e.gameId}`}>
                                <p id="gametitle">{e.title}</p>
                                
                                </Link>
@@ -21,7 +54,7 @@ function AllReviews(props) {
                             </div>
                         )
                     })
-                ) : <p>Loading..</p>
+                ) : <p>No Match</p>
             }
 
             </div>

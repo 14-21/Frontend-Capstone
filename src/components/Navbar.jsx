@@ -25,7 +25,7 @@ function Navbar() {
             {/* // This link is only showed when user is logged in. */}
             <Link className="links" to="/">Home</Link>
             <Link className="links" to="/profile">My Profile</Link>
-            <Link className='links' to="/all-games">All Games</Link>
+            <Link className='links' to="/games">All Games</Link>
             <button id="logout-button"
               onClick={() => {
                 setIsLoggedIn(false);
@@ -42,7 +42,7 @@ function Navbar() {
               Home
             </Link>
 
-            <Link className='links' to="/all-games">
+            <Link className='links' to="/games">
               All Games
             </Link>
 
