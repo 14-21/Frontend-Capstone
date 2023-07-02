@@ -1,13 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Gentium+Plus&display=swap");
 
-
-nav{
-    display: flex;
-    justify-content: space-evenly;
-    border: solid red;
+nav {
+  display: flex;
+  justify-content: space-evenly;
 }
 
-#websitename{
-    display: flex;
-    justify-content: center;
-    border: solid blue;
+.website-name {
+  margin-right: 2rem;
+  font-family: gentium-plus;
+  font-style: italic;
+  color: #84dccf;
+}
+
+.website-name-sub {
+  color: #fff;
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.name-arrow {
+  color: #84dccf;
+  font-size: 2rem;
+}
+
+#topbar-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #383636;
+}
+
+.topnav-link-bar {
+  display: flex;
+  width: 20rem;
+  justify-content: space-evenly;
+}
+
+a {
+  text-decoration: none;
+}
+
+.links {
+  color: white;
 }
