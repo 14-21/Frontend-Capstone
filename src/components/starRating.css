@@ -1,0 +1,22 @@
+.star-container {
+  display: flex;
+  height: 2rem;
+  width: 12rem;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+  height: 1rem;
+  width: 1rem;
+}
+
+/* 
+colors:
+yellow: #ffc107
+gray: #e43539
+*/
