@@ -37,7 +37,9 @@ function Home(props) {
         {featGame && featGame.title ? (
           <div className="single-feat-game">
             <div className="feat-game">{secFeatGame.title}</div>
-            <div className="feat-pic">{secFeatGame.picture}</div>
+            <div className="feat-pic">
+              <img className="feat-pic" src={secFeatGame.picturecard} />
+            </div>
           </div>
         ) : (
           <h3>Loading</h3>
@@ -46,7 +48,9 @@ function Home(props) {
         {secFeatGame && secFeatGame.title ? (
           <div className="single-feat-game">
             <div className="feat-game">{featGame.title}</div>
-            <div className="feat-pic">{featGame.picture}</div>
+            <div className="feat-pic">
+              <img className="feat-pic" src={featGame.picturecard} />
+            </div>
           </div>
         ) : (
           <h3>Loading</h3>

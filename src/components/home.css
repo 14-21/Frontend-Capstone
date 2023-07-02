@@ -11,25 +11,32 @@
 .single-feat-game{
     display: flex;
     flex-direction: row;
-
     margin: 1rem;
-    height: 25rem;
-    
-
-
-    border: solid yellow;
-
+    height: 30rem;
+    box-sizing: border-box;
+    box-shadow: 0 0 16px 0 rgba(0,0,0,.1) ;
+    border-radius: 0.5rem;
 }
-.feat-pic{
-    height: 100%;
-    width: 30rem;
 
-    border: solid orange;
+.single-feat-game:hover{
+    transform: scale(1.02);
+    transition-duration: 0.3s;
+    transition: 0.3s ease-in-out;
+   
+  
+}
+
+
+
+.feat-pic{
+    border-radius: inherit;
+    height: 100%;
+    width: 25rem;
 }
 
 .feat-game{
     height: 100%;
-    width: 12rem;
-    border: solid red;
+    width: 15rem;
+    /* border: solid red; */
     text-align: center;
 }
