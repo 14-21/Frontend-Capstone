@@ -20,8 +20,14 @@ function Profile() {
           <li>
             <Link to="/mycomments">Comments</Link>
           </li>
-          <li>Liked Articles</li>
-          <li>Reviews</li>
+          <li>
+            {" "}
+            <Link to="/myarticles">Liked Articles</Link>
+          </li>
+          <li>
+            {" "}
+            <Link to="/myreviews">Reviews</Link>
+          </li>
         </ul>
         <div className="border-line"></div>
       </div>
