@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { userComments } from "../api-routes";
 import { FaCommentSlash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function ProfileComments() {
   const [username, setUsername] = useState("");
@@ -17,6 +18,20 @@ function ProfileComments() {
 
   return (
     <>
+      <div className="profile-nav">
+        <ul>
+          <li>
+            <Link to="/profile">Profile</Link>
+          </li>
+          <li>
+            <Link to="/myarticles">Liked Articles</Link>
+          </li>
+          <li>
+            <Link to="/myreviews">Reviews</Link>
+          </li>
+        </ul>
+        <div className="border-line"></div>
+      </div>
       <h1>Your Comments</h1>
     </>
   );
