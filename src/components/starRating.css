@@ -1,0 +1,18 @@
+.star-container {
+  display: flex;
+  flex-direction: row;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+/* colors:
+yellow: #ffc107
+rgb(128, 128, 128)
+ */
