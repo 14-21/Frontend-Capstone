@@ -2,11 +2,9 @@
 
 nav {
   display: flex;
-  justify-content: space-evenly;
 }
 
 .website-name {
-  margin-right: 2rem;
   font-family: gentium-plus;
   font-style: italic;
   color: #84dccf;
@@ -28,6 +26,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100vw;
   background-color: #383636;
 }
 
@@ -35,6 +34,16 @@ nav {
   display: flex;
   width: 20rem;
   justify-content: space-evenly;
+}
+
+.nav-bar-profile-picture {
+  display: flex;
+  justify-content: bottom;
+}
+
+#nav-profile-split {
+  display: flex;
+  align-items: center;
 }
 
 a {
