@@ -12,6 +12,7 @@ import Adventure from "./components/Adventure";
 import Home from "./components/Home";
 import SingleGame from "./components/SingleGame";
 import BottomNav from "./components/BottomNav";
+import UserReviewPage from "./components/UserReviews";
 
 export const LoginContext = createContext();
 
@@ -53,6 +54,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home allGames={allGames} setAllGames={setAllGames} />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/myreviews" element={<UserReviewPage />} />
           <Route path="/mycomments" element={<ProfileComments />} />
           <Route path="/games" element={<AllReviews allGames={allGames} setAllGames={setAllGames} /> }/>
           <Route path="/games/:id" element={<SingleGame />} />
