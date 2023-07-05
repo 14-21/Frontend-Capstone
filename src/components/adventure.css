@@ -1,0 +1,24 @@
+#adventure-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  
+
+    border: solid red;
+}
+
+.gamecard{
+    height: 32rem;
+    width: 24rem;
+    border: solid green;
+}
+
+.genre-game-title{
+    border: solid orange;
+}
+
+.genre-pic{
+    height: 100%;
+    width: 100%;
+    border: solid greenyellow;
+}

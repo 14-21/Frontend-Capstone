@@ -60,13 +60,8 @@ function App() {
           <Route path="/star" element={<StarRating />} />
           <Route path="/myreviews" element={<UserReviewPage />} />
           <Route path="/mycomments" element={<ProfileComments />} />
-          <Route
-            path="/games"
-            element={
-              <AllReviews allGames={allGames} setAllGames={setAllGames} />
-            }
-          />
-          <Route path="/games/:id" element={<SingleGame />} />
+          <Route path="/games" element={<AllReviews allGames={allGames} setAllGames={setAllGames} />}/>
+          <Route path="/games/:id" element={<SingleGame allGames={allGames}/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route

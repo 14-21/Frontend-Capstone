@@ -14,9 +14,8 @@ export const registerUser = async (
   pic
 ) => {
   try {
-    // MOCK API to see if function works, it does. URL will need to be changed once Our API is complete.
     const response = await fetch(
-      `https://64986b389543ce0f49e20545.mockapi.io/register`,
+      `${BASE_URL}/games/users/register`,
       {
         method: "POST",
         headers: {
@@ -48,7 +47,7 @@ export const loginUser = async (username, password) => {
   try {
     // MOCK API to see if function works, it does. URL will need to be changed once Our API is complete.
     const response = await fetch(
-      `https://64986b389543ce0f49e20545.mockapi.io/users`,
+      `${BASE_URL}/games/users/login`,
       {
         method: "POST",
         headers: {
