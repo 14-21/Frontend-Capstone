@@ -7,8 +7,7 @@ const BASE_URL = "localhost:8080"
 // REGISTER
 export const registerUser = async (username, password, fname, lname, email, pic) => {
     try {
-            // MOCK API to see if function works, it does. URL will need to be changed once Our API is complete.
-            const response = await fetch(`https://64986b389543ce0f49e20545.mockapi.io/register`, {
+            const response = await fetch(`${BASE_URL}/games/users/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
