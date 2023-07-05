@@ -12,6 +12,8 @@ import Adventure from "./components/Adventure";
 import Home from "./components/Home";
 import SingleGame from "./components/SingleGame";
 import BottomNav from "./components/BottomNav";
+import UserReviewPage from "./components/UserReviews";
+import StarRating from "./components/StarRating";
 
 export const LoginContext = createContext();
 
@@ -48,7 +50,6 @@ function App() {
     <>
       {/* Giving access to login info to all components */}
       <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-        {/* Nav bar not showing up */}
         <Navbar />
         <Routes>
           <Route
@@ -56,14 +57,16 @@ function App() {
             element={<Home allGames={allGames} setAllGames={setAllGames} />}
           />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/star" element={<StarRating />} />
+          <Route path="/myreviews" element={<UserReviewPage />} />
           <Route path="/mycomments" element={<ProfileComments />} />
           <Route
-            path="/all-games"
+            path="/games"
             element={
               <AllReviews allGames={allGames} setAllGames={setAllGames} />
             }
           />
-          <Route path="/all-games/:id" element={<SingleGame />} />
+          <Route path="/games/:id" element={<SingleGame />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route
