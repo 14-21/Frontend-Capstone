@@ -1,7 +1,9 @@
 import './home.css';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Adventure from "./Adventure";
+
+
+
 
 function Home(props) {
   const [featGame, setFeatGame] = useState("");
@@ -36,7 +38,11 @@ function Home(props) {
       <div id="game-spotlight-container">
         {featGame && featGame.title ? (
           <div className="single-feat-game">
-            <div className="feat-game">{secFeatGame.title}</div>
+            <div className="feat-game">
+              <p className='featgame-title'>{secFeatGame.title}</p>
+              
+              <Link className="featlinks" to={`/games/${secFeatGame.gameId}`}>Learn More</Link>
+            </div>
             <div className="feat-pic">
               <img className="feat-pic" src={secFeatGame.picturecard} />
             </div>
@@ -47,7 +53,11 @@ function Home(props) {
 
         {secFeatGame && secFeatGame.title ? (
           <div className="single-feat-game">
-            <div className="feat-game">{featGame.title}</div>
+            <div className="feat-game">
+              <p className='featgame-title'>{featGame.title}</p>
+              
+              <Link className="featlinks" to={`/games/${featGame.gameId}`}>Learn More</Link>
+            </div>
             <div className="feat-pic">
               <img className="feat-pic" src={featGame.picturecard} />
             </div>
@@ -57,12 +67,49 @@ function Home(props) {
         )}
       </div>
 
-    {/* Genre Sections Start */}
+      <br/>  
+      <br/>  
+      <br/>  
+      <br/>  
+      <br/>  
+      <br/>  
+      <br/>  
+      <br/>    
 
-            <Link to="/adventure">
-                <h2>Adventure</h2>
-            </Link>
-            {/* <Adventure/> */}
+
+    {/* Genre Sections Start */}
+      <div id="genres">
+
+          <Link to="/adventure">
+                <h2 className='genre-type'>Adventure</h2>
+          </Link>
+          <div id="adventure">
+              {props.allGames.length ? (
+                        props.allGames.map((e) => {
+                            if(e.genre == "Adventure RPG") {
+                                return(
+                                    <div className="genre-gamecard">
+                                        {/* <p className="genre-game-title">{e.title}</p> */}
+                                        <img className="genre-game-pic" src={e.picturecard} />
+                                    </div>
+                                )
+                            }
+                            
+                        })
+                        
+                    ) : <p>loading</p>
+                }
+          </div> 
+      </div>
+      
+      <br/>  
+      <br/>  
+      <br/>  
+      <br/>  
+      <br/>   
+
+
+         
     </>
   );
 }

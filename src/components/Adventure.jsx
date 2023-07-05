@@ -1,44 +1,44 @@
 // GENRE 1 COMP of AllReviews
+import './adventure.css';
+// import { useEffect, useState } from "react";
 
-import { useEffect, useState } from "react";
+// const BASE_URL = "http://localhost:8080"
 
-const BASE_URL = "http://localhost:8080"
-
-function Adventure() {
-    // const [adventureGames, setAdventureGames] = useState([]);
-    const [gameGenre, setGameGenre] = useState("");
-
-    useEffect(() => {
-        async function genreType() {
-            try {
-                const response = await fetch(`${BASE_URL}/games/genre`);
-                const result = await response.json();
-           
-
-                setGameGenre(result.genre)
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        genreType();
-    }, [])
+function Adventure(props) {
+ 
    
     return(
         <>
-            {gameGenre.length ? (
-                gameGenre.map((e) => {
-                    if(e.genre === "Adventure RPG") {
-                        return(
-                            <div>
-                                {e.title}
-                            </div>
-                        )
-                    }
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+            <div id="adventure-container">
+                {props.allGames.length ? (
+                    props.allGames.map((e) => {
+                        if(e.genre == "Adventure RPG") {
+                            return(
+                                <div className="gamecard">
+                                    {/* <p className="genre-game-title">{e.title}</p> */}
+                                    <img className="genre-pic" src={e.picturecard} />
+                                </div>
+                            )
+                        }
+                        
+                    })
                     
-                })
-                
-            ) : <p>loading</p>
-        }
+                ) : <p>loading</p>
+            }
+
+
+
+
+
+            </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         
         </>
     )
