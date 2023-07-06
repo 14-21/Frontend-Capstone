@@ -1,10 +1,7 @@
 import "./profile.css";
 import { useState, useEffect } from "react";
-<<<<<<< HEAD
-import { fetchUserData } from "../api-routes";
+// import { fetchUserData } from "../api-routes";
 
-=======
->>>>>>> main
 import { Link } from "react-router-dom";
 
 function Profile() {
@@ -20,7 +17,7 @@ function Profile() {
 
   useEffect(() => {
     const renderUserData = () => {
-      const response = fetchUserData();
+      // const response = fetchUserData();
     };
     renderUserData();
   }, []);

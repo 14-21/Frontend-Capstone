@@ -1,5 +1,5 @@
 import "./singlegames.css";
-import { useState, useEffect, useInsertionEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Reviews from "./Reviews";
 
@@ -11,7 +11,7 @@ function SingleGame(props) {
   // console.log(props.allGames)
   const { id } = useParams();
 
-  // console.log(id)
+  console.log(id);
 
   useEffect(() => {
     const foundGame = props.allGames.find((e) => {
