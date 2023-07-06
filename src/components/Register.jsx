@@ -1,4 +1,5 @@
-import './Register.css';
+import './register.css';
+import { registerUser } from '../api-routes';
 import { useState, useContext } from 'react';
 import { LoginContext } from '../App';
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +7,10 @@ import { useNavigate } from 'react-router-dom';
 function Register() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [fname, setFname] = useState ("")
+    const [lname, setLname] = useState("");
+    const [email, setEmail] = useState("");
+    const [pic, setPic] = useState("");
     const {setIsLoggedIn} = useContext(LoginContext);
     const navigate = useNavigate();
 
@@ -14,7 +19,7 @@ function Register() {
         e.preventDefault()
         console.log(username)
         try {
-            const result = await registerUser(); // Passing async function in from below.
+            const result = await registerUser(username, password, fname, lname, email, pic); // Passing async function in from below.
             console.log(result)
 
             //Need to verfiy token is being stored once we have our API.
@@ -29,38 +34,53 @@ function Register() {
 
     }
 
-    async function registerUser() {
-        try {
-            // MOCK API to see if function works, it does. URL will need to be changed once Our API is complete.
-            const response = await fetch(`https://64986b389543ce0f49e20545.mockapi.io/register`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    user: {
-                        username: username,
-                        password: password,
-                       
-                    }
-                })
-            });  // Outside of fetch starting here.
-            const result = await response.json()
-            return result;
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
 
     return(
         <div id="register-container"> 
             <h1 id="registerheader">REGISTER</h1>
+
             <form id="registerform" onSubmit={handleSubmit}>
-                <label className="labels">Username:
+                <label className="labels">
+                    <input
+                        type="text"
+                        value={fname}
+                        placeholder='First Name'
+                        onChange={(e) => {
+                            console.log(e.target.value);
+                            setFname(e.target.value);
+                        }}
+                    />
+                </label>
+
+                <label className="labels">
+                    <input
+                        type="text"
+                        value={lname}
+                        placeholder='Last Name'
+                        onChange={(e) => {
+                            console.log(e.target.value);
+                            setLname(e.target.value);
+                        }}
+                    />
+                </label>
+
+                <label className="labels">
+                    <input
+                        type="text"
+                        value={email}
+                        placeholder='Email'
+                        onChange={(e) => {
+                            console.log(e.target.value);
+                            setEmail(e.target.value);
+                        }}
+                    />
+                </label>
+          
+                <label className="labels">
                     <input
                         type="text"
                         value={username}
+                        placeholder='Username'
                         onChange={(e) => {
                             console.log(e.target.value);
                             setUsername(e.target.value);
@@ -68,16 +88,31 @@ function Register() {
                     />
                 </label>
 
-                <label className="labels">Password:
+                <label className="labels">
                     <input
                         type="password"
                         value={password}
+                        placeholder='Password'
                         onChange={(e) => {
                             console.log(e.target.value);
                             setPassword(e.target.value);
                         }}
                     />
                 </label>
+
+                <label className="labels">Profile Picture:
+                    <input
+                        type="file"
+                        value={pic}
+                        accept='image/*'
+                        onChange={(e) => {
+                            console.log(e.target.value);
+                            setPic(e.target.value);
+                        }}
+                    />
+                </label>        
+
+
                 <button id="registerbutton"type="submit">Submit</button>
 
             </form>

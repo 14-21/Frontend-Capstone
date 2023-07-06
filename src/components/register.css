@@ -1,0 +1,48 @@
+#register-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid red;
+}
+
+#registerheader {
+  border: solid pink;
+}
+
+#registerform {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  width: 30rem;
+  justify-content: space-evenly;
+  align-items: center;
+
+  border: solid green;
+}
+
+.labels {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+
+input {
+  height: 3rem;
+  width: 25rem;
+}
+:placeholder-shown {
+  font-size: 2rem;
+}
+
+#registerbutton {
+  align-self: center;
+  width: 15rem;
+  height: 3rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+a {
+  text-decoration: none;
+}

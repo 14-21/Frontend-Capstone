@@ -41,8 +41,9 @@ ul {
   justify-content: center;
   align-items: center;
   background-color: black;
-  height: 6rem;
-  width: 6rem;
+  /* Doesn't like rem as measurment */
+  height: 5rem;
+  width: 5rem;
   border-radius: 50%;
 }
 
@@ -50,7 +51,6 @@ h2,
 h3 {
   margin: 0;
   padding: 0;
-  line-height: 1.5;
 }
 
 button {
@@ -63,5 +63,6 @@ button {
 }
 
 Link {
+  /* Shouldn't be white text */
   text-decoration: none;
 }
