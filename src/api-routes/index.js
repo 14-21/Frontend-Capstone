@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaCommentSlash } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 
-const BASE_URL = "localhost:8080";
+const BASE_URL = "http://localhost:8080";
 
 // REGISTER
 export const registerUser = async (
@@ -14,25 +14,22 @@ export const registerUser = async (
   pic
 ) => {
   try {
-    const response = await fetch(
-      `${BASE_URL}/games/users/register`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+    const response = await fetch(`${BASE_URL}/games/users/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          username: username,
+          password: password,
+          fname: fname,
+          lname: lname,
+          email: email,
+          pic: pic,
         },
-        body: JSON.stringify({
-          user: {
-            username: username,
-            password: password,
-            fname: fname,
-            lname: lname,
-            email: email,
-            pic: pic,
-          },
-        }),
-      }
-    );
+      }),
+    });
     const result = await response.json();
     // console.log(result, "result");
     return result;
@@ -46,21 +43,18 @@ export const registerUser = async (
 export const loginUser = async (username, password) => {
   try {
     // MOCK API to see if function works, it does. URL will need to be changed once Our API is complete.
-    const response = await fetch(
-      `${BASE_URL}/games/users/login`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+    const response = await fetch(`${BASE_URL}/games/users/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          username: username,
+          password: password,
         },
-        body: JSON.stringify({
-          user: {
-            username: username,
-            password: password,
-          },
-        }),
-      }
-    ); // Outside of fetch starting here.
+      }),
+    }); // Outside of fetch starting here.
     const result = await response.json();
     return result;
   } catch (error) {
@@ -69,23 +63,32 @@ export const loginUser = async (username, password) => {
   return;
 };
 
-// User Comments
-export const userComments = async () => {
+// User Reviews
+export const fetchReviews = async () => {
   try {
-    // MOCK API to see if function works, it does. URL will need to be changed once Our API is complete.
-    const response = await fetch(
-      `https://64986b389543ce0f49e20545.mockapi.io/users`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user: {
-            comment: comment,
-          },
-        }),
-      }
-    ); // Outside of fetch starting here.
+    const response = await fetch(`${BASE_URL}/reviews`);
+    const result = await response.json();
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const createNewReview = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/reviews`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        reviewbody: reviewbody,
+        userscore: userscore,
+        reviewUserId: reviewUserId,
+        reviewGameId: reviewGameId,
+      }),
+    }); // Outside of fetch starting here.
     const result = await response.json();
     return result;
   } catch (error) {
@@ -94,23 +97,22 @@ export const userComments = async () => {
   return;
 };
 
-// Game cardPicture
-export const cardPicture = async () => {
+export const deleteReview = async () => {
   try {
-    // MOCK API to see if function works, it does. URL will need to be changed once Our API is complete.
-    const response = await fetch(
-      `https://64986b389543ce0f49e20545.mockapi.io/games`,
-      {
-        headers: {
-          "Content-Type": "application/json",
+    const response = await fetch(`${BASE_URL}/reviews`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        body: {
+          reviewbody: reviewbody,
+          userscore: userscore,
+          reviewUserId: reviewUserId,
+          reviewGameId: reviewGameId,
         },
-        body: JSON.stringify({
-          game: {
-            pictureCard: pictureCard,
-          },
-        }),
-      }
-    ); // Outside of fetch starting here.
+      }),
+    }); // Outside of fetch starting here.
     const result = await response.json();
     return result;
   } catch (error) {
