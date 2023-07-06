@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { userComments } from "../api-routes";
 import { FaCommentSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
