@@ -1,241 +1,220 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Righteous&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Righteous&display=swap");
 
+#single-game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem;
 
-#single-game-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 1rem;
-
-
-    border: solid orange;
+  border: solid orange;
 }
 
-#selected-pictureheader{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    height: 33rem;
-    
-    /* border: solid hotpink; */
+#selected-pictureheader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 33rem;
+
+  /* border: solid hotpink; */
 }
 
-#picheader{
-    width: 100%;
-    height: 100%;
-    /* border: solid purple; */
+#picheader {
+  width: 100%;
+  height: 100%;
+  /* border: solid purple; */
 }
 
+#synopsis-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-#synopsis-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
- 
-
-    /* border: solid red; */
+  /* border: solid red; */
 }
 
-#titleheader{
-    font-size: 7rem;
-    font-family: 'Bebas Neue', sans-serif;
-    text-align: center;
-    letter-spacing: 0.75rem;
-   
-    /* border: solid red; */
-   
+#titleheader {
+  font-size: 7rem;
+  font-family: "Bebas Neue", sans-serif;
+  text-align: center;
+  letter-spacing: 0.75rem;
+
+  /* border: solid red; */
 }
 
-#synopsis{
-    font-size: 1.5rem;
-    width: 40rem;
-    text-align: center;
-    line-height: 2.25rem;
-    margin-top: -2rem;
-    /* border: solid green; */
+#synopsis {
+  font-size: 1.5rem;
+  width: 40rem;
+  text-align: center;
+  line-height: 2.25rem;
+  margin-top: -2rem;
+  /* border: solid green; */
 }
 
+#aboutgame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-#aboutgame{
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-
-
-   /* border: solid blue; */
+  /* border: solid blue; */
 }
 
-#for{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#for {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    /* border: solid yellow; */
+  /* border: solid yellow; */
 }
 
-#notfor{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#notfor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    /* border: solid orangered; */
+  /* border: solid orangered; */
 }
 
-.singlegamepara{
-    font-size: 1.75rem;
-    font-family: sans-serif;
-    line-height: 2.5rem;
+.singlegamepara {
+  font-size: 1.75rem;
+  font-family: sans-serif;
+  line-height: 2.5rem;
 
-
-    /* border: solid green; */
+  /* border: solid green; */
 }
 
-.singleheaders{
-    font-size: 3rem;
-    font-family: sans-serif;
+.singleheaders {
+  font-size: 3rem;
+  font-family: sans-serif;
 
-
-    /* border: solid purple; */
+  /* border: solid purple; */
 }
 
-.picbody{
-    height: 30rem;
-    width: 85%;
+.picbody {
+  height: 30rem;
+  width: 85%;
 
-    /* border: solid blue; */
+  /* border: solid blue; */
 }
-
-
 
 /* OVERALL IMPRESSIONS BELOW */
 
-#overallheader{
-    text-align: center;
-    font-size: 6rem;
-    font-family: 'Bebas Neue', sans-serif;
-    font-weight: lighter;
-    letter-spacing: 0.25rem;
-    border: solid rebeccapurple;
+#overallheader {
+  text-align: center;
+  font-size: 6rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: lighter;
+  letter-spacing: 0.25rem;
+  /* border: solid rebeccapurple; */
 }
 
-#ourReview-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: solid red;
+#ourReview-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid red;
 }
 
-#ourReview-title{
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.25rem;
-    font-size: 4rem;
-    border: solid blue;
+#ourReview-title {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.25rem;
+  font-size: 4rem;
+  border: solid blue;
 }
 
-#our-review{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 10rem;
-    width: 50rem;
+#our-review {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 10rem;
+  width: 50rem;
 
-   
-
-    border: solid green;
+  border: solid green;
 }
 
-#ourscore{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    width: 25%;
-    height: 100%;
+#ourscore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  width: 25%;
+  height: 100%;
 
-  
-
-    border: solid yellow;
+  border: solid yellow;
 }
 
-#review{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    height: 100%;
-    width: 75%;
-    text-align: center;
+#review {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  height: 100%;
+  width: 75%;
+  text-align: center;
 
-    border: solid purple;
+  /* border: solid purple; */
 }
 
+#users-review-header {
+  font-size: 3rem;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 0.25rem;
+  font-weight: lighter;
 
-#users-review-header{
-    font-size: 3rem;
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.25rem;
-    font-weight: lighter;
-
-    border: solid rebeccapurple;
+  border: solid rebeccapurple;
 }
 
-#users-thoughts{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 15rem;
-    width: 50rem;
+#users-thoughts {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 15rem;
+  width: 50rem;
 
-    border: solid green;
+  border: solid green;
 }
 
-#users-score{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-    font-size: 2rem;
-    width: 25%;
-    height: 100%;
+#users-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 2rem;
+  width: 25%;
+  height: 100%;
 
-  
-
-    border: solid yellow;
+  border: solid yellow;
 }
 
 /* BUTTON */
-#leave-comment-button{
-    width: 100%;
+#leave-comment-button {
+  width: 100%;
 }
 
+#users-review {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+  width: 75%;
+  height: 100%;
+  text-align: center;
 
-
-#users-review{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 2rem;
-    width: 75%;
-    height: 100%;
-    text-align: center;
-
-    border: solid purple;
+  border: solid purple;
 }
 
-#users-comments-container{
-    width: 50rem;
+#users-comments-container {
+  width: 50rem;
 
-    border: solid hotpink;
+  border: solid hotpink;
 }
 
 /* BUTTON */
-#leave-review-button{
-
-    width: 10rem;
+#leave-review-button {
+  width: 10rem;
 }
