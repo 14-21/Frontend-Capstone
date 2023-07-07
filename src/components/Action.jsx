@@ -1,7 +1,7 @@
 import "./genrePages.css";
 
 
-function Adventure(props) {
+function Action(props) {
     return(
         <section id="genre-mainpage">
          <br/>
@@ -11,9 +11,8 @@ function Adventure(props) {
             <div id="genre-subcontainer">
                 {props.allGames.length ? (
                     props.allGames.map((e) => {
-                        if(e.genre == "Adventure") {
+                        if(e.genre == "Action") {
                             return(
-
                                 <div key={e.gameId} className="gamecard">
                                     {/* <p className="genre-game-title">{e.title}</p> */}
                                     <img className="genre-pic" src={e.picturecard} />
@@ -35,5 +34,4 @@ function Adventure(props) {
   );
 }
 
-export default Adventure;
-
+export default Action;

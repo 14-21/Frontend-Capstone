@@ -4,9 +4,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 1rem;
+  margin: 3rem;
+  padding: 2rem;
 
-  border: solid orange;
+  /* border: solid orange; */
 }
 
 #selected-pictureheader {
@@ -29,6 +30,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 1rem;
 
   /* border: solid red; */
 }
@@ -38,6 +40,7 @@
   font-family: "Bebas Neue", sans-serif;
   text-align: center;
   letter-spacing: 0.75rem;
+  margin: 1rem;
 
   /* border: solid red; */
 }
@@ -47,7 +50,8 @@
   width: 40rem;
   text-align: center;
   line-height: 2.25rem;
-  margin-top: -2rem;
+  /* margin-top: -2rem; */
+
   /* border: solid green; */
 }
 
@@ -86,12 +90,14 @@
 .singleheaders {
   font-size: 3rem;
   font-family: sans-serif;
+  margin: 2rem;
 
   /* border: solid purple; */
 }
 
 .picbody {
   height: 30rem;
+  margin: 1rem;
   width: 85%;
 
   /* border: solid blue; */
@@ -109,7 +115,8 @@
   font-family: "Bebas Neue", sans-serif;
   font-weight: lighter;
   letter-spacing: 0.25rem;
-  border: solid rebeccapurple;
+
+  /* border: solid rebeccapurple; */
 }
 
 #ourReview-container {
@@ -117,14 +124,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: solid red;
+  margin: 2rem;
+ 
+
+  /* border: solid red; */
 }
 
 #ourReview-title {
   font-family: "Bebas Neue", sans-serif;
   letter-spacing: 0.25rem;
-  font-size: 4rem;
-  border: solid blue;
+  font-size: 3rem;
+  margin: 1rem;
+
+  /* border: solid blue; */
 }
 
 #our-review {
@@ -134,8 +146,10 @@
   align-items: center;
   height: 10rem;
   width: 50rem;
+  margin: 1rem;
 
-  border: solid green;
+  border: solid #383636;
+
 }
 
 #ourscore {
@@ -145,8 +159,9 @@
   font-size: 2rem;
   width: 25%;
   height: 100%;
+  border: solid #383636;
 
-  border: solid yellow;
+  /* border: solid yellow; */
 }
 
 #review {
@@ -157,6 +172,7 @@
   height: 100%;
   width: 75%;
   text-align: center;
+  border: solid #383636;
 
   /* border: solid purple; */
 }

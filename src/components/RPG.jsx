@@ -1,7 +1,7 @@
 import "./genrePages.css";
 
 
-function Adventure(props) {
+function RPG(props) {
     return(
         <section id="genre-mainpage">
          <br/>
@@ -11,7 +11,7 @@ function Adventure(props) {
             <div id="genre-subcontainer">
                 {props.allGames.length ? (
                     props.allGames.map((e) => {
-                        if(e.genre == "Adventure") {
+                        if(e.genre == "RPG") {
                             return(
 
                                 <div key={e.gameId} className="gamecard">
@@ -35,5 +35,5 @@ function Adventure(props) {
   );
 }
 
-export default Adventure;
+export default RPG;
 
