@@ -93,7 +93,7 @@ function Home(props) {
           <div id="adventure">
               {props.allGames.length ? (
                         props.allGames.map((e) => {
-                            if(e.genre == "Adventure RPG") {
+                            if(e.genre == "Adventure") {
                                 return(
                                     <div className="genre-gamecard">
                                         <img className="genre-game-pic" src={e.picturecard} />

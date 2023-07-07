@@ -14,7 +14,7 @@ function Adventure(props) {
             <div id="adventure-container">
                 {props.allGames.length ? (
                     props.allGames.map((e) => {
-                        if(e.genre == "Adventure RPG") {
+                        if(e.genre == "Adventure") {
                             return(
 
                                 <div key={e.gameId} className="gamecard">
@@ -43,33 +43,3 @@ function Adventure(props) {
 
 export default Adventure;
 
-
- // const [adventureGames, setAdventureGames] = useState([]);
-
-    // useEffect(() => {
-    //     const foundGames = props.allGames.filter((e) => {
-    //         if(e.genre === "Adventure RPG") {
-    //             return foundGames;
-    //         } else {
-    //             return "No games found";
-    //         }
-    //     });
-
-    // }, []);
-
-    // return(
-    //     <div className="genre-container">
-    //         <h1>adventure</h1>
-    //         {props.allGames.length ? (
-    //             adventureGames.map((e) => {
-    //                 return (
-    //                     <div key={e.genre}>
-    //                         {e.title}
-    //                     </div>
-    //                 )
-    //             })
-                
-    //         ) : <p>Loading..</p>} 
-            
-    //     </div>
-    // )

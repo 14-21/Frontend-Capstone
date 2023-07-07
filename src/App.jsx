@@ -14,10 +14,13 @@ import SingleGame from "./components/SingleGame";
 import BottomNav from "./components/BottomNav";
 import UserReviewPage from "./components/UserReviews";
 import StarRating from "./components/StarRating";
+import jwtDecode from "jwt-decode";
 
 export const LoginContext = createContext();
 
 const BASE_URL = "http://localhost:8080";
+
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
