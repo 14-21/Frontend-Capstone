@@ -23,6 +23,7 @@ function Profile() {
     const getUserData = async () => {
       try {
         const renderUser = await fetchUserData();
+        //wont need below
         setUserData(renderUser);
         if (userData.length) {
           const foundUserData = userData.filter((e) => {
@@ -32,7 +33,7 @@ function Profile() {
               return false;
             }
           });
-
+          //backend talk --need below
           if (foundUserData) {
             setFilteredUserData(foundUserData);
           } else {
