@@ -1,24 +1,54 @@
+#adventure-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    border: solid blue;
+}
+
+
 #adventure-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-  
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 
-    border: solid red;
+    width: 78%;
+
+ 
+
+
+    
+    
+ 
+  
+/* 
+    border: solid red; */
 }
+
 
 .gamecard{
-    height: 32rem;
-    width: 24rem;
-    border: solid green;
+    height: 25rem;
+    width: 23rem;
+    margin: 2rem;
+    box-sizing: border-box;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.843) ;
+    border-radius: 0.5rem;
+
+    /* border: solid green; */
 }
 
-.genre-game-title{
+/* .genre-game-title{
     border: solid orange;
-}
+} */
 
 .genre-pic{
     height: 100%;
     width: 100%;
-    border: solid greenyellow;
+    border-radius: inherit;
+
+    /* border: solid greenyellow; */
 }

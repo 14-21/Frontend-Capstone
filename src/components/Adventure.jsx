@@ -2,13 +2,11 @@
 import './adventure.css';
 // import { useEffect, useState } from "react";
 
-// const BASE_URL = "http://localhost:8080"
-
 function Adventure(props) {
  
    
     return(
-        <>
+        <section id="adventure-main">
          <br/>
          <br/>
          <br/>
@@ -18,29 +16,27 @@ function Adventure(props) {
                     props.allGames.map((e) => {
                         if(e.genre == "Adventure RPG") {
                             return(
-                                <div className="gamecard">
+
+                                <div key={e.gameId} className="gamecard">
                                     {/* <p className="genre-game-title">{e.title}</p> */}
                                     <img className="genre-pic" src={e.picturecard} />
                                 </div>
                             )
-                        }
+                            }
                         
                     })
                     
                 ) : <p>loading</p>
             }
 
-
-
-
-
+    
             </div>
         <br/>
         <br/>
         <br/>
         <br/>
         
-        </>
+        </section>
     )
 
 }
