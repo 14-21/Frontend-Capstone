@@ -1,44 +1,39 @@
-#searchbar{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    border: solid greenyellow;
-} 
-
-#search{
-    width: 45rem;
-    border: solid black 0.15rem;
-    border-radius: 0.3rem;
- 
-    
-} ::placeholder{
-    background: transparent;
-    color: black;
+#searchbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#allgames{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-
-
-    border: solid red;
+#search {
+  height: 3rem;
+  width: 25rem;
+  border-radius: 10px;
+  border: 1px solid #cfcdcd;
+}
+::placeholder {
+  background: transparent;
+  color: black;
 }
 
-.single-game-card{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem;
-    height: 10rem;
-    width: 25rem;
+#allgames {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
 
-    border: solid blue;
-} 
+.single-game-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  height: 10rem;
+  width: 25rem;
+  border: solid 1px #cfcdcd;
+  border-radius: 10px;
+}
 
-#gametitle{
-    font-size: 2rem;
+#gametitle {
+  font-size: 2rem;
 }
