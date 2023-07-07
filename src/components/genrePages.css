@@ -1,4 +1,6 @@
-#adventure-main{
+/* EACH GENRE PAGE CSS */
+
+#genre-mainpage{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,7 +11,7 @@
 }
 
 
-#adventure-container{
+#genre-subcontainer{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -18,12 +20,6 @@
 
     width: 78%;
 
- 
-
-
-    
-    
- 
   
 /* 
     border: solid red; */

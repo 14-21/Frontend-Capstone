@@ -9,6 +9,9 @@ import AllGames from "./components/AllGames";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Adventure from "./components/Adventure";
+import Action from "./components/Action";
+import Survival from "./components/Survival";
+import RPG from "./components/RPG";
 import Home from "./components/Home";
 import SingleGame from "./components/SingleGame";
 import BottomNav from "./components/BottomNav";
@@ -56,32 +59,19 @@ function App() {
         <Navbar />
         <div id="main-body">
           <Routes>
-            <Route
-              path="/"
-              element={<Home allGames={allGames} setAllGames={setAllGames} />}
-            />
+            <Route path="/" element={<Home allGames={allGames} setAllGames={setAllGames} />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/star" element={<StarRating />} />
             <Route path="/myreviews" element={<UserReviewPage />} />
             <Route path="/mycomments" element={<ProfileComments />} />
-            <Route
-              path="/games"
-              element={
-                <AllGames allGames={allGames} setAllGames={setAllGames} />
-              }
-            />
-            <Route
-              path="/games/:id"
-              element={<SingleGame allGames={allGames} />}
-            />
+            <Route path="/games" element={<AllGames allGames={allGames} setAllGames={setAllGames} />}/>
+            <Route path="/games/:id" element={<SingleGame allGames={allGames} />}/>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route
-              path="/adventure"
-              element={
-                <Adventure allGames={allGames} setAllGames={setAllGames} />
-              }
-            />
+            <Route path="/adventure" element={<Adventure allGames={allGames} />}/>
+            <Route path="/action" element={<Action allGames={allGames} />} />
+            <Route path="/survival" element={<Survival allGames={allGames} />} />
+            <Route path="/rpg" element={<RPG allGames={allGames} />} />
           </Routes>
         </div>
       </LoginContext.Provider>

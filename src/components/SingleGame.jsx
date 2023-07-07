@@ -30,6 +30,10 @@ function SingleGame(props) {
     }
   }, [props.allGames]);
 
+
+
+
+
   return (
     <div id="single-game-container">
       {selectedGame && selectedGame.title ? (
@@ -85,11 +89,9 @@ function SingleGame(props) {
           <br />
           <br />
           <br />
-          <br />
-          <br />
-          <br />
-          <br />
           <hr></hr>
+          <br />
+          <br />
         </div>
       ) : (
         <p>Loading . . .</p>
@@ -107,9 +109,10 @@ function SingleGame(props) {
           </div>
         </div>
 
-
-
-
+          <br />
+          <br />
+          <br />
+   
 
      {/* USERS REVIEWS    */}
       <Reviews />

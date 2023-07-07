@@ -37,13 +37,14 @@ function AllGames(props) {
       <br />
       <br />
 
-      <h1>All games</h1>
+      <h1 id="allgames-header">All Games</h1>
       <div id="allgames">
         {filteredGame.length ? (
           filteredGame.map((e) => {
             return (
               <div className="single-game-card" key={e.gameId}>
                 <Link to={`/games/${e.gameId}`}>
+                  <img id="allgames-picturecards" src={e.picturecard} />
                   <p id="gametitle">{e.title}</p>
                 </Link>
               </div>
