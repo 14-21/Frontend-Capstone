@@ -68,16 +68,19 @@
     /* border: solid yellow; */
 }
 
-
-
-
 /* GENRES */
-#genres{
-    display: flex;
-    flex-direction: column;
+#genres {
+  display: flex;
+  flex-direction: column;
 
+  border: solid purple;
+}
 
-    border: solid purple;
+.genre-type {
+  color: black;
+  font-size: 3rem;
+  margin: 0.5rem;
+  border: solid goldenrod;
 }
 
 .genre-type{

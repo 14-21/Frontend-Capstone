@@ -1,0 +1,12 @@
+#main-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#main-body .profile-nav {
+  .profile-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+  }
+}
