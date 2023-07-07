@@ -90,6 +90,7 @@ function Home(props) {
               if (e.genre == "Adventure") {
                 return (
                   <div key={e.title} className="genre-gamecard">
+
                     <img className="genre-game-pic" src={e.picturecard} />
                     <p className="genre-game-title">{e.title}</p>
                   </div>
