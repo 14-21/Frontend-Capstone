@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchReviews } from "../api-routes";
 import StarRating from "./StarRating";
+import CreateReviewButton from "./CreateReviewButton";
 import "./reviews.css";
 
 function Reviews() {
@@ -42,15 +43,20 @@ function Reviews() {
   }, [review]);
 
   return (
-    <div>
+    <div className="review-card">
+      <div className="title-center">
+        <h1>Overall Impressions</h1>
+      </div>
       {filteredReview && filteredReview.length ? (
         filteredReview.map((reviewEl) => {
           console.log(reviewEl);
           return (
             <div key={reviewEl.reviewId}>
-              <p id="users-review">{reviewEl.reviewbody}</p>
+              <p className="review-paragraph" id="review-user">
+                {reviewEl.reviewbody}
+              </p>
               <StarRating userscore={reviewEl.userscore} />
-              <p>{reviewEl.reviewbody}</p>
+              <CreateReviewButton />
             </div>
           );
         })

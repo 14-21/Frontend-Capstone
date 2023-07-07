@@ -1,0 +1,11 @@
+.title-center {
+  display: flex;
+  justify-content: center;
+}
+
+.review-card {
+  font-size: 1.4rem;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  height: auto;
+}

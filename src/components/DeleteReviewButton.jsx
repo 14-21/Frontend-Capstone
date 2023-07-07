@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { deleteReview } from "../api-routes";
 import "./deleteReviewButton.css";
 
-export function CreateReview() {
+function DeleteReview() {
   const [newReview, setNewReview] = useState("");
 
   const handleSubmit = async (e) => {
@@ -38,3 +38,5 @@ export function CreateReview() {
     </div>
   );
 }
+
+export default DeleteReview;

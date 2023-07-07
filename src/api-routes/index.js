@@ -31,7 +31,6 @@ export const registerUser = async (
       }),
     });
     const result = await response.json();
-    // console.log(result, "result");
     return result;
   } catch (error) {
     console.log(error);
@@ -42,7 +41,6 @@ export const registerUser = async (
 // LOGIN
 export const loginUser = async (username, password) => {
   try {
-    // MOCK API to see if function works, it does. URL will need to be changed once Our API is complete.
     const response = await fetch(`${BASE_URL}/games/users/login`, {
       method: "POST",
       headers: {
@@ -54,7 +52,7 @@ export const loginUser = async (username, password) => {
           password: password,
         },
       }),
-    }); // Outside of fetch starting here.
+    });
     const result = await response.json();
     return result;
   } catch (error) {
@@ -63,7 +61,7 @@ export const loginUser = async (username, password) => {
   return;
 };
 
-// User Reviews
+// User Reviews Methods
 export const fetchReviews = async () => {
   try {
     const response = await fetch(`${BASE_URL}/reviews`);
@@ -88,7 +86,7 @@ export const createNewReview = async () => {
         reviewUserId: reviewUserId,
         reviewGameId: reviewGameId,
       }),
-    }); // Outside of fetch starting here.
+    });
     const result = await response.json();
     return result;
   } catch (error) {
@@ -112,7 +110,104 @@ export const deleteReview = async () => {
           reviewGameId: reviewGameId,
         },
       }),
-    }); // Outside of fetch starting here.
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+  return;
+};
+
+export const updateReview = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/reviews`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        body: {
+          reviewbody: reviewbody,
+          userscore: userscore,
+          reviewUserId: reviewUserId,
+          reviewGameId: reviewGameId,
+        },
+      }),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+  return;
+};
+
+// Comment methods
+export const createComment = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/reviews`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        body: {
+          reviewbody: reviewbody,
+          userscore: userscore,
+          reviewUserId: reviewUserId,
+          reviewGameId: reviewGameId,
+        },
+      }),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+  return;
+};
+
+export const deleteComments = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/reviews`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        body: {
+          reviewbody: reviewbody,
+          userscore: userscore,
+          reviewUserId: reviewUserId,
+          reviewGameId: reviewGameId,
+        },
+      }),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+  return;
+};
+
+export const updateComments = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/reviews`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        body: {
+          reviewbody: reviewbody,
+          userscore: userscore,
+          reviewUserId: reviewUserId,
+          reviewGameId: reviewGameId,
+        },
+      }),
+    });
     const result = await response.json();
     return result;
   } catch (error) {

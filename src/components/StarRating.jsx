@@ -21,6 +21,7 @@ function StarRating(props) {
         return (
           <label key={i}>
             <input
+              class="star-input"
               type="radio"
               name="rating"
               value={ratingValue}

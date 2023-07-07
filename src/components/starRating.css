@@ -1,6 +1,7 @@
 .star-container {
   display: flex;
   flex-direction: row;
+  width: 5rem;
 }
 
 input[type="radio"] {
@@ -10,6 +11,8 @@ input[type="radio"] {
 .star {
   cursor: pointer;
   transition: color 200ms;
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
 /* colors:
