@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { FaCommentSlash } from "react-icons/fa";
 import { useParams } from "react-router-dom";
+import jwtDecode from "jwt-decode";
+
 
 const BASE_URL = "http://localhost:8080";
 
@@ -54,6 +56,21 @@ export const loginUser = async (username, password) => {
       }),
     });
     const result = await response.json();
+
+    if(result.data) {
+      //Normally store the non-decryted JWT into localstorage first.
+      // localStorage.setItem("token", result.data)
+      const decodedToken = await jwtDecode(result.data);
+
+      // console.log(decodedToken)
+
+      let stringifiedObj = JSON.stringify(decodedToken);
+      localStorage.setItem("user", stringifiedObj);
+
+    } else {
+      alert("Failed to login, please try agian.")
+    }
+
     return result;
   } catch (error) {
     console.log(error);

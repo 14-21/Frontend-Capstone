@@ -10,17 +10,23 @@ function Login() {
   const { setIsLoggedIn } = useContext(LoginContext);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(username);
+
+    const handleSubmit = async (e) => {
+      //Prevents the page from doing a hard refresh.
+        e.preventDefault();
+        console.log(username);
+
 
     try {
       const result = await loginUser(username, password);
       console.log(result);
 
-      // Fetching only key-value pair for the token for the login.
-      localStorage.setItem("token", result.token); // Potentially needs to be changed.
-      localStorage.setItem("id", result.id); // Can be deleted later - for testing purposes.
+
+            // Fetching only key-value pair for the token for the login.
+            // localStorage.setItem("token", result.token); // Potentially needs to be changed.
+            
+            setIsLoggedIn(true)  // Telling program login is true.
+
 
       setIsLoggedIn(true); // Telling program login is true.
 

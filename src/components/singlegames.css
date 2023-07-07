@@ -97,6 +97,10 @@
   /* border: solid blue; */
 }
 
+
+
+
+
 /* OVERALL IMPRESSIONS BELOW */
 
 #overallheader {
@@ -105,7 +109,7 @@
   font-family: "Bebas Neue", sans-serif;
   font-weight: lighter;
   letter-spacing: 0.25rem;
-  /* border: solid rebeccapurple; */
+  border: solid rebeccapurple;
 }
 
 #ourReview-container {
@@ -157,64 +161,3 @@
   /* border: solid purple; */
 }
 
-#users-review-header {
-  font-size: 3rem;
-  font-family: "Bebas Neue", sans-serif;
-  letter-spacing: 0.25rem;
-  font-weight: lighter;
-
-  border: solid rebeccapurple;
-}
-
-#users-thoughts {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 15rem;
-  width: 50rem;
-
-  border: solid green;
-}
-
-#users-score {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
-  font-size: 2rem;
-  width: 25%;
-  height: 100%;
-
-  border: solid yellow;
-}
-
-/* BUTTON */
-#leave-comment-button {
-  width: 100%;
-}
-
-#users-review {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 2rem;
-  width: 75%;
-  height: 100%;
-  text-align: center;
-
-  border: solid purple;
-}
-
-#users-comments-container {
-  width: 50rem;
-
-  border: solid hotpink;
-}
-
-/* BUTTON */
-#leave-review-button {
-  width: 10rem;
-}

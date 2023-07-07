@@ -95,8 +95,23 @@ function SingleGame(props) {
         <p>Loading . . .</p>
       )}
 
-      {/* Reviews Section */}
+      {/* ADMIN REVIEW */}
+        <h1 id="overallheader">Our Review</h1>
+        <div id="ourReview-container">
+          <h2 id="ourReview-title">{selectedGame.title}</h2>
+          <div id="our-review">
+            <div id="ourscore">
+              stars here
+            </div>
+            <div id="review">{selectedGame.ourreview}</div>
+          </div>
+        </div>
 
+
+
+
+
+     {/* USERS REVIEWS    */}
       <Reviews />
     </div>
   );

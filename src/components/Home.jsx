@@ -102,28 +102,32 @@ function Home(props) {
       <br />
       <br />
 
-      {/* GENRE SECTION HERE */}
+   
       {/* GENRE SECTION HERE */}
       <div id="genres">
-        <Link to="/adventure">
-          <h2 className="genre-type">Adventure</h2>
-        </Link>
-        <div id="adventure">
-          {props.allGames.length ? (
-            props.allGames.map((e) => {
-              if (e.genre == "Adventure") {
-                return (
-                  <div key={e.gameId} className="genre-gamecard">
-                    <img className="genre-game-pic" src={e.picturecard} />
-                    <p className="genre-game-title">{e.title}</p>
-                  </div>
-                );
-              }
-            })
-          ) : (
-            <p>loading</p>
-          )}
-        </div>
+
+          <Link to="/adventure">
+                <h2 className='genre-type'>Adventure</h2>
+          </Link>
+          <div id="adventure">
+              {props.allGames.length ? (
+                        props.allGames.map((e) => {
+                            if(e.genre == "Adventure") {
+                                return(
+                                    <div key={e.gameId} className="genre-gamecard">
+                                        <img className="genre-game-pic" src={e.picturecard} />
+                                        <p className="genre-game-title">{e.title}</p>
+
+                                    </div>
+                                )
+                            }
+                            
+                        })
+                        
+                    ) : <p>loading</p>
+                }
+          </div> 
+
       </div>
 
       <br />
