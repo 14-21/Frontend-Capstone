@@ -40,7 +40,7 @@ function AllReviews(props) {
             <br/>
             <br/>
 
-            <h1>All games</h1>
+            <h1 id="allgames-header">All Games</h1>
             <div id="allgames">
                 {filteredGame.length ? (
                     filteredGame.map((e) => {
