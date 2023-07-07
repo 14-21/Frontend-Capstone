@@ -1,4 +1,5 @@
 import "./profile.css";
+import "../index.css";
 import { useState, useEffect } from "react";
 // import { fetchUserData } from "../api-routes";
 
