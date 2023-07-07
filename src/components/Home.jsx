@@ -1,4 +1,5 @@
 import "./home.css";
+import "./home.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -31,13 +32,22 @@ function Home(props) {
       <br />
       <br />
       <br />
+      <br />
+      <br />
+      <br />
 
       {/* FEATURED GAMES SECTION */}
+      <h1 id="trending">Trending Games</h1>
       <h1 id="trending">Trending Games</h1>
       <div id="game-spotlight-container">
         {featGame && featGame.title ? (
           <div className="single-feat-game">
             <div className="feat-game">
+              <p className="featgame-title">{secFeatGame.title}</p>
+
+              <Link className="featlinks" to={`/games/${secFeatGame.gameId}`}>
+                Game Homepage
+              </Link>
               <p className="featgame-title">{secFeatGame.title}</p>
 
               <Link className="featlinks" to={`/games/${secFeatGame.gameId}`}>
@@ -55,6 +65,11 @@ function Home(props) {
         {secFeatGame && secFeatGame.title ? (
           <div className="single-feat-game">
             <div className="feat-game">
+              <p className="featgame-title">{featGame.title}</p>
+
+              <Link className="featlinks" to={`/games/${featGame.gameId}`}>
+                Game Homepage
+              </Link>
               <p className="featgame-title">{featGame.title}</p>
 
               <Link className="featlinks" to={`/games/${featGame.gameId}`}>
@@ -78,7 +93,16 @@ function Home(props) {
       <br />
       <br />
       <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
 
+      {/* GENRE SECTION HERE */}
       {/* GENRE SECTION HERE */}
       <div id="genres">
         <Link to="/adventure">
@@ -89,7 +113,7 @@ function Home(props) {
             props.allGames.map((e) => {
               if (e.genre == "Adventure") {
                 return (
-                  <div className="genre-gamecard">
+                  <div key={e.gameId} className="genre-gamecard">
                     <img className="genre-game-pic" src={e.picturecard} />
                     <p className="genre-game-title">{e.title}</p>
                   </div>
@@ -101,6 +125,12 @@ function Home(props) {
           )}
         </div>
       </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
 
       <br />
       <br />
