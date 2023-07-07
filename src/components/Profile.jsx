@@ -1,7 +1,7 @@
 import "./profile.css";
 import "../index.css";
 import { useState, useEffect } from "react";
-import { fetchReviews, fetchUserData } from "../api-routes";
+import { fetchUserData } from "../api-routes";
 import { Link, useParams } from "react-router-dom";
 
 function Profile() {
@@ -24,30 +24,27 @@ function Profile() {
       try {
         const renderUser = await fetchUserData();
         setUserData(renderUser);
+        if (userData.length) {
+          const foundUserData = userData.filter((e) => {
+            if (e.userId == id) {
+              return true;
+            } else {
+              return false;
+            }
+          });
+
+          if (foundUserData) {
+            setFilteredUserData(foundUserData);
+          } else {
+            setFilteredUserData([]);
+          }
+        }
       } catch (error) {
         console.log(error);
       }
       getUserData();
     };
   }, []);
-
-  useEffect(() => {
-    if (userData.length) {
-      const foundUserData = userData.filter((e) => {
-        if (e.userId == id) {
-          return true;
-        } else {
-          return false;
-        }
-      });
-
-      if (foundUserData) {
-        setFilteredUserData(foundUserData);
-      } else {
-        setFilteredUserData([]);
-      }
-    }
-  }, [userData]);
 
   return (
     <>

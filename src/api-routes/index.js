@@ -75,7 +75,7 @@ export const fetchUserData = async () => {
 // User Reviews Methods
 export const fetchReviews = async () => {
   try {
-    const response = await fetch(`${BASE_URL}/games`);
+    const response = await fetch(`${BASE_URL}/api/games/reviews`);
     const result = await response.json();
     return result;
   } catch (error) {
@@ -85,7 +85,7 @@ export const fetchReviews = async () => {
 
 export const createNewReview = async () => {
   try {
-    const response = await fetch(`${BASE_URL}/games/reviews`, {
+    const response = await fetch(`${BASE_URL}/api/games/reviews`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -107,7 +107,7 @@ export const createNewReview = async () => {
 
 export const deleteReview = async () => {
   try {
-    const response = await fetch(`${BASE_URL}/games/reviews`, {
+    const response = await fetch(`${BASE_URL}/api/games/reviews`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -131,7 +131,7 @@ export const deleteReview = async () => {
 
 export const updateReview = async () => {
   try {
-    const response = await fetch(`${BASE_URL}/games/reviews`, {
+    const response = await fetch(`${BASE_URL}/api/games/reviews`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
