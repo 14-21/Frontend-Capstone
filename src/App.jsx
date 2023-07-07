@@ -5,7 +5,7 @@ import { useState, createContext, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
 import ProfileComments from "./components/ProfileComments";
-import AllReviews from "./components/AllReviews";
+import AllGames from "./components/AllGames";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Adventure from "./components/Adventure";
@@ -60,8 +60,14 @@ function App() {
           <Route path="/star" element={<StarRating />} />
           <Route path="/myreviews" element={<UserReviewPage />} />
           <Route path="/mycomments" element={<ProfileComments />} />
-          <Route path="/games" element={<AllReviews allGames={allGames} setAllGames={setAllGames} />}/>
-          <Route path="/games/:id" element={<SingleGame allGames={allGames}/>} />
+          <Route
+            path="/games"
+            element={<AllGames allGames={allGames} setAllGames={setAllGames} />}
+          />
+          <Route
+            path="/games/:id"
+            element={<SingleGame allGames={allGames} />}
+          />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route

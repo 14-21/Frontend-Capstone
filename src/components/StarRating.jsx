@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import "./starRating.css";
 
-function StarRating() {
+function StarRating(props) {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
+
+  useEffect(() => {
+    if (props.userscore) {
+      setRating(props.userscore);
+    } else {
+      setRating(null);
+    }
+  }, []);
+
   return (
     <div>
       {[...Array(5)].map((star, i) => {
@@ -12,6 +21,7 @@ function StarRating() {
         return (
           <label key={i}>
             <input
+              class="star-input"
               type="radio"
               name="rating"
               value={ratingValue}
