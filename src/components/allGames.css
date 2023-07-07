@@ -1,39 +1,60 @@
-#searchbar {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+/* SEARCH BAR */
+#searchbar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: solid greenyellow;
+} 
+
+#search{
+    width: 45rem;
+    border: solid black 0.15rem;
+    border-radius: 0.3rem;
+ 
+    
+} ::placeholder{
+    background: transparent;
+    color: black;
 }
 
-#search {
-  height: 3rem;
-  width: 25rem;
-  border-radius: 10px;
-  border: 1px solid #cfcdcd;
-}
-::placeholder {
-  background: transparent;
-  color: black;
+
+
+/* ALL GAMES */
+#allgames-header{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
-#allgames {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+#allgames{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+
+    border: solid red;
 }
 
-.single-game-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem;
-  height: 10rem;
-  width: 25rem;
-  border: solid 1px #cfcdcd;
-  border-radius: 10px;
-}
+.single-game-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    height: 10rem;
+    width: 25rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+   
+ 
+    
 
-#gametitle {
-  font-size: 2rem;
+    border: solid #383636;
+} 
+
+#gametitle{
+    color: black;
+    font-size: 2rem;
+    font-weight: bolder;
 }

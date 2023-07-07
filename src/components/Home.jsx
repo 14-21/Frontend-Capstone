@@ -10,7 +10,7 @@ function Home(props) {
   const [secFeatGame, setSecFeatGame] = useState("");
 
 
-  //Randomly seleting 2 games for GameSpolight.
+  //Randomly seleting 2 games for Featured Games.
   useEffect(() => {
     const randomGame1 =
       props.allGames[Math.floor(Math.random() * props.allGames.length)];
@@ -30,18 +30,25 @@ function Home(props) {
     console.log(randomGame1);
   }, [props.allGames]);
 
+
+
+
+
   return (
     <>
-      <h1>Home</h1>
+      <br/>
+      <br/>
+      <br/>
 
-      <h2>Game Spotlight</h2>  
+      {/* FEATURED GAMES SECTION */}
+      <h1 id="trending">Trending Games</h1>  
       <div id="game-spotlight-container">
         {featGame && featGame.title ? (
           <div className="single-feat-game">
             <div className="feat-game">
               <p className='featgame-title'>{secFeatGame.title}</p>
               
-              <Link className="featlinks" to={`/games/${secFeatGame.gameId}`}>Learn More</Link>
+              <Link className="featlinks" to={`/games/${secFeatGame.gameId}`}>Game Homepage</Link>
             </div>
             <div className="feat-pic">
               <img className="feat-pic" src={secFeatGame.picturecard} />
@@ -56,7 +63,7 @@ function Home(props) {
             <div className="feat-game">
               <p className='featgame-title'>{featGame.title}</p>
               
-              <Link className="featlinks" to={`/games/${featGame.gameId}`}>Learn More</Link>
+              <Link className="featlinks" to={`/games/${featGame.gameId}`}>Game Homepage</Link>
             </div>
             <div className="feat-pic">
               <img className="feat-pic" src={featGame.picturecard} />
@@ -77,7 +84,7 @@ function Home(props) {
       <br/>    
 
 
-    {/* Genre Sections Start */}
+    {/* GENRE SECTION HERE */}
       <div id="genres">
 
           <Link to="/adventure">
@@ -89,8 +96,9 @@ function Home(props) {
                             if(e.genre == "Adventure RPG") {
                                 return(
                                     <div className="genre-gamecard">
-                                        {/* <p className="genre-game-title">{e.title}</p> */}
                                         <img className="genre-game-pic" src={e.picturecard} />
+                                        <p className="genre-game-title">{e.title}</p>
+
                                     </div>
                                 )
                             }
