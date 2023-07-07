@@ -1,11 +1,12 @@
 import "./profile.css";
 import { useState, useEffect } from "react";
-// import { fetchUserData } from "../api-routes";
+import { fetchReviews, fetchUserData } from "../api-routes";
 
 import { Link } from "react-router-dom";
 
 function Profile() {
   const [username, setUsername] = useState("");
+  const [userData, setUserData] = useEffect("");
 
   //Fetching username so it can display on each user profile page.
   useEffect(() => {
@@ -16,11 +17,18 @@ function Profile() {
   }, []);
 
   useEffect(() => {
-    const renderUserData = () => {
-      // const response = fetchUserData();
+    const getUserData = async () => {
+      try {
+        const renderUsers = await fetchReviews();
+        setUser(renderUsers);
+      } catch (error) {
+        console.log(error);
+      }
     };
-    renderUserData();
+    getUserData();
   }, []);
+
+  console.log(getUserData);
 
   return (
     <>

@@ -61,6 +61,18 @@ export const loginUser = async (username, password) => {
   return;
 };
 
+// Fetch User Data
+export const fetchUserData = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/users`);
+    const result = await response.json();
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // User Reviews Methods
 export const fetchReviews = async () => {
   try {
