@@ -1,4 +1,5 @@
 import "./profile.css";
+import "../index.css";
 import { useState, useEffect } from "react";
 import { fetchReviews, fetchUserData } from "../api-routes";
 import { Link, useParams } from "react-router-dom";
