@@ -54,32 +54,36 @@ function App() {
       {/* Giving access to login info to all components */}
       <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
         <Navbar />
-        <Routes>
-          <Route
-            path="/"
-            element={<Home allGames={allGames} setAllGames={setAllGames} />}
-          />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/star" element={<StarRating />} />
-          <Route path="/myreviews" element={<UserReviewPage />} />
-          <Route path="/mycomments" element={<ProfileComments />} />
-          <Route
-            path="/games"
-            element={<AllGames allGames={allGames} setAllGames={setAllGames} />}
-          />
-          <Route
-            path="/games/:id"
-            element={<SingleGame allGames={allGames} />}
-          />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route
-            path="/adventure"
-            element={
-              <Adventure allGames={allGames} setAllGames={setAllGames} />
-            }
-          />
-        </Routes>
+        <div id="main-body">
+          <Routes>
+            <Route
+              path="/"
+              element={<Home allGames={allGames} setAllGames={setAllGames} />}
+            />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/star" element={<StarRating />} />
+            <Route path="/myreviews" element={<UserReviewPage />} />
+            <Route path="/mycomments" element={<ProfileComments />} />
+            <Route
+              path="/games"
+              element={
+                <AllGames allGames={allGames} setAllGames={setAllGames} />
+              }
+            />
+            <Route
+              path="/games/:id"
+              element={<SingleGame allGames={allGames} />}
+            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route
+              path="/adventure"
+              element={
+                <Adventure allGames={allGames} setAllGames={setAllGames} />
+              }
+            />
+          </Routes>
+        </div>
       </LoginContext.Provider>
       <BottomNav />
     </>

@@ -1,8 +1,9 @@
 // GENRE 1 COMP of AllReviews
-import './adventure.css';
+import "./adventure.css";
 // import { useEffect, useState } from "react";
 
 function Adventure(props) {
+
  
    
     return(
@@ -27,18 +28,21 @@ function Adventure(props) {
                     })
                     
                 ) : <p>loading</p>
+
             }
-
-    
-            </div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        
-        </section>
-    )
-
+          })
+          
+          
+        ) : (
+          <p>loading</p>
+        )}
+      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+    </section>
+  );
 }
 
 export default Adventure;

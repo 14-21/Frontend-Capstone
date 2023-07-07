@@ -1,130 +1,127 @@
 /* FEATURE GAME SECTION */
-#trending{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
+#trending {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-#game-spotlight-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
+#game-spotlight-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
 
-    border: solid palegreen;
-}
-
-.single-feat-game{
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
-    height: 32rem;
-    width: 37rem;
-    box-sizing: border-box;
-    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.429) ;
-    border-radius: 0.5rem;
-
-    /* border: solid blue; */
+  border: solid palegreen;
 }
 
-.single-feat-game:hover{
-    transform: scale(1.02);
-    transition-duration: 0.3s;
-    transition: 0.3s ease-in-out;
+.single-feat-game {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  height: 32rem;
+  width: 37rem;
+  box-sizing: border-box;
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.429);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+  /* border: solid blue; */
 }
 
-.feat-pic{
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit;
-    margin-top: 0.25rem;
-    height: 90%;
-    width: 100%;
-
-    /* border: solid hotpink; */
+.single-feat-game:hover {
+  transform: scale(1.02);
+  transition-duration: 0.3s;
 }
 
-.feat-game{
-    display: flex;
-    flex-direction: column;
-    height: 25%;
-    padding-left: 0.5rem;
+.feat-pic {
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  margin-top: 0.25rem;
+  height: 90%;
+  width: 100%;
 
-    /* border: solid red; */
-    
+  /* border: solid hotpink; */
 }
 
-.featgame-title{
-    font-size: 1.5rem;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: bold;
+.feat-game {
+  display: flex;
+  flex-direction: column;
+  height: 25%;
+  padding-left: 0.5rem;
 
-    /* border: solid purple; */
+  /* border: solid red; */
 }
 
-.featlinks{
-    color: rgba(0, 0, 0, 0.562);
-    font-size: 1.1rem;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.featgame-title {
+  font-size: 1.5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
 
-    /* border: solid yellow; */
+  /* border: solid purple; */
 }
 
+.featlinks {
+  color: rgba(0, 0, 0, 0.562);
+  font-size: 1.1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
-
+  /* border: solid yellow; */
+}
 
 /* GENRES */
-#genres{
-    display: flex;
-    flex-direction: column;
+#genres {
+  display: flex;
+  flex-direction: column;
 
-
-    border: solid purple;
+  border: solid purple;
 }
 
-.genre-type{
-    color: black;
-    font-size: 3rem;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-
-    /* border: solid goldenrod; */
-} 
-
-#adventure{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 30rem;
-    margin: 0.5rem;
-  
-
-  
-    /* border: solid blue; */
-} 
-
-.genre-gamecard{
-    height: 90%;
-    width: 18rem;
-    margin: 1rem;
-    box-sizing: border-box;
-    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.429) ;
-    border-radius: 0.5rem;
-
-    /* border: solid hotpink; */
+.genre-type {
+  color: black;
+  font-size: 3rem;
+  margin: 0.5rem;
+  border: solid goldenrod;
 }
 
-.genre-game-pic{
-    width: 100%;
-    height: 85%;
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit;
+.genre-type {
+  color: black;
+  font-size: 3rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  /* border: solid goldenrod; */
 }
 
-.genre-game-title{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1rem;
-    font-weight: bold;
-    margin-left: 0.5rem;
+#adventure {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 30rem;
+  margin: 0.5rem;
 
-    /* border: solid greenyellow; */
+  /* border: solid blue; */
+}
+
+.genre-gamecard {
+  height: 90%;
+  width: 18rem;
+  margin: 1rem;
+  box-sizing: border-box;
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.429);
+  border-radius: 0.5rem;
+
+  /* border: solid hotpink; */
+}
+
+.genre-game-pic {
+  width: 100%;
+  height: 85%;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+.genre-game-title {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 0.5rem;
+
+  /* border: solid greenyellow; */
 }
