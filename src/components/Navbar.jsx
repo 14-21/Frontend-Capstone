@@ -23,9 +23,36 @@ function Navbar() {
           <p className="website-name-sub">Gaming Reviews</p>
         </h1>
 
+
         <div id="nav-profile-split">
           <nav>
-            {/* <FaBars /> */}
+            {/* ADMIN NAV LINKS */}
+            { isLoggedIn && isLoggedIn.is_admin ? (
+              <div className="topnav-link-bar">
+                   <Link className="top-nav links" to="/">
+                      Home
+                  </Link>
+                  <Link className="links" to="/admin">
+                      Admin Dashboard
+                  </Link>
+                  <Link className="links" to="/games">
+                     All Games
+                  </Link>
+
+                 <button id="logout-button"
+                  onClick={() => {
+                    setIsLoggedIn(undefined);
+                    localStorage.removeItem("token"); //Removes token from local storage when logout is clicked.
+                    localStorage.removeItem("user"); //Removes user from local storage when logout is clicked.
+                    navigate("/");
+                  }}>
+                  Logout
+                </button>
+              </div>
+            ) : ""}
+
+
+            {/* REGULAR USERS NAV LINKS */}
             {isLoggedIn ? (
               <div className="topnav-link-bar">
                 {/* // This link is only showed when user is logged in. */}
@@ -41,7 +68,7 @@ function Navbar() {
                 <button
                   id="logout-button"
                   onClick={() => {
-                    setIsLoggedIn(false);
+                    setIsLoggedIn(undefined);
                     localStorage.removeItem("token"); //Removes token from local storage when logout is clicked.
                     localStorage.removeItem("user"); //Removes user from local storage when logout is clicked.
                     navigate("/");

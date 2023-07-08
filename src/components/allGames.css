@@ -36,16 +36,13 @@
     margin: 2rem;
 
 
-    border: solid red;
+    /* border: solid red; */
 }
 
 .single-game-card{
   height: 20rem;
   width: 18rem;
   margin: 1rem;
-  box-sizing: border-box;
-  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.429);
-  border-radius: 0.5rem;
   box-sizing: border-box;
   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.429);
   border-radius: 0.5rem;

@@ -24,7 +24,7 @@ function Home(props) {
 
     setFeatGame(randomGame1);
     setSecFeatGame(randomGame2);
-    console.log(randomGame1);
+    // console.log(randomGame1);
   }, [props.allGames]);
 
 
@@ -89,13 +89,20 @@ function Home(props) {
       <br />
       <br />
       <br />
-      <br />
+    
      
 
    
       {/* GENRE SECTION HERE */}
       <div id="genres">
-     
+      <hr></hr>
+      <br />
+      <br />
+      <br />  
+      <br />
+      <br />
+    
+
           <Link to="/adventure">
                 <h2 className='genre-type'>Adventure</h2>
           </Link>
@@ -188,6 +195,186 @@ function Home(props) {
                 }
           </div>          
 
+          <Link to="/horror">
+                <h2 className='genre-type'>Horror</h2>
+          </Link>
+          <div className="single-genre-container">
+              {props.allGames.length ? (
+                        props.allGames.map((e) => {
+                            if(e.genre == "Horror") {
+                                return(
+                                  // <Link to="/adventure">
+                                      <div key={e.gameId} className="genre-gamecard">
+                                        <Link to="/horror">
+                                          <img className="genre-game-pic" src={e.picturecard} />
+                                          <p className="genre-game-title">{e.title}</p>
+                                        </Link>
+                                      </div>
+                                )
+                            }
+                            
+                        })
+                    ) : <p>Loading</p>
+                }
+          </div> 
+
+          <Link to="/fps">
+                <h2 className='genre-type'>FPS</h2>
+          </Link>
+          <div className="single-genre-container">
+              {props.allGames.length ? (
+                        props.allGames.map((e) => {
+                            if(e.genre == "FPS") {
+                                return(
+                                      <div key={e.gameId} className="genre-gamecard">
+                                        <Link to="/fps">
+                                          <img className="genre-game-pic" src={e.picturecard} />
+                                          <p className="genre-game-title">{e.title}</p>
+                                        </Link>
+                                      </div>
+                                )
+                            }
+                            
+                        })
+                    ) : <p>Loading</p>
+                }
+          </div> 
+
+          
+          <Link to="/simulation">
+                <h2 className='genre-type'>Simulation</h2>
+          </Link>
+          <div className="single-genre-container">
+              {props.allGames.length ? (
+                        props.allGames.map((e) => {
+                            if(e.genre == "Simulation") {
+                                return(
+                                      <div key={e.gameId} className="genre-gamecard">
+                                        <Link to="/simulation">
+                                          <img className="genre-game-pic" src={e.picturecard} />
+                                          <p className="genre-game-title">{e.title}</p>
+                                        </Link>
+                                      </div>
+                                )
+                            }
+                            
+                        })
+                    ) : <p>Loading</p>
+                }
+          </div>   
+
+          <Link to="/sports">
+                <h2 className='genre-type'>Sports</h2>
+          </Link>
+          <div className="single-genre-container">
+              {props.allGames.length ? (
+                        props.allGames.map((e) => {
+                            if(e.genre == "Sports") {
+                                return(
+                                      <div key={e.gameId} className="genre-gamecard">
+                                        <Link to="/sports">
+                                          <img className="genre-game-pic" src={e.picturecard} />
+                                          <p className="genre-game-title">{e.title}</p>
+                                        </Link>
+                                      </div>
+                                )
+                            }
+                            
+                        })
+                    ) : <p>Loading</p>
+                }
+          </div>     
+
+          <Link to="/strategy">
+                <h2 className='genre-type'>Strategy</h2>
+          </Link>
+          <div className="single-genre-container">
+              {props.allGames.length ? (
+                        props.allGames.map((e) => {
+                            if(e.genre == "Strategy") {
+                                return(
+                                      <div key={e.gameId} className="genre-gamecard">
+                                        <Link to="/strategy">
+                                          <img className="genre-game-pic" src={e.picturecard} />
+                                          <p className="genre-game-title">{e.title}</p>
+                                        </Link>
+                                      </div>
+                                )
+                            }
+                            
+                        })
+                    ) : <p>Loading</p>
+                }
+          </div> 
+
+
+          <Link to="/racing">
+                <h2 className='genre-type'>Racing</h2>
+          </Link>
+          <div className="single-genre-container">
+              {props.allGames.length ? (
+                        props.allGames.map((e) => {
+                            if(e.genre == "Racing") {
+                                return(
+                                      <div key={e.gameId} className="genre-gamecard">
+                                        <Link to="/racing">
+                                          <img className="genre-game-pic" src={e.picturecard} />
+                                          <p className="genre-game-title">{e.title}</p>
+                                        </Link>
+                                      </div>
+                                )
+                            }
+                            
+                        })
+                    ) : <p>Loading</p>
+                }
+          </div> 
+
+
+          <Link to="/mmo">
+                <h2 className='genre-type'>MMO</h2>
+          </Link>
+          <div className="single-genre-container">
+              {props.allGames.length ? (
+                        props.allGames.map((e) => {
+                            if(e.genre == "MMO") {
+                                return(
+                                      <div key={e.gameId} className="genre-gamecard">
+                                        <Link to="/mmo">
+                                          <img className="genre-game-pic" src={e.picturecard} />
+                                          <p className="genre-game-title">{e.title}</p>
+                                        </Link>
+                                      </div>
+                                )
+                            }
+                            
+                        })
+                    ) : <p>Loading</p>
+                }
+          </div> 
+
+
+          <Link to="/moba">
+                <h2 className='genre-type'>MOBA</h2>
+          </Link>
+          <div className="single-genre-container">
+              {props.allGames.length ? (
+                        props.allGames.map((e) => {
+                            if(e.genre == "MOBA") {
+                                return(
+                                      <div key={e.gameId} className="genre-gamecard">
+                                        <Link to="/moba">
+                                          <img className="genre-game-pic" src={e.picturecard} />
+                                          <p className="genre-game-title">{e.title}</p>
+                                        </Link>
+                                      </div>
+                                )
+                            }
+                            
+                        })
+                    ) : <p>Loading</p>
+                }
+          </div> 
 
 
 

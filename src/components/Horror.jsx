@@ -1,7 +1,8 @@
 import "./genrePages.css";
 import { Link } from "react-router-dom";
 
-function Survival(props) {
+
+function Horror(props) {
     return(
         <section id="genre-mainpage">
          <br/>
@@ -11,11 +12,10 @@ function Survival(props) {
             <div id="genre-subcontainer">
                 {props.allGames.length ? (
                     props.allGames.map((e) => {
-                        if(e.genre == "Survival") {
+                        if(e.genre == "Horror") {
                             return(
-
                                 <div key={e.gameId} className="gamecard">
-                                    <Link to={`/games/${e.gameId}`} >
+                                  <Link to={`/games/${e.gameId}`} >
                                         <img className="genre-pic" src={e.picturecard} />
                                         <p className="genre-game-title">{e.title}</p>
                                     </Link>
@@ -37,5 +37,4 @@ function Survival(props) {
   );
 }
 
-export default Survival;
-
+export default Horror;

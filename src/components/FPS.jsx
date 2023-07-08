@@ -1,7 +1,8 @@
 import "./genrePages.css";
 import { Link } from "react-router-dom";
 
-function Survival(props) {
+
+function FPS(props) {
     return(
         <section id="genre-mainpage">
          <br/>
@@ -11,7 +12,7 @@ function Survival(props) {
             <div id="genre-subcontainer">
                 {props.allGames.length ? (
                     props.allGames.map((e) => {
-                        if(e.genre == "Survival") {
+                        if(e.genre == "FPS") {
                             return(
 
                                 <div key={e.gameId} className="gamecard">
@@ -37,5 +38,5 @@ function Survival(props) {
   );
 }
 
-export default Survival;
+export default FPS;
 

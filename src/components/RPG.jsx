@@ -1,5 +1,5 @@
 import "./genrePages.css";
-
+import { Link } from "react-router-dom";
 
 function RPG(props) {
     return(
@@ -15,8 +15,10 @@ function RPG(props) {
                             return(
 
                                 <div key={e.gameId} className="gamecard">
-                                    {/* <p className="genre-game-title">{e.title}</p> */}
-                                    <img className="genre-pic" src={e.picturecard} />
+                                    <Link to={`/games/${e.gameId}`} >
+                                        <img className="genre-pic" src={e.picturecard} />
+                                        <p className="genre-game-title">{e.title}</p>
+                                    </Link>
                                 </div>
                             )
                             }
