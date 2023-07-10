@@ -2,14 +2,12 @@ import "./profile.css";
 import "../index.css";
 import { useState, useEffect } from "react";
 import { fetchUserData } from "../api-routes";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Profile() {
   const [username, setUsername] = useState("");
   const [userData, setUserData] = useState([]);
   const [filteredUserData, setFilteredUserData] = useState([]);
-
-  const { id } = useParams();
 
   //Fetching username so it can display on each user profile page.
   useEffect(() => {
@@ -23,33 +21,19 @@ function Profile() {
     const getUserData = async () => {
       try {
         const renderUser = await fetchUserData();
+        console.log(renderUser);
         setUserData(renderUser);
-        if (userData.length) {
-          const foundUserData = userData.filter((e) => {
-            if (e.userId == id) {
-              return true;
-            } else {
-              return false;
-            }
-          });
-
-          if (foundUserData) {
-            setFilteredUserData(foundUserData);
-          } else {
-            setFilteredUserData([]);
-          }
-        }
       } catch (error) {
         console.log(error);
       }
-      getUserData();
     };
+    getUserData();
   }, []);
 
   return (
     <>
-      {filteredUserData ? (
-        filteredUserData.map((userDataEl) => {
+      {userData ? (
+        userData.map((userDataEl) => {
           console.log(userDataEl);
           return (
             <>
@@ -72,10 +56,12 @@ function Profile() {
               <div className="profile-container">
                 <div className="profile-block">
                   <div id="profile-img">
-                    <img src="" />
+                    <img src={userDataEl.profilepic} />
                   </div>
-                  <h2>Users Name</h2>
-                  <h3>Username</h3>
+                  <h2>
+                    {userDataEl.fname} {userDataEl.lname}
+                  </h2>
+                  <h3>{userDataEl.username}</h3>
                   <button>Edit Profile</button>
                 </div>
               </div>

@@ -42,7 +42,6 @@ ul {
   justify-content: center;
   align-items: center;
   background-color: black;
-  /* Doesn't like rem as measurment */
   height: 5rem;
   width: 5rem;
   border-radius: 50%;

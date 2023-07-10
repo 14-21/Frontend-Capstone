@@ -58,6 +58,7 @@ function App() {
               element={<Home allGames={allGames} setAllGames={setAllGames} />}
             />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/profile/user" element={<Profile />} />
             <Route path="/star" element={<StarRating />} />
             <Route path="/myreviews" element={<UserReviewPage />} />
             <Route path="/mycomments" element={<ProfileComments />} />
