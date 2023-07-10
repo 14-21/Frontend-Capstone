@@ -1,5 +1,4 @@
 import "./register.css";
-// import { loginUser } from "../api-routes";
 import { useState, useContext } from "react";
 import { LoginContext } from "../App";
 import { useNavigate } from "react-router-dom";
@@ -14,86 +13,47 @@ function Login() {
   const { setIsLoggedIn } = useContext(LoginContext);
   const navigate = useNavigate();
 
-  // const handleSubmit = async (e) => {
-  //     //Prevents the page from doing a hard refresh.
-  //       e.preventDefault();
-  //       try {
-  //         const response = await fetch(`${BASE_URL}/games/users/login`, {
-  //           method: "POST",
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //           },
-  //           body: JSON.stringify({
-  //               username: username,
-  //               password: password,
-  //           }),
-  //         });
-  //         const result = await response.json();
-      
-  //         if(result.data) {
-      
-  //           //Normally store the non-decryted JWT into localstorage first.
-  //           localStorage.setItem("token", result.data)
-  //           const decodedToken = await jwtDecode(result.data);
-      
-  //           // console.log(decodedToken)
-      
-  //           let stringifiedObj = JSON.stringify(decodedToken);
-  //           localStorage.setItem("user", stringifiedObj);
-  //           setIsLoggedIn(decodedToken)
-  //           navigate("/"); //Navigates back to Homepage after login.
-  //         } else {
-  //           alert("Failed to login, please try agian.")
-  //         }
-      
-  //         // return result;
-          
-  //       } catch (error) {
-  //         console.log(error);
-  //       }
-       
-
-
     const handleSubmit = async (e) => {
       //Prevents the page from doing a hard refresh.
        e.preventDefault();
         try {
-          console.log(username, password)
           const response = await fetch(`${BASE_URL}/games/users/login`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              // Authorization: `Bearer ${localStorage.getItem("token")}
             },
             body: JSON.stringify({
+                // user:{
                 username: username,
                 password: password,
+                // },
             }),
           });
           const result = await response.json();
+      
           console.log(result)
-          if(result.data) {
+          if(result) {
       
             //Normally store the non-decryted JWT into localstorage first.
-            localStorage.setItem("token", result.data)
-            const decodedToken = await jwtDecode(result.data);
+            localStorage.setItem("token", result.token)
+            const decodedToken = await jwtDecode(result.token);
       
             console.log(decodedToken)
       
             let stringifiedObj = JSON.stringify(decodedToken);
             localStorage.setItem("user", stringifiedObj);
+            localStorage.setItem("is_admin", is_admin)
+            
             setIsLoggedIn(decodedToken)
             setLoginError(null)  
+
             navigate("/"); //Navigates back to Homepage after login.
           } else if (
             result.error
           ){
-            // alert("Failed to login, please try agian.")
 
             setLoginError(result.error.message)
           }
-      
-          
           
         } catch (error) {
           console.log(error);
