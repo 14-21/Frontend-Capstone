@@ -10,6 +10,7 @@ const BASE_URL = "http://localhost:8080";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState(null)
   const { setIsLoggedIn } = useContext(LoginContext);
   const navigate = useNavigate();
 
@@ -57,10 +58,12 @@ function Login() {
       //Prevents the page from doing a hard refresh.
        e.preventDefault();
         try {
+          console.log(username, password)
           const response = await fetch(`${BASE_URL}/games/users/login`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
+              // Authorization: `Bearer ${localStorage.getItem("token")}
             },
             body: JSON.stringify({
                 username: username,
@@ -68,6 +71,7 @@ function Login() {
             }),
           });
           const result = await response.json();
+          console.log(result)
           if(result.data) {
       
             //Normally store the non-decryted JWT into localstorage first.
@@ -79,13 +83,17 @@ function Login() {
             let stringifiedObj = JSON.stringify(decodedToken);
             localStorage.setItem("user", stringifiedObj);
             setIsLoggedIn(decodedToken)
-
+            setLoginError(null)  
             navigate("/"); //Navigates back to Homepage after login.
-          } else {
-            alert("Failed to login, please try agian.")
+          } else if (
+            result.error
+          ){
+            // alert("Failed to login, please try agian.")
+
+            setLoginError(result.error.message)
           }
       
-          // return result;
+          
           
         } catch (error) {
           console.log(error);
@@ -127,6 +135,7 @@ function Login() {
           Submit
         </button>
       </form>
+      {loginError ? <p>{loginError}</p> : null}
     </div>
   );
 }
