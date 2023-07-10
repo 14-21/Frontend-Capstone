@@ -1,10 +1,13 @@
-import { useState } from "react";
+
 import { FaCommentSlash } from "react-icons/fa";
 import { useParams } from "react-router-dom";
-import jwtDecode from "jwt-decode";
+// import { LoginContext } from "../App";
+// import jwtDecode from "jwt-decode";
 
 
 const BASE_URL = "http://localhost:8080";
+
+
 
 // REGISTER
 export const registerUser = async (
@@ -40,43 +43,48 @@ export const registerUser = async (
   return;
 };
 
+
+
 // LOGIN
-export const loginUser = async (username, password) => {
-  try {
-    const response = await fetch(`${BASE_URL}/games/users/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        user: {
-          username: username,
-          password: password,
-        },
-      }),
-    });
-    const result = await response.json();
+// export const loginUser = async (username, password) => {
 
-    if(result.data) {
-      //Normally store the non-decryted JWT into localstorage first.
-      // localStorage.setItem("token", result.data)
-      const decodedToken = await jwtDecode(result.data);
+//    try {
+//     // const { setIsLoggedIn } = useContext(LoginContext);
 
-      // console.log(decodedToken)
+//     const response = await fetch(`${BASE_URL}/games/users/login`, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({
+//           username: username,
+//           password: password,
+//       }),
+//     });
+//     const result = await response.json();
 
-      let stringifiedObj = JSON.stringify(decodedToken);
-      localStorage.setItem("user", stringifiedObj);
+//     if(result.data) {
 
-    } else {
-      alert("Failed to login, please try agian.")
-    }
+//       //Normally store the non-decryted JWT into localstorage first.
+//       localStorage.setItem("token", result.data)
+//       const decodedToken = await jwtDecode(result.data);
 
-    return result;
-  } catch (error) {
-    console.log(error);
-  }
-  return;
-};
+//       // console.log(decodedToken)
+
+//       // let stringifiedObj = JSON.stringify(decodedToken);
+//       // localStorage.setItem("user", stringifiedObj);
+//       setIsLoggedIn(decodedToken)
+
+//     } else {
+//       alert("Failed to login, please try agian.")
+//     }
+
+//     return result;
+//   } catch (error) {
+//     console.log(error);
+//   }
+//   return;
+// };
 
 // Fetch User Data
 export const fetchUserData = async () => {

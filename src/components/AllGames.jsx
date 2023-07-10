@@ -1,9 +1,11 @@
 import "./allGames.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
 
 function AllGames(props) {
   const [searchQuery, setSearchQuery] = useState(""); //Storing the search query.
+  // const [gamesAZ, setGamesAZ] = useState([])
 
   // This function allows lowercase letters to be included in the filter.
   let filteredGame = props.allGames.filter((game) => {
@@ -14,6 +16,17 @@ function AllGames(props) {
       return game;
     }
   });
+
+
+    // Fetching all games from A-Z
+    const handleClick = () => {
+      const arrayTitles = props.allGames.values(title)
+      const sortedGames = 
+        arrayTitles.sort((a, b) => a-b)
+
+        return sortedGames
+    }
+  
 
   return (
     <>
@@ -33,6 +46,8 @@ function AllGames(props) {
           }}
         ></input>
       </form>
+          <button type="submit" onClick={handleClick}>Sort by title</button>
+
 
       <br />
       <br />
