@@ -56,8 +56,8 @@ a {
 }
 
 #logout-button{
-  width: 5rem;
+  width: 4.5rem;
   height: 1.5rem;
-  align-self: flex-start;
+  
   border: solid red;
 }
