@@ -6,9 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { FaRegArrowAltCircleUp } from "react-icons/fa";
 import ProfileNav from "./ProfileNav";
 
-function Navbar() {
-  const { setIsLoggedIn } = useContext(LoginContext);
-  const { isLoggedIn } = useContext(LoginContext);
+function Navbar(props) {
+  const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
   const navigate = useNavigate();
 
   return (
@@ -27,7 +26,7 @@ function Navbar() {
         <div id="nav-profile-split">
           <nav>
             {/* ADMIN NAV LINKS */}
-            { isLoggedIn && isLoggedIn.is_admin ? (
+            { isLoggedIn && props.isAdmin ? (
               <div className="topnav-link-bar">
                    <Link className="top-nav links" to="/">
                       Home
@@ -41,7 +40,7 @@ function Navbar() {
 
                  <button id="logout-button"
                   onClick={() => {
-                    setIsLoggedIn(undefined);
+                    setIsLoggedIn(false);
                     localStorage.removeItem("token"); //Removes token from local storage when logout is clicked.
                     localStorage.removeItem("user"); //Removes user from local storage when logout is clicked.
                     navigate("/");
@@ -49,11 +48,8 @@ function Navbar() {
                   Logout
                 </button>
               </div>
-            ) : ""}
-
-
-            {/* REGULAR USERS NAV LINKS */}
-            {isLoggedIn ? (
+            ) : //NAVBAR FOR REGULAR USERS 
+            isLoggedIn ? (
               <div className="topnav-link-bar">
                 {/* // This link is only showed when user is logged in. */}
                 <Link className="top-nav links" to="/">
@@ -68,7 +64,7 @@ function Navbar() {
                 <button
                   id="logout-button"
                   onClick={() => {
-                    setIsLoggedIn(undefined);
+                    setIsLoggedIn(false);
                     localStorage.removeItem("token"); //Removes token from local storage when logout is clicked.
                     localStorage.removeItem("user"); //Removes user from local storage when logout is clicked.
                     navigate("/");

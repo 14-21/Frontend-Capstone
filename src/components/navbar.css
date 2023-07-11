@@ -33,7 +33,7 @@ nav {
 
 .topnav-link-bar {
   display: flex;
-  width: 20rem;
+  width: 25rem;
   justify-content: space-evenly;
 }
 
@@ -53,4 +53,11 @@ a {
 
 .links {
   color: white;
+}
+
+#logout-button{
+  width: 5rem;
+  height: 1.5rem;
+  align-self: flex-start;
+  border: solid red;
 }
