@@ -38,11 +38,11 @@ function Login() {
             localStorage.setItem("token", result.token)
             const decodedToken = await jwtDecode(result.token);
       
-            console.log(decodedToken)
+            // console.log(decodedToken)
       
             let stringifiedObj = JSON.stringify(decodedToken);
             localStorage.setItem("user", stringifiedObj);
-            localStorage.setItem("is_admin", is_admin)
+            // localStorage.setItem("is_admin", is_admin)
             
             setIsLoggedIn(decodedToken)
             setLoginError(null)  
