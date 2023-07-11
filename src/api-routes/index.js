@@ -1,13 +1,9 @@
-
 import { FaCommentSlash } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 // import { LoginContext } from "../App";
 // import jwtDecode from "jwt-decode";
 
-
 const BASE_URL = "http://localhost:8080";
-
-
 
 // REGISTER
 export const registerUser = async (
@@ -42,8 +38,6 @@ export const registerUser = async (
   }
   return;
 };
-
-
 
 // LOGIN
 // export const loginUser = async (username, password) => {
@@ -87,10 +81,17 @@ export const registerUser = async (
 // };
 
 // Fetch User Data
-export const fetchUserData = async () => {
+export const fetchUserData = async (token) => {
   try {
-    const response = await fetch(`${BASE_URL}/games/users`);
+    const response = await fetch(`${BASE_URL}/games/get/user`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
     const result = await response.json();
+    console.log(result);
     return result;
   } catch (error) {
     console.log(error);
