@@ -27,24 +27,27 @@ nav {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  padding: 1.5rem 0;
+  padding: 1.5rem;
   background-color: #383636;
 }
 
 .topnav-link-bar {
   display: flex;
-  width: 25rem;
+  width: 30rem;
   justify-content: space-evenly;
 }
 
 .nav-bar-profile-picture {
   display: flex;
   justify-content: bottom;
+
+ 
 }
 
 #nav-profile-split {
   display: flex;
   align-items: center;
+
 }
 
 a {
@@ -53,11 +56,13 @@ a {
 
 .links {
   color: white;
+  align-self: center;
 }
 
 #logout-button{
   width: 4.5rem;
   height: 1.5rem;
+  border: none;
+  margin-top: 1rem;
   
-  border: solid red;
 }
