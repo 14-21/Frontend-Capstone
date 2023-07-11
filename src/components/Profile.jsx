@@ -24,7 +24,7 @@ function Profile() {
         const token = localStorage.getItem("token");
         if (token) {
           const renderUser = await fetchUserData(token);
-          // console.log(renderUser);
+          console.log(renderUser);
           setUserData(renderUser);
         }
       } catch (error) {
