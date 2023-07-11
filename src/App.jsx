@@ -31,8 +31,6 @@ export const LoginContext = createContext();
 
 const BASE_URL = "http://localhost:8080";
 
-
-
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(undefined);
   const [allGames, setAllGames] = useState([]);
@@ -43,8 +41,8 @@ function App() {
       let decodedToken = jwtDecode(localStorage.getItem("token"));
       setIsLoggedIn({
         username: decodedToken.username,
-        is_admin: decodedToken.is_admin
-      })
+        is_admin: decodedToken.is_admin,
+      });
     }
   }, []);
 
@@ -70,29 +68,51 @@ function App() {
         <Navbar />
         <div id="main-body">
           <Routes>
-            <Route path="/" element={<Home allGames={allGames} setAllGames={setAllGames} />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/profile/user" element={<Profile />} />
+            <Route
+              path="/"
+              element={<Home allGames={allGames} setAllGames={setAllGames} />}
+            />
+            {/* <Route path="/profile" element={<Profile />} /> */}
+            <Route path="/profile/user/:userId" element={<Profile />} />
             <Route path="/star" element={<StarRating />} />
             <Route path="/myreviews" element={<UserReviewPage />} />
             <Route path="/mycomments" element={<ProfileComments />} />
-            <Route path="/games" element={<AllGames allGames={allGames} setAllGames={setAllGames} />}/>
-            <Route path="/games/:id" element={<SingleGame allGames={allGames} />}/>
+            <Route
+              path="/games"
+              element={
+                <AllGames allGames={allGames} setAllGames={setAllGames} />
+              }
+            />
+            <Route
+              path="/games/:id"
+              element={<SingleGame allGames={allGames} />}
+            />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
 
             <Route path="/admin" element={<Admin />} />
 
-
-            <Route path="/adventure" element={<Adventure allGames={allGames} />}/>
+            <Route
+              path="/adventure"
+              element={<Adventure allGames={allGames} />}
+            />
             <Route path="/action" element={<Action allGames={allGames} />} />
-            <Route path="/survival" element={<Survival allGames={allGames} />} />
+            <Route
+              path="/survival"
+              element={<Survival allGames={allGames} />}
+            />
             <Route path="/rpg" element={<RPG allGames={allGames} />} />
             <Route path="/horror" element={<Horror allGames={allGames} />} />
             <Route path="/fps" element={<FPS allGames={allGames} />} />
-            <Route path="/simulation" element={<Simulation allGames={allGames} />} />
+            <Route
+              path="/simulation"
+              element={<Simulation allGames={allGames} />}
+            />
             <Route path="/sports" element={<Sports allGames={allGames} />} />
-            <Route path="/stragety" element={<Strategy allGames={allGames} />} />
+            <Route
+              path="/stragety"
+              element={<Strategy allGames={allGames} />}
+            />
             <Route path="/racing" element={<Racing allGames={allGames} />} />
             <Route path="/mmo" element={<MMO allGames={allGames} />} />
             <Route path="/moba" element={<MOBA allGames={allGames} />} />

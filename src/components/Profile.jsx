@@ -2,12 +2,15 @@ import "./profile.css";
 import "../index.css";
 import { useState, useEffect } from "react";
 import { fetchUserData } from "../api-routes";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Profile() {
   const [username, setUsername] = useState("");
   const [userData, setUserData] = useState([]);
   const [filteredUserData, setFilteredUserData] = useState([]);
+
+  const { id } = useParams();
+  console.log(id);
 
   //Fetching username so it can display on each user profile page.
   useEffect(() => {
@@ -21,7 +24,6 @@ function Profile() {
     const getUserData = async () => {
       try {
         const renderUser = await fetchUserData();
-        console.log(renderUser);
         setUserData(renderUser);
         //wont need below
         setUserData(renderUser);
@@ -45,11 +47,11 @@ function Profile() {
       }
     };
     getUserData();
-  }, []);
+  }, [username]);
 
   return (
     <>
-      {userData ? (
+      {userData && userData.length ? (
         userData.map((userDataEl) => {
           console.log(userDataEl);
           return (
