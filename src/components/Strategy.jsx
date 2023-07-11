@@ -1,8 +1,7 @@
 import "./genrePages.css";
 import { Link } from "react-router-dom";
 
-
-function Adventure(props) {
+function Strategy(props) {
     return(
         <section id="genre-mainpage">
          <br/>
@@ -12,7 +11,7 @@ function Adventure(props) {
             <div id="genre-subcontainer">
                 {props.allGames.length ? (
                     props.allGames.map((e) => {
-                        if(e.genre == "Adventure") {
+                        if(e.genre == "Strategy") {
                             return(
 
                                 <div key={e.gameId} className="gamecard">
@@ -20,7 +19,6 @@ function Adventure(props) {
                                         <img className="genre-pic" src={e.picturecard} />
                                         <p className="genre-game-title">{e.title}</p>
                                     </Link>
-
                                 </div>
                             )
                             }
@@ -39,5 +37,5 @@ function Adventure(props) {
   );
 }
 
-export default Adventure;
+export default Strategy;
 

@@ -30,6 +30,10 @@ function SingleGame(props) {
     }
   }, [props.allGames]);
 
+
+
+
+
   return (
     <div id="single-game-container">
       {selectedGame && selectedGame.title ? (
@@ -85,18 +89,32 @@ function SingleGame(props) {
           <br />
           <br />
           <br />
-          <br />
-          <br />
-          <br />
-          <br />
           <hr></hr>
+          <br />
+          <br />
         </div>
       ) : (
         <p>Loading . . .</p>
       )}
 
-      {/* Reviews Section */}
+      {/* ADMIN REVIEW */}
+        <h1 id="overallheader">Our Review</h1>
+        <div id="ourReview-container">
+          <h2 id="ourReview-title">{selectedGame.title}</h2>
+          <div id="our-review">
+            <div id="ourscore">
+              stars here
+            </div>
+            <div id="review">{selectedGame.ourreview}</div>
+          </div>
+        </div>
 
+          <br />
+          <br />
+          <br />
+   
+
+     {/* USERS REVIEWS    */}
       <Reviews />
     </div>
   );

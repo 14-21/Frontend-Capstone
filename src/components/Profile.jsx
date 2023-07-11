@@ -23,6 +23,23 @@ function Profile() {
         const renderUser = await fetchUserData();
         console.log(renderUser);
         setUserData(renderUser);
+        //wont need below
+        setUserData(renderUser);
+        if (userData.length) {
+          const foundUserData = userData.filter((e) => {
+            if (e.userId == id) {
+              return true;
+            } else {
+              return false;
+            }
+          });
+          //backend talk --need below
+          if (foundUserData) {
+            setFilteredUserData(foundUserData);
+          } else {
+            setFilteredUserData([]);
+          }
+        }
       } catch (error) {
         console.log(error);
       }
