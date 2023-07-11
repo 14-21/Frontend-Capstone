@@ -7,7 +7,7 @@ import { Link, useParams } from "react-router-dom";
 function Profile() {
   const [username, setUsername] = useState("");
   const [userData, setUserData] = useState([]);
-  const [filteredUserData, setFilteredUserData] = useState([]);
+  const [filteredUserData, setFilteredUserData] = useState(null);
 
   const { id } = useParams();
   console.log(id);
@@ -25,38 +25,40 @@ function Profile() {
       try {
         const renderUser = await fetchUserData();
         setUserData(renderUser);
-        //wont need below
-        setUserData(renderUser);
-        if (userData.length) {
-          const foundUserData = userData.filter((e) => {
-            if (e.userId == id) {
-              return true;
-            } else {
-              return false;
-            }
-          });
-          //backend talk --need below
-          if (foundUserData) {
-            setFilteredUserData(foundUserData);
-          } else {
-            setFilteredUserData([]);
-          }
-        }
       } catch (error) {
         console.log(error);
       }
     };
     getUserData();
-  }, [username]);
+  }, []);
+
+  useEffect(() => {
+    if (userData.length) {
+      const foundUserData = userData.find((e) => {
+        if (e.userId == id) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+      //backend talk --need below
+      if (foundUserData) {
+        setFilteredUserData(foundUserData);
+      } else {
+        setFilteredUserData(null);
+      }
+      console.log(foundUserData);
+    }
+  }, [userData, id]);
 
   return (
     <>
-      {userData && userData.length ? (
+      {userData ? (
         userData.map((userDataEl) => {
           console.log(userDataEl);
           return (
             <>
-              <div className="profile-nav">
+              <div key={userDataEl.userId} className="profile-nav">
                 <ul>
                   <li>
                     <Link to="/mycomments">Comments</Link>
@@ -88,7 +90,7 @@ function Profile() {
           );
         })
       ) : (
-        <p>Please Sign Up</p>
+        <p>Loading</p>
       )}
     </>
   );

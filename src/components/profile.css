@@ -47,6 +47,12 @@ ul {
   border-radius: 50%;
 }
 
+.profile-loading {
+  display: flex;
+  align-items: center;
+  height: 30rem;
+}
+
 h2,
 h3 {
   margin: 0;

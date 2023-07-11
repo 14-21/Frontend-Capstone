@@ -1,13 +1,9 @@
-
 import { FaCommentSlash } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 // import { LoginContext } from "../App";
 // import jwtDecode from "jwt-decode";
 
-
 const BASE_URL = "http://localhost:8080";
-
-
 
 // REGISTER
 export const registerUser = async (
@@ -42,8 +38,6 @@ export const registerUser = async (
   }
   return;
 };
-
-
 
 // LOGIN
 // export const loginUser = async (username, password) => {
