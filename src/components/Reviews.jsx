@@ -16,6 +16,7 @@ function Reviews() {
     const getReviews = async () => {
       try {
         const renderReview = await fetchReviews();
+        console.log(renderReview);
         setReview(renderReview);
       } catch (error) {
         console.log(error);
@@ -49,7 +50,7 @@ function Reviews() {
       </div>
       {filteredReview && filteredReview.length ? (
         filteredReview.map((reviewEl) => {
-          console.log(reviewEl);
+          // console.log(reviewEl);
           return (
             <div key={reviewEl.reviewId}>
               <p className="review-paragraph" id="review-user">

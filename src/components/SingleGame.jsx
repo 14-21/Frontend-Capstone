@@ -11,8 +11,6 @@ function SingleGame(props) {
   // console.log(props.allGames)
   const { id } = useParams();
 
-  console.log(id);
-
   useEffect(() => {
     const foundGame = props.allGames.find((e) => {
       if (e.gameId == id) {
@@ -29,10 +27,6 @@ function SingleGame(props) {
       setSelectedGame("Game not found.");
     }
   }, [props.allGames]);
-
-
-
-
 
   return (
     <div id="single-game-container">
@@ -98,23 +92,20 @@ function SingleGame(props) {
       )}
 
       {/* ADMIN REVIEW */}
-        <h1 id="overallheader">Our Review</h1>
-        <div id="ourReview-container">
-          <h2 id="ourReview-title">{selectedGame.title}</h2>
-          <div id="our-review">
-            <div id="ourscore">
-              stars here
-            </div>
-            <div id="review">{selectedGame.ourreview}</div>
-          </div>
+      <h1 id="overallheader">Our Review</h1>
+      <div id="ourReview-container">
+        <h2 id="ourReview-title">{selectedGame.title}</h2>
+        <div id="our-review">
+          <div id="ourscore">stars here</div>
+          <div id="review">{selectedGame.ourreview}</div>
         </div>
+      </div>
 
-          <br />
-          <br />
-          <br />
-   
+      <br />
+      <br />
+      <br />
 
-     {/* USERS REVIEWS    */}
+      {/* USERS REVIEWS    */}
       <Reviews />
     </div>
   );
