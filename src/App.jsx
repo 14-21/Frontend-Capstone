@@ -52,7 +52,6 @@ function App() {
       try {
         const response = await fetch(`${BASE_URL}/games`);
         const result = await response.json();
-
         setAllGames(result);
       } catch (error) {
         console.log(error);
