@@ -12,14 +12,15 @@ function StarRating(props) {
     } else {
       setRating(null);
     }
-  }, []);
+  }, [props.userscore]);
 
   return (
     <div>
       {[...Array(5)].map((star, i) => {
         const ratingValue = i + 1;
+        // console.log(star);
         return (
-          <label key={i}>
+          <label key={props.gameId}>
             <input
               className="star-input"
               type="radio"
