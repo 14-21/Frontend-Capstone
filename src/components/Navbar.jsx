@@ -47,6 +47,7 @@ function Navbar(props) {
                   }}>
                   Logout
                 </button>
+                <ProfileNav />
               </div>
             ) : //NAVBAR FOR REGULAR USERS 
             isLoggedIn ? (
@@ -61,6 +62,7 @@ function Navbar(props) {
                 <Link className="links" to="/games">
                   All Games
                 </Link>
+               
                 <button
                   id="logout-button"
                   onClick={() => {
@@ -72,6 +74,7 @@ function Navbar(props) {
                 >
                   Logout
                 </button>
+                <ProfileNav />
               </div>
             ) : (
               <div className="topnav-link-bar">
@@ -94,7 +97,7 @@ function Navbar(props) {
               </div>
             )}
           </nav>
-          <ProfileNav />
+    
         </div>
       </div>
     </>
