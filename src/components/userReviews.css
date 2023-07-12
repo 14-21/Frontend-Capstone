@@ -1,5 +1,27 @@
-.border-line {
-  height: 1px;
-  background-color: rgb(219, 220, 221);
-  width: 40rem;
+.user-title-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.user-review-card {
+  font-size: 1.4rem;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  width: 50rem;
+  height: auto;
+}
+
+.user-gametitle {
+  margin: 2rem 0 1rem;
+}
+
+.user-review-paragraph {
+  margin-bottom: 6rem;
+}
+
+.review-field-buttons {
+  border: 1px solid rgb(221, 219, 219);
+  margin: 0;
+  cursor: pointer;
 }

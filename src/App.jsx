@@ -42,7 +42,7 @@ function App() {
       let decodedToken = jwtDecode(localStorage.getItem("token"));
       setIsLoggedIn({
         username: decodedToken.username,
-      })
+      });
     }
   }, []);
 
@@ -51,29 +51,26 @@ function App() {
     async function fetchAdmins() {
       try {
         const response = await fetch(`${BASE_URL}/adminusers`);
-        const result = await response.json()
-        
+        const result = await response.json();
+
         //Filtering thru allAdmins to match username to isLoggedIn.username
         const filteredAdmin = result.find((e) => {
-          if(e.username === isLoggedIn.username) {
-            return true
+          if (e.username === isLoggedIn.username) {
+            return true;
           }
-         }) 
-         //If isLoggedIn.username matches filteredAdmin -- setting admin state.
-        if(isLoggedIn && filteredAdmin) {
-          setIsAdmin(true)
+        });
+        //If isLoggedIn.username matches filteredAdmin -- setting admin state.
+        if (isLoggedIn && filteredAdmin) {
+          setIsAdmin(true);
         } else {
-          setIsAdmin(false)
+          setIsAdmin(false);
         }
-
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     }
-    fetchAdmins()
+    fetchAdmins();
   }, [isLoggedIn]);
-
-  
 
   // Fetching all games data
   useEffect(() => {
@@ -88,12 +85,12 @@ function App() {
     }
     fetchGames();
   }, []);
-  console.log(isAdmin)
+  console.log(isAdmin);
   return (
     <>
       {/* Giving access to login info to all components */}
       <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-        <Navbar isAdmin={isAdmin}/>
+        <Navbar isAdmin={isAdmin} />
         <div id="main-body">
           <Routes>
             <Route
