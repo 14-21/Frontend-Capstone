@@ -90,7 +90,7 @@ export const createNewReview = async (token, reviewbody, star) => {
   return;
 };
 
-export const deleteReview = async () => {
+export const deleteReview = async (token) => {
   try {
     const response = await fetch(`${BASE_URL}/api/games/reviews`, {
       method: "DELETE",
