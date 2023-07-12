@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Reviews from "./Reviews";
 import Comments from "./Comments";
+import StarRating from "./StarRating";
 
 // import { fetchReviews } from "../api-routes";
 
@@ -28,6 +29,8 @@ function SingleGame(props) {
       setSelectedGame("Game not found.");
     }
   }, [props.allGames]);
+
+  console.log(selectedGame);
 
   return (
     <div id="single-game-container">
@@ -97,7 +100,12 @@ function SingleGame(props) {
       <div id="ourReview-container">
         <h2 id="ourReview-title">{selectedGame.title}</h2>
         <div id="our-review">
-          <div id="ourscore">stars here</div>
+          <div id="ourscore">
+            <StarRating
+              userscore={selectedGame.ourscore}
+              gameId={selectedGame.gameId}
+            />
+          </div>
           <div id="review">{selectedGame.ourreview}</div>
         </div>
       </div>

@@ -57,7 +57,10 @@ function Reviews() {
               <p className="review-paragraph" id="review-user">
                 {reviewEl.reviewbody}
               </p>
-              <StarRating userscore={reviewEl.userscore} />
+              <StarRating
+                userscore={reviewEl.userscore}
+                gameId={reviewEl.reviewGameId}
+              />
               <CreateReviewButton />
             </div>
           );
