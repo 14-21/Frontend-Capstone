@@ -39,46 +39,6 @@ export const registerUser = async (
   return;
 };
 
-// LOGIN
-// export const loginUser = async (username, password) => {
-
-//    try {
-//     // const { setIsLoggedIn } = useContext(LoginContext);
-
-//     const response = await fetch(`${BASE_URL}/games/users/login`, {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({
-//           username: username,
-//           password: password,
-//       }),
-//     });
-//     const result = await response.json();
-
-//     if(result.data) {
-
-//       //Normally store the non-decryted JWT into localstorage first.
-//       localStorage.setItem("token", result.data)
-//       const decodedToken = await jwtDecode(result.data);
-
-//       // console.log(decodedToken)
-
-//       // let stringifiedObj = JSON.stringify(decodedToken);
-//       // localStorage.setItem("user", stringifiedObj);
-//       setIsLoggedIn(decodedToken)
-
-//     } else {
-//       alert("Failed to login, please try agian.")
-//     }
-
-//     return result;
-//   } catch (error) {
-//     console.log(error);
-//   }
-//   return;
-// };
 
 // Fetch User Data
 export const fetchUserData = async (token) => {
@@ -109,14 +69,18 @@ export const fetchReviews = async () => {
   }
 };
 
-export const createNewReview = async () => {
+export const createNewReview = async (token, reviewbody, star) => {
   try {
-    const response = await fetch(`${BASE_URL}/api/games/reviews`, {
+    const response = await fetch(`${BASE_URL}/games/post/reviews`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
+      body: JSON.stringify({
+        review: reviewbody,
+        star: star
+      })
     });
     const result = await response.json();
     return result;
