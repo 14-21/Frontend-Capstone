@@ -1,0 +1,15 @@
+#comment-body,
+.comment-paragraph {
+  height: 10rem;
+  width: 50rem;
+  display: flex;
+}
+
+.comment-paragraph {
+  margin-top: 1rem;
+}
+
+.comment-card {
+  display: flex;
+  justify-content: center;
+}

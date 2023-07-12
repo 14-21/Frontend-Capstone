@@ -115,13 +115,8 @@ export const createNewReview = async () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({
-        reviewbody: reviewbody,
-        userscore: userscore,
-        reviewUserId: reviewUserId,
-        reviewGameId: reviewGameId,
-      }),
     });
     const result = await response.json();
     return result;
@@ -134,6 +129,84 @@ export const createNewReview = async () => {
 export const deleteReview = async () => {
   try {
     const response = await fetch(`${BASE_URL}/api/games/reviews`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+  return;
+};
+
+export const updateReview = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/api/games/reviews`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        body: {
+          reviewbody: reviewbody,
+          userscore: userscore,
+          reviewUserId: reviewUserId,
+          reviewGameId: reviewGameId,
+        },
+      }),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+  return;
+};
+
+// Comment methods
+
+export const fetchComments = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/api/games/reviews`);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const createComment = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/reviews`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        body: {
+          reviewbody: reviewbody,
+          userscore: userscore,
+          reviewUserId: reviewUserId,
+          reviewGameId: reviewGameId,
+        },
+      }),
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+  return;
+};
+
+export const deleteComments = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/reviews`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -155,9 +228,9 @@ export const deleteReview = async () => {
   return;
 };
 
-export const updateReview = async () => {
+export const updateComments = async () => {
   try {
-    const response = await fetch(`${BASE_URL}/api/games/reviews`, {
+    const response = await fetch(`${BASE_URL}/reviews`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -178,76 +251,3 @@ export const updateReview = async () => {
   }
   return;
 };
-
-// Comment methods
-// export const createComment = async () => {
-//   try {
-//     const response = await fetch(`${BASE_URL}/reviews`, {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({
-//         body: {
-//           reviewbody: reviewbody,
-//           userscore: userscore,
-//           reviewUserId: reviewUserId,
-//           reviewGameId: reviewGameId,
-//         },
-//       }),
-//     });
-//     const result = await response.json();
-//     return result;
-//   } catch (error) {
-//     console.log(error);
-//   }
-//   return;
-// };
-
-// export const deleteComments = async () => {
-//   try {
-//     const response = await fetch(`${BASE_URL}/reviews`, {
-//       method: "DELETE",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({
-//         body: {
-//           reviewbody: reviewbody,
-//           userscore: userscore,
-//           reviewUserId: reviewUserId,
-//           reviewGameId: reviewGameId,
-//         },
-//       }),
-//     });
-//     const result = await response.json();
-//     return result;
-//   } catch (error) {
-//     console.log(error);
-//   }
-//   return;
-// };
-
-// export const updateComments = async () => {
-//   try {
-//     const response = await fetch(`${BASE_URL}/reviews`, {
-//       method: "PUT",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({
-//         body: {
-//           reviewbody: reviewbody,
-//           userscore: userscore,
-//           reviewUserId: reviewUserId,
-//           reviewGameId: reviewGameId,
-//         },
-//       }),
-//     });
-//     const result = await response.json();
-//     return result;
-//   } catch (error) {
-//     console.log(error);
-//   }
-//   return;
-// };

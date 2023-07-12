@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { createNewReview } from "../api-routes";
+import { createComment } from "../api-routes";
 import "./deleteReviewButton.css";
-import "./reviews.css";
+import "./createCommentButton.css"
 
-function CreateReviewButton() {
-  const [newReview, setNewReview] = useState("");
+function CreateCommentButton() {
+  const [newComment, setNewComment] = useState("");
 
   const handleSubmit = async (e) => {
-    const response = createNewReview();
+    const response = createComment();
     try {
     } catch (error) {
       console.log(error);
@@ -22,23 +22,23 @@ function CreateReviewButton() {
           handleSubmit();
         }}
       >
-        <label htmlFor="new review"></label>
+        <label htmlFor="title"></label>
         <input
-          id="review-body"
-          name="reviewbody"
+          id="comment-body"
+          name="commentbody"
           type="text"
           placeholder="What did you think of the game"
-          value={newReview}
+          value={newComment}
           onChange={(e) => {
-            setNewReview(e.target.value);
+            setNewComment(e.target.value);
           }}
-        />
-        <button className="button-reviews" type="submit">
-          Review
+        ></input>
+        <button className="button-comments" type="submit">
+          Comment
         </button>
       </form>
     </div>
   );
 }
 
-export default CreateReviewButton;
+export default CreateCommentButton;
