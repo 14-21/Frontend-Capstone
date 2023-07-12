@@ -56,7 +56,7 @@ function Navbar(props) {
                 <Link className="top-nav links" to="/">
                   Home
                 </Link>
-                <Link className="links" to="/profile">
+                <Link className="links" to="/profile/user">
                   My Profile
                 </Link>
                 <Link className="links" to="/games">
