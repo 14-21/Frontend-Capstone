@@ -2,6 +2,7 @@ import "./singlegames.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Reviews from "./Reviews";
+import Comments from "./Comments";
 
 // import { fetchReviews } from "../api-routes";
 
@@ -106,7 +107,10 @@ function SingleGame(props) {
       <br />
 
       {/* USERS REVIEWS    */}
-      <Reviews />
+      <div className="input-cards">
+        <Reviews />
+      </div>
+      <Comments />
     </div>
   );
 }

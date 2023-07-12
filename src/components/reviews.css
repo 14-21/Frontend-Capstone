@@ -1,11 +1,24 @@
-.title-center {
+.input-cards {
+  display: flex;
+  flex-direction: column;
+}
+
+#review-body,
+.review-paragraph {
+  height: 10rem;
+  width: 50rem;
+  display: flex;
+}
+
+.review-paragraph {
+  margin-top: 1rem;
+}
+
+.review-card {
   display: flex;
   justify-content: center;
 }
 
-.review-card {
-  font-size: 1.4rem;
-  margin-left: 2rem;
-  margin-bottom: 2rem;
-  height: auto;
+.button-reviews {
+  margin-top: 1rem;
 }
