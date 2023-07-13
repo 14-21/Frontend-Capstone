@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { LoginContext } from "../App";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { FaRegArrowAltCircleUp } from "react-icons/fa";
 import ProfileNav from "./ProfileNav";
 
 function Navbar(props) {
@@ -13,43 +12,39 @@ function Navbar(props) {
   return (
     <>
       <div id="topbar-nav">
-        <h1 className="website-name">
-          Level{" "}
-          <FaRegArrowAltCircleUp
-            className="name-arrow"
-            style={{ fontStyle: "italic" }}
-          />
-          <p className="website-name-sub">Gaming Reviews</p>
-        </h1>
-
-
         <div id="nav-profile-split">
+          <h1 className="website-name">
+            Level Up
+            <p className="website-name-sub">Gaming Reviews</p>
+          </h1>
           <nav>
             {/* ADMIN NAV LINKS */}
-            { isLoggedIn && props.isAdmin ? (
+            {isLoggedIn && props.isAdmin ? (
               <div className="topnav-link-bar">
-                   <Link className="top-nav links" to="/">
-                      Home
-                  </Link>
-                  <Link className="links" to="/admin">
-                      Admin Dashboard
-                  </Link>
-                  <Link className="links" to="/games">
-                     All Games
-                  </Link>
+                <Link className="top-nav links" to="/">
+                  Home
+                </Link>
+                <Link className="links" to="/admin">
+                  Admin Dashboard
+                </Link>
+                <Link className="links" to="/games">
+                  All Games
+                </Link>
 
-                 <button id="logout-button"
+                <button
+                  id="logout-button"
                   onClick={() => {
                     setIsLoggedIn(false);
                     localStorage.removeItem("token"); //Removes token from local storage when logout is clicked.
                     localStorage.removeItem("user"); //Removes user from local storage when logout is clicked.
                     navigate("/");
-                  }}>
+                  }}
+                >
                   Logout
                 </button>
                 <ProfileNav />
               </div>
-            ) : //NAVBAR FOR REGULAR USERS 
+            ) : //NAVBAR FOR REGULAR USERS
             isLoggedIn ? (
               <div className="topnav-link-bar">
                 {/* // This link is only showed when user is logged in. */}
@@ -62,7 +57,7 @@ function Navbar(props) {
                 <Link className="links" to="/games">
                   All Games
                 </Link>
-               
+
                 <button
                   id="logout-button"
                   onClick={() => {
@@ -97,8 +92,8 @@ function Navbar(props) {
               </div>
             )}
           </nav>
-    
         </div>
+        <div className="nav-underline"></div>
       </div>
     </>
   );

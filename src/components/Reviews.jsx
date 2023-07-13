@@ -46,14 +46,14 @@ function Reviews() {
 
   return (
     <div className="review-card">
-      <div className="title-center">
-        <h1>Overall Impressions</h1>
-      </div>
       {filteredReview && filteredReview.length ? (
         filteredReview.map((reviewEl) => {
           console.log(reviewEl);
           return (
             <div key={reviewEl.reviewId}>
+              <div className="title-center">
+                <h1 className="overall-impressions">Overall Impressions</h1>
+              </div>
               <p className="review-paragraph" id="review-user">
                 {reviewEl.reviewbody}
               </p>
