@@ -37,12 +37,12 @@ function SingleGame(props) {
     <div id="single-game-container">
       {selectedGame && selectedGame.title ? (
         <div id="selected-game-container">
+          <h1 id="titleheader">{selectedGame.title}</h1>
           <div id="selected-pictureheader">
             <img id="picheader" src={selectedGame.pictureheader} />
           </div>
 
           <div id="synopsis-container">
-            <h1 id="titleheader">{selectedGame.title}</h1>
             <p id="synopsis">{selectedGame.synopsis}</p>
           </div>
 

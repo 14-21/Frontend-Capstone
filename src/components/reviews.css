@@ -40,8 +40,9 @@ input::placeholder{
 }
 
 .button-reviews {
+
   width: 10rem;
   font-size: larger;
 
   /* margin-top: 1rem; */
-}
+

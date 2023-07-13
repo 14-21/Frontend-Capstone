@@ -50,6 +50,9 @@ function Reviews() {
           console.log(reviewEl);
           return (
             <div key={reviewEl.reviewId}>
+              <div className="title-center">
+                <h1 className="overall-impressions">Overall Impressions</h1>
+              </div>
               <p className="review-paragraph" id="review-user">
                 {reviewEl.reviewbody}
               </p>
