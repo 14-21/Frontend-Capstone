@@ -1,6 +1,9 @@
 .input-cards {
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  border: solid blue;
 }
 
 #review-body,
@@ -8,17 +11,38 @@
   height: 10rem;
   width: 50rem;
   display: flex;
+  margin-top: 4rem;
+
+} 
+
+input::placeholder{
+  color: rgba(0, 0, 0, 0.833);
 }
 
 .review-paragraph {
   margin-top: 1rem;
+  margin-bottom: -6rem;
 }
 
 .review-card {
   display: flex;
   justify-content: center;
+
+}
+
+#reviewbutton-container{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  margin-top: -1rem;
+
+  /* border: solid rebeccapurple; */
 }
 
 .button-reviews {
-  margin: 1rem 0 4rem;
-}
+
+  width: 10rem;
+  font-size: larger;
+
+  /* margin-top: 1rem; */
+

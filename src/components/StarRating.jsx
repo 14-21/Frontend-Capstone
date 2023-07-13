@@ -5,7 +5,7 @@ import "./starRating.css";
 function StarRating(props) {
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
-
+  const setStarRating = props.setStarRating ? props.setStarRating : null
   useEffect(() => {
     if (props.userscore) {
       setRating(props.userscore);
@@ -20,13 +20,22 @@ function StarRating(props) {
         const ratingValue = i + 1;
         // console.log(star);
         return (
-          <label key={props.gameId}>
+          // <label key={props.gameId ? props.gameId : i}>
+           <label key={i}>
             <input
               className="star-input"
               type="radio"
               name="rating"
               value={ratingValue}
-              onClick={() => setRating(ratingValue)}
+              onClick={(e) => {
+                
+                setRating(ratingValue)
+              if(setStarRating) {
+                setStarRating(e.target.value)
+              }
+              
+              
+              }}
             />
             <FaStar
               className="star"

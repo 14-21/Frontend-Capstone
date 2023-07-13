@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { fetchUserData } from "../api-routes";
 import { Link } from "react-router-dom";
 
+
 function Profile() {
   const [username, setUsername] = useState({});
   const [userData, setUserData] = useState([]);
@@ -18,6 +19,7 @@ function Profile() {
     if (user) {
       // console.log(user);
       setUsername(JSON.parse(user));
+     
     }
   }, []);
 
@@ -30,7 +32,8 @@ function Profile() {
           const renderUser = await fetchUserData(token);
           console.log(renderUser);
           setUserData(renderUser);
-          setIsLoggedIn(isLoggedIn)
+          // setIsLoggedIn()
+     
           
         }
       } catch (error) {
@@ -53,7 +56,7 @@ function Profile() {
           </li>
           <li>
             {" "}
-            <Link to="/myreviews">Reviews</Link>
+            <Link to="/myreviews"  >Reviews</Link>
           </li>
         </ul>
         <div className="border-line"></div>

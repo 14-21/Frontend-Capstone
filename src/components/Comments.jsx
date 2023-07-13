@@ -53,12 +53,12 @@ function Comments() {
           console.log(commentEl); */}
       {/* return ( */}
       <div>
-        <CreateCommentButton />
+        {/* <CreateCommentButton />
         <p className="comment-paragraph" id="comment-user">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
           laboriosam, fuga et itaque minus nam sapiente possimus ab quisquam at
           quo praesentium sint quam magnam. Quos sint nihil repudiandae natus.
-        </p>
+        </p> */}
       </div>
       {/* ); */}
       {/* })
