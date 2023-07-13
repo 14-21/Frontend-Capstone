@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { fetchReviews } from "../api-routes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StarRating from "./StarRating";
-import CreateReviewButton from "./CreateReviewButton";
 import "./reviews.css";
 
 function Reviews() {
@@ -46,9 +45,6 @@ function Reviews() {
 
   return (
     <div className="review-card">
-      <div className="title-center">
-        <h1>Overall Impressions</h1>
-      </div>
       {filteredReview && filteredReview.length ? (
         filteredReview.map((reviewEl) => {
           console.log(reviewEl);
@@ -61,12 +57,11 @@ function Reviews() {
                 userscore={reviewEl.userscore}
                 gameId={reviewEl.reviewGameId}
               />
-              <CreateReviewButton />
             </div>
           );
         })
       ) : (
-        <p>...Loading</p>
+        <p>No Reviews Yet.</p>
       )}
     </div>
   );

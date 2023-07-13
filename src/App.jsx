@@ -23,7 +23,7 @@ import Horror from "./components/Horror";
 import Home from "./components/Home";
 import SingleGame from "./components/SingleGame";
 import BottomNav from "./components/BottomNav";
-import UserReviewPage from "./components/UserReviews";
+import UserReviews from "./components/UserReviews";
 import StarRating from "./components/StarRating";
 import Admin from "./components/Admin";
 import jwtDecode from "jwt-decode";
@@ -41,7 +41,7 @@ function App() {
     if (localStorage.getItem("token")) {
       let decodedToken = jwtDecode(localStorage.getItem("token"));
       setIsLoggedIn({
-        username: decodedToken.username,
+        username: decodedToken.username
       });
     }
   }, []);
@@ -55,7 +55,7 @@ function App() {
 
         //Filtering thru allAdmins to match username to isLoggedIn.username
         const filteredAdmin = result.find((e) => {
-          if (e.username === isLoggedIn.username) {
+          if (e.username === isLoggedIn) {
             return true;
           }
         });
@@ -97,10 +97,9 @@ function App() {
               path="/"
               element={<Home allGames={allGames} setAllGames={setAllGames} />}
             />
-            {/* <Route path="/profile" element={<Profile />} /> */}
             <Route path="/profile/user" element={<Profile />} />
             <Route path="/star" element={<StarRating />} />
-            <Route path="/myreviews" element={<UserReviewPage />} />
+            <Route path="/myreviews" element={<UserReviews allGames={allGames}/>} />
             <Route path="/mycomments" element={<ProfileComments />} />
             <Route
               path="/games"

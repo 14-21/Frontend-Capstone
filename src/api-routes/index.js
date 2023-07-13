@@ -69,20 +69,21 @@ export const fetchReviews = async () => {
   }
 };
 
-export const createNewReview = async (token, reviewbody, star) => {
+export const createNewReview = async (token, reviewBody, starRating) => {
   try {
-    const response = await fetch(`${BASE_URL}/games/post/reviews`, {
+    const response = await fetch(`${BASE_URL}/games/post/review`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        "Authorization": `Bearer ${token}`,
       },
       body: JSON.stringify({
-        review: reviewbody,
-        star: star
+        review: reviewBody,
+        star: starRating,
       })
     });
     const result = await response.json();
+    console.log(result)
     return result;
   } catch (error) {
     console.log(error);

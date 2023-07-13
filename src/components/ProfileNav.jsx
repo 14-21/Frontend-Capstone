@@ -5,7 +5,7 @@ import "./profileNav.css";
 function ProfileNav() {
   return (
     <div>
-      <Link to="/profile/user/:id">
+      <Link to="/profile/user">
         <img className="picturelinktoprofile"></img>
       </Link>
     </div>
