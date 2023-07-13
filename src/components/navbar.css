@@ -7,7 +7,6 @@ nav {
 .website-name {
   font-family: gentium-plus;
   font-style: italic;
-  color: #84dccf;
 }
 
 .website-name-sub {
@@ -17,17 +16,35 @@ nav {
   font-weight: 300;
 }
 
-.name-arrow {
-  color: #84dccf;
-  font-size: 2rem;
+.website-name {
+  background: linear-gradient(
+    90deg,
+    rgba(204, 46, 3, 1) 0%,
+    rgb(167, 36, 172) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.nav-underline {
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(204, 46, 3, 1) 0%,
+    rgb(167, 36, 172) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  height: 1px;
+  margin: 0.5rem 0 0.3rem;
 }
 
 #topbar-nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100vw;
-  padding: 1.5rem;
+  padding: 0.5rem;
   background-color: #383636;
 }
 
@@ -40,14 +57,11 @@ nav {
 .nav-bar-profile-picture {
   display: flex;
   justify-content: bottom;
-
- 
 }
 
 #nav-profile-split {
   display: flex;
   align-items: center;
-
 }
 
 a {
@@ -55,14 +69,13 @@ a {
 }
 
 .links {
-  color: white;
   align-self: center;
+  color: #fff;
 }
 
-#logout-button{
+#logout-button {
   width: 4.5rem;
   height: 1.5rem;
   border: none;
   margin-top: 1rem;
-  
 }
