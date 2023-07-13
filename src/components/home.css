@@ -2,7 +2,7 @@
 #trending {
   font-size: 3rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  margin: 1rem;
+  margin: 4rem 0 1rem;
 }
 
 #game-spotlight-container {
@@ -11,6 +11,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
+  margin: 2rem 0 2rem;
 
   /* border: solid palegreen; */
 }
@@ -19,8 +20,8 @@
   display: flex;
   flex-direction: column;
   margin: 1rem;
-  height: 32rem;
-  width: 37rem;
+  height: auto;
+  width: 32rem;
   box-sizing: border-box;
   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.429);
   border-radius: 0.5rem;
@@ -37,7 +38,6 @@
 .feat-game {
   display: flex;
   flex-direction: column;
-  height: 6rem;
 
   /* border: solid red; */
 }
@@ -53,37 +53,20 @@
   /* border: solid purple; */
 }
 
-
 .feat-pic-container {
   border-radius: inherit;
   overflow: hidden;
   height: 25.99rem;
 
-
-
-
-  
   /* border: solid hotpink; */
 }
 
-.feat-pic{
+.feat-pic {
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   height: 25.99rem;
   width: 100%;
-
-
-
 }
-
-
-
-
-
-
-
-
-
 
 /* GENRES */
 #genres {
@@ -92,7 +75,6 @@
 
   /* border: solid purple; */
 }
-
 
 .genre-type {
   color: black;
@@ -126,7 +108,6 @@
   border-radius: 0.5rem;
   transition: all 0.3s ease-in-out;
 
-
   /* border: solid hotpink; */
 }
 
@@ -134,8 +115,6 @@
   transform: scale(1.02);
   transition-duration: 0.3s;
 }
-
-
 
 .genre-game-pic {
   width: 100%;

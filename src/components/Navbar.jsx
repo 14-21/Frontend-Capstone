@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { LoginContext } from "../App";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { FaRegArrowAltCircleUp } from "react-icons/fa";
 import ProfileNav from "./ProfileNav";
 
 function Navbar(props) {
