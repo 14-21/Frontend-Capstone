@@ -8,18 +8,18 @@ import CreateCommentButton from "./CreateCommentButton";
 import "./reviews.css";
 import "./comments.css";
 
-function Comments(props) {
-  const [comment, setComment] = useState([]);
+function Comments({reviewId}) {
+  // const [comment, setComment] = useState([]);
   const [filteredComment, setFilteredComment] = useState([]);
 
-  // const { id } = useParams();
+
 
   useEffect(() => {
     const getComments = async () => {
       try {
-        const renderComment = await fetchComments();
+        const renderComment = await fetchComments(reviewId);
         console.log(renderComment);
-        setComment(renderComment);
+        setFilteredComment(renderComment);
       } catch (error) {
         console.log(error);
       }
@@ -27,10 +27,12 @@ function Comments(props) {
     getComments();
   }, []);
 
+
+
   useEffect(() => {
-    if (comment.length) {
-      const foundComment = comment.filter((e) => {
-        if (e.oriReviewId == props.oriReviewId) {
+    if (filteredComment) {
+      const foundComment = filteredComment.filter((e) => {
+        if (e.origReviewId == props.reviewId) {
           return true;
         } else {
           return false;
@@ -43,7 +45,7 @@ function Comments(props) {
         setFilteredComment([]);
       }
     }
-  }, [comment]);
+  }, []);
 
   return (
     <div className="comment-card">

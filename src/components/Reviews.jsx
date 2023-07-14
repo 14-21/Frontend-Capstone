@@ -6,9 +6,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StarRating from "./StarRating";
 import "./reviews.css";
 import Comments from "./Comments";
+import CreateReviewButton from "./CreateReviewButton";
 
 
-function Reviews() {
+function Reviews(props) {
   const [review, setReview] = useState([]);
   const [filteredReview, setFilteredReview] = useState([]);
 
@@ -62,13 +63,14 @@ function Reviews() {
                 userscore={reviewEl.userscore}
                 gameId={reviewEl.reviewGameId}
               />
-              {/* <Comments reviewId={reviewEl.reviewId}/> */}
+              <Comments reviewId={reviewEl.reviewId}/>
             </div>
           );
         })
       ) : (
         <p>No Reviews Yet.</p>
       )}
+      <CreateReviewButton selectedGame={props.selectedGame} filteredReview={filteredReview} setFilteredReview={setFilteredReview}/>
     </div>
   );
 }
