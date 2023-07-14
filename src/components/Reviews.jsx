@@ -5,6 +5,7 @@ import { fetchReviews } from "../api-routes";
 import { UpdateReviews } from "./UpdateReviewButton";
 import StarRating from "./StarRating";
 import "./reviews.css";
+import Comments from "./Comments";
 
 function Reviews() {
   const [review, setReview] = useState([]);
@@ -16,6 +17,7 @@ function Reviews() {
     const getReviews = async () => {
       try {
         const renderReview = await fetchReviews();
+        // console.log(renderReview);
         setReview(renderReview);
       } catch (error) {
         console.log(error);
@@ -23,6 +25,7 @@ function Reviews() {
     };
     getReviews();
   }, []);
+  //hitting infinite loop when setting to review
 
   useEffect(() => {
     if (review.length) {
@@ -48,9 +51,6 @@ function Reviews() {
         filteredReview.map((reviewEl) => {
           return (
             <div key={reviewEl.reviewId}>
-              <div className="title-center">
-                <h1 className="overall-impressions">Overall Impressions</h1>
-              </div>
               <p className="review-paragraph" id="review-user">
                 {reviewEl.reviewbody}
               </p>

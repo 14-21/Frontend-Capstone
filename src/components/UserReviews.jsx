@@ -5,12 +5,19 @@ import StarRating from "./StarRating";
 import "./userReviews.css";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import DeleteReviewButton from "./DeleteReviewButton";
 
 const BASE_URL = "http://localhost:8080";
 
 function UserReviews(props) {
   const [filteredReview, setFilteredReview] = useState("");
   const [reviewGameTitle, setReviewGameTitle] = useState("");
+  // console.log(props)
+  // useEffect(() => {
+  //   if (props.allGames.gameId === filteredReview.reviewGameId) {
+  //     setReviewGameTitle(props.allGames.title);
+  //   }
+  // }, []);
 
   useEffect(() => {
     async function userReviewPage() {
@@ -28,7 +35,7 @@ function UserReviews(props) {
 
         // Outside of fetch starting here.
         const result = await response.json();
-        console.log(result);
+        // console.log(result);
         // console.log(props.userData)
         setFilteredReview(result);
         // return result;
@@ -38,10 +45,14 @@ function UserReviews(props) {
     }
     userReviewPage();
   }, []);
+  //hitting infinite loop when setting to filteredReview
 
   // useEffect(() => {
-
-  // })
+  //   if (props.allGames.gameId === filteredReview.reviewGameId) {
+  //     setReviewGameTitle(props.allGames.title);
+  //     console.log(reviewGameTitle)
+  //   }
+  // }, []);
 
   return (
     <>
@@ -71,7 +82,7 @@ function UserReviews(props) {
           filteredReview.map((reviewEl) => {
             return (
               <div>
-                <h2 className="user-gametitle">Title</h2>
+                <h2 className="user-gametitle">{reviewGameTitle}</h2>
                 <p className="user-review-paragraph" id="review-user">
                   {reviewEl.reviewbody}
                 </p>
@@ -81,7 +92,16 @@ function UserReviews(props) {
                   gameId={reviewEl.reviewGameId}
                 />
 
-                <button className="review-field-buttons">Edit ➡</button>
+                <StarRating
+                  userscore={reviewEl.userscore}
+                  gameId={reviewEl.reviewGameId}
+                />
+
+                <DeleteReviewButton
+                  id={reviewEl.reviewId}
+                  filteredReview={filteredReview}
+                  setFilteredReview={setFilteredReview}
+                />
               </div>
             );
           })

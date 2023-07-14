@@ -25,6 +25,7 @@ input::placeholder{
 
 .review-card {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 
 }
@@ -44,4 +45,4 @@ input::placeholder{
   font-size: larger;
 
   /* margin-top: 1rem; */
-
+}

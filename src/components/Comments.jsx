@@ -1,18 +1,18 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchReviews } from "../api-routes";
+import { fetchComments } from "../api-routes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StarRating from "./StarRating";
 import CreateCommentButton from "./CreateCommentButton";
 import "./reviews.css";
 import "./comments.css";
 
-function Comments() {
+function Comments(props) {
   const [comment, setComment] = useState([]);
   const [filteredComment, setFilteredComment] = useState([]);
 
-  const { id } = useParams();
+  // const { id } = useParams();
 
   useEffect(() => {
     const getComments = async () => {
@@ -30,7 +30,7 @@ function Comments() {
   useEffect(() => {
     if (comment.length) {
       const foundComment = comment.filter((e) => {
-        if (e.commentGameId == id) {
+        if (e.oriReviewId == props.oriReviewId) {
           return true;
         } else {
           return false;
@@ -48,23 +48,21 @@ function Comments() {
   return (
     <div className="comment-card">
       <div className="title-center"></div>
-      {/* {filteredComment && filteredComment.length ? (
+      {filteredComment && filteredComment.length ? (
         filteredComment.map((commentEl) => {
-          console.log(commentEl); */}
-      {/* return ( */}
-      <div>
-        {/* <CreateCommentButton />
+          console.log(commentEl); 
+            return ( 
+               <div>
+        {/* <CreateCommentButton /> */}
         <p className="comment-paragraph" id="comment-user">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-          laboriosam, fuga et itaque minus nam sapiente possimus ab quisquam at
-          quo praesentium sint quam magnam. Quos sint nihil repudiandae natus.
-        </p> */}
+            {commentEl.commentbody}
+        </p>
       </div>
-      {/* ); */}
-      {/* })
+       ); 
+       })
       ) : (
-        <p>...Loading</p>
-      )} */}
+        <p>No Comments Yet</p>
+      )}
     </div>
   );
 }

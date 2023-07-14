@@ -10,7 +10,7 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState(null)
-  const { setIsLoggedIn } = useContext(LoginContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
   const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -36,15 +36,15 @@ function Login() {
             localStorage.setItem("token", result.token)
             const decodedToken = await jwtDecode(result.token);
       
-            // console.log(decodedToken)
+            console.log(decodedToken)
       
             let stringifiedObj = JSON.stringify(decodedToken);
             localStorage.setItem("user", stringifiedObj);
             // localStorage.setItem("is_admin", is_admin)
             
-            setIsLoggedIn(decodedToken)
+            setIsLoggedIn(true)
             setLoginError(null)  
-
+            console.log(isLoggedIn)
             navigate("/"); //Navigates back to Homepage after login.
           } else if (
             result.error

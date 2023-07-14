@@ -32,7 +32,9 @@ function Profile() {
           const renderUser = await fetchUserData(token);
           console.log(renderUser);
           setUserData(renderUser);
-          // setIsLoggedIn()
+          setIsLoggedIn(renderUser.username)
+          console.log(isLoggedIn)
+          
      
           
         }
