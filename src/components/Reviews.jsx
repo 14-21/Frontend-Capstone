@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchReviews } from "../api-routes";
-import { UpdateReviews } from "./UpdateReviewButton";
 import StarRating from "./StarRating";
 import "./reviews.css";
 import Comments from "./Comments";
@@ -58,7 +57,6 @@ function Reviews() {
                 userscore={reviewEl.userscore}
                 gameId={reviewEl.reviewGameId}
               />
-              <UpdateReviews review={review} setReview={setReview} />
             </div>
           );
         })

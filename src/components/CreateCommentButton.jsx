@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { createComment } from "../api-routes";
 import "./deleteReviewButton.css";
 import "./createCommentButton.css";
-import "./review.css";
+import "./reviews.css";
 
 function CreateCommentButton() {
   const [newComment, setNewComment] = useState("");

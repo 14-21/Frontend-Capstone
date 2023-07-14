@@ -6,6 +6,7 @@ import "./userReviews.css";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DeleteReviewButton from "./DeleteReviewButton";
+import { UpdateReviewsButton } from "./UpdateReviewButton";
 
 const BASE_URL = "http://localhost:8080";
 
@@ -86,15 +87,15 @@ function UserReviews(props) {
                 <p className="user-review-paragraph" id="review-user">
                   {reviewEl.reviewbody}
                 </p>
-
                 <StarRating
                   userscore={reviewEl.userscore}
                   gameId={reviewEl.reviewGameId}
                 />
 
-                <StarRating
-                  userscore={reviewEl.userscore}
-                  gameId={reviewEl.reviewGameId}
+                <UpdateReviewsButton
+                  id={reviewEl.reviewId}
+                  filteredReview={filteredReview}
+                  setFilteredReview={setFilteredReview}
                 />
 
                 <DeleteReviewButton

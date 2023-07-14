@@ -7,6 +7,7 @@ import "./reviews.css";
 const BASE_URL = "http://localhost:8080";
 
 function CreateReviewButton(props) {
+  const id = props.id;
   const [reviewbody, setReviewBody] = useState("");
   //State for userscore
   const [starRating, setStarRating] = useState(0);
