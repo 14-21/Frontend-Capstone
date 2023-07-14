@@ -9,34 +9,31 @@ export const UpdateReviewsButton = (props) => {
   const [starRating, setStarRating] = useState(null);
   const BASE_URL = "http://localhost:8080";
 
-  const handleUpdate = props.review.filter((singleReview) => {
-    if (singleReview.reviewUserId == id) {
-      console.log(singleReview);
-      return singleReview;
-    }
-  })[0];
-
   const sendPutRequest = async (e) => {
+    const id = props.id;
     e.preventDefault();
     try {
-      const response = await fetch(`${BASE_URL}/games/user/review/update`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          body: {
-            reviewbody: reviewbody,
-            userscore: starRating,
+      const response = await fetch(
+        `${BASE_URL}/games/user/review/update/${reviewId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
           },
-        }),
-      });
+          body: JSON.stringify({
+            body: {
+              reviewbody: reviewbody,
+              userscore: starRating,
+            },
+          }),
+        }
+      );
       const result = await response.json();
       console.log(result);
 
-      const updatedAllReviews = props.review.filter((singleReview) => {
-        if (singleReview.reviewGameId !== id) {
+      const updatedAllReviews = props.filteredReview.filter((singleReview) => {
+        if (singleReview.reviewId !== id) {
           return singleReview;
         }
       });
