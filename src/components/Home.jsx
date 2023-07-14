@@ -69,12 +69,7 @@ function Home(props) {
 
       {/* GENRE SECTION HERE */}
       <div id="genres">
-        <hr></hr>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+        <hr className="divider"></hr>
 
         <Link to="/adventure">
           <h2 className="genre-type">Adventure</h2>

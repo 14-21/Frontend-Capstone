@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import StarRating from "./StarRating";
+import "./reviews.css";
 
 export const UpdateReviews = (props) => {
   const { id } = useParams();
@@ -30,9 +31,11 @@ export const UpdateReviews = (props) => {
         }),
       });
       const result = await response.json();
+      console.log(result);
 
       const updatedAllReviews = props.review.filter((singleReview) => {
         if (singleReview.reviewGameId !== id) {
+          console.log(singleReview);
           return singleReview;
         }
       });
@@ -50,9 +53,11 @@ export const UpdateReviews = (props) => {
       <form onSubmit={sendPutRequest}>
         <label htmlFor="updatereview">
           <input
+            className="review-body"
             onChange={(e) => setNewReviewBody(e.target.value)}
             name="newreview"
             type="text"
+            placeholder="update"
             value={reviewbody}
           ></input>
           <StarRating

@@ -8,24 +8,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const BASE_URL = "http://localhost:8080";
 
-
 function UserReviews(props) {
   const [filteredReview, setFilteredReview] = useState("");
-  const [reviewGameTitle, setReviewGameTitle] = useState("")
-
+  const [reviewGameTitle, setReviewGameTitle] = useState("");
 
   useEffect(() => {
     async function userReviewPage() {
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch(`${BASE_URL}/api/games/user/specific/reviews`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          
-        });
-        
+        const response = await fetch(
+          `${BASE_URL}/api/games/user/specific/reviews`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
         // Outside of fetch starting here.
         const result = await response.json();
         console.log(result);
@@ -42,7 +42,6 @@ function UserReviews(props) {
   // useEffect(() => {
 
   // })
-
 
   return (
     <>
@@ -69,30 +68,29 @@ function UserReviews(props) {
           <h1>Your Reviews</h1>
         </div>
         {filteredReview && filteredReview.length ? (
-        filteredReview.map((reviewEl) => {
-        return (
-        <div>
-          <h2 className="user-gametitle">Title</h2>
-          <p className="user-review-paragraph" id="review-user">
-            {reviewEl.reviewbody}
-          </p>
-    
-          <StarRating  userscore={reviewEl.userscore} gameId={reviewEl.reviewGameId} />
+          filteredReview.map((reviewEl) => {
+            return (
+              <div>
+                <h2 className="user-gametitle">Title</h2>
+                <p className="user-review-paragraph" id="review-user">
+                  {reviewEl.reviewbody}
+                </p>
 
-          <button className="review-field-buttons">
-          Edit <FontAwesomeIcon icon={faArrowRight} size="1x" />
-          </button> 
+                <StarRating
+                  userscore={reviewEl.userscore}
+                  gameId={reviewEl.reviewGameId}
+                />
 
-        </div>
+                <button className="review-field-buttons">Edit ➡</button>
+              </div>
             );
-        })
-      ) : (
-        <p>No Reviews Yet</p>
-      )}
+          })
+        ) : (
+          <p>No Reviews Yet</p>
+        )}
       </div>
     </>
   );
 }
 
 export default UserReviews;
-

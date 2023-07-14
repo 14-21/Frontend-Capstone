@@ -20,14 +20,19 @@
   display: flex;
   flex-direction: column;
   margin: 1rem;
-  height: auto;
-  width: 30rem;
+  height: 30rem;
+  width: 25rem;
   box-sizing: border-box;
   box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.429);
   border-radius: 0.5rem;
   transition: all 0.3s ease-in-out;
 
   /* border: solid blue; */
+}
+
+.divider {
+  margin: 3rem;
+  border: 1px solid #d3d3d3;
 }
 
 .single-feat-game:hover {

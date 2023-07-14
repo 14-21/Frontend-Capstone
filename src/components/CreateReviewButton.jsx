@@ -12,83 +12,72 @@ function CreateReviewButton(props) {
   const [starRating, setStarRating] = useState(0);
   // const navigate = useNavigate()
 
-      // submit function passed in OnSubmit in form below.
-      const handleSubmit = async(e) => {
-        e.preventDefault()
-   
-        try {
-            const result = await createReview(); // Passing our async function in from below.
+  // submit function passed in OnSubmit in form below.
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
+    try {
+      const result = await createReview(); // Passing our async function in from below.
 
-            // navigate(`/games/${props.selectedGame}`)
-        } catch (error) {
-            console.log(error)
-        }
-
+      // navigate(`/games/${props.selectedGame}`)
+    } catch (error) {
+      console.log(error);
     }
+  };
 
-    async function createReview() {
-      try {
-              const token = localStorage.getItem("token");
-              const response = await fetch(`${BASE_URL}/games/post/review`, {
-                  method: "POST",
-                  headers: {
-                      "Content-Type": "application/json",
-                      'Authorization': `Bearer ${token}`
-                  },
-                  body: JSON.stringify({
-                    reviewbody: reviewbody,
-                    userscore: starRating,
-                    reviewGameId: props.selectedGame
-                  }), 
-                })
-                  // Outside of fetch starting here.
-              const result = await response.json();
-  
-              setReviewBody(result.reviewbody)
-              setStarRating(result.starRating)
-              console.log(result)
-              // return result;
-          
-      } catch (error) {
-          console.log(error)
-      }
+  async function createReview() {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch(`${BASE_URL}/games/post/review`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          reviewbody: reviewbody,
+          userscore: starRating,
+          reviewGameId: props.selectedGame,
+        }),
+      });
+      // Outside of fetch starting here.
+      const result = await response.json();
+
+      setReviewBody(result.reviewbody);
+      setStarRating(result.starRating);
+      console.log(result);
+      // return result;
+    } catch (error) {
+      console.log(error);
+    }
   }
-
-
-
-
-
-
-
-
-
-
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="new review"></label>
         <input
-          id="review-body"
+          className="review-body"
           name="reviewbody"
           type="text"
           placeholder="What did you think of the game?"
           value={reviewbody}
           onChange={(e) => {
-            console.log(e.target.value)
+            console.log(e.target.value);
             setReviewBody(e.target.value);
           }}
         />
 
-        <StarRating userscore={starRating} gameId={null} setStarRating={setStarRating}/>
-
-
+        <StarRating
+          userscore={starRating}
+          gameId={null}
+          setStarRating={setStarRating}
+        />
         <div id="reviewbutton-container">
           <button className="button-reviews" type="submit">
             Review
           </button>
-        </div>  
+        </div>
       </form>
     </div>
   );
