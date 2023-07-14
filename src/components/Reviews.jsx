@@ -5,6 +5,7 @@ import { fetchReviews } from "../api-routes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StarRating from "./StarRating";
 import "./reviews.css";
+import Comments from "./Comments";
 
 
 function Reviews() {
@@ -60,8 +61,8 @@ function Reviews() {
               <StarRating
                 userscore={reviewEl.userscore}
                 gameId={reviewEl.reviewGameId}
-              
               />
+              {/* <Comments reviewId={reviewEl.reviewId}/> */}
             </div>
           );
         })

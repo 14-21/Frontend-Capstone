@@ -138,7 +138,7 @@ export const updateReview = async () => {
 
 export const fetchComments = async () => {
   try {
-    const response = await fetch(`${BASE_URL}/api/games/reviews`);
+    const response = await fetch(`${BASE_URL}/games/users/comments`);
     const result = await response.json();
     return result;
   } catch (error) {
