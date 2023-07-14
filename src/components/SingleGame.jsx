@@ -2,7 +2,7 @@ import "./singlegames.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Reviews from "./Reviews";
-import Comments from "./Comments";
+// import Comments from "./Comments";
 import StarRating from "./StarRating";
 import CreateReviewButton from "./CreateReviewButton";
 
@@ -30,8 +30,6 @@ function SingleGame(props) {
       setSelectedGame("Game not found.");
     }
   }, [props.allGames]);
-
-  console.log(selectedGame);
 
   return (
     <div id="single-game-container">
@@ -118,11 +116,11 @@ function SingleGame(props) {
       {/* USERS REVIEWS    */}
       <div className="input-cards">
         <h1 id="overall-imp-header">OVERALL IMPRESSIONS</h1>
-        <br/>
+        <br />
         <Reviews />
-        <CreateReviewButton selectedGame={selectedGame.gameId}/>
+        <CreateReviewButton selectedGame={selectedGame.gameId} />
       </div>
-      <Comments />
+      {/* <Comments /> */}
     </div>
   );
 }

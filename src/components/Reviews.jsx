@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchReviews } from "../api-routes";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { UpdateReviews } from "./UpdateReviewButton";
 import StarRating from "./StarRating";
 import "./reviews.css";
 
@@ -16,7 +16,6 @@ function Reviews() {
     const getReviews = async () => {
       try {
         const renderReview = await fetchReviews();
-        console.log(renderReview);
         setReview(renderReview);
       } catch (error) {
         console.log(error);
@@ -47,7 +46,6 @@ function Reviews() {
     <div className="review-card">
       {filteredReview && filteredReview.length ? (
         filteredReview.map((reviewEl) => {
-          console.log(reviewEl);
           return (
             <div key={reviewEl.reviewId}>
               <div className="title-center">
@@ -60,6 +58,7 @@ function Reviews() {
                 userscore={reviewEl.userscore}
                 gameId={reviewEl.reviewGameId}
               />
+              <UpdateReviews review={review} setReview={setReview} />
             </div>
           );
         })

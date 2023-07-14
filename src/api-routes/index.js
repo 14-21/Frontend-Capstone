@@ -39,7 +39,6 @@ export const registerUser = async (
   return;
 };
 
-
 // Fetch User Data
 export const fetchUserData = async (token) => {
   try {
@@ -75,15 +74,15 @@ export const createNewReview = async (token, reviewBody, starRating) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         review: reviewBody,
         star: starRating,
-      })
+      }),
     });
     const result = await response.json();
-    console.log(result)
+    console.log(result);
     return result;
   } catch (error) {
     console.log(error);
@@ -99,31 +98,6 @@ export const deleteReview = async (token) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-    });
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    console.log(error);
-  }
-  return;
-};
-
-export const updateReview = async () => {
-  try {
-    const response = await fetch(`${BASE_URL}/api/games/reviews`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        body: {
-          reviewbody: reviewbody,
-          userscore: userscore,
-          reviewUserId: reviewUserId,
-          reviewGameId: reviewGameId,
-        },
-      }),
     });
     const result = await response.json();
     return result;

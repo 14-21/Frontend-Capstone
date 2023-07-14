@@ -41,7 +41,7 @@ function App() {
     if (localStorage.getItem("token")) {
       let decodedToken = jwtDecode(localStorage.getItem("token"));
       setIsLoggedIn({
-        username: decodedToken.username
+        username: decodedToken.username,
       });
     }
   }, []);
@@ -85,7 +85,7 @@ function App() {
     }
     fetchGames();
   }, []);
-  console.log(isAdmin);
+
   return (
     <>
       {/* Giving access to login info to all components */}
@@ -99,7 +99,10 @@ function App() {
             />
             <Route path="/profile/user" element={<Profile />} />
             <Route path="/star" element={<StarRating />} />
-            <Route path="/myreviews" element={<UserReviews allGames={allGames}/>} />
+            <Route
+              path="/myreviews"
+              element={<UserReviews allGames={allGames} />}
+            />
             <Route path="/mycomments" element={<ProfileComments />} />
             <Route
               path="/games"
@@ -114,7 +117,10 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
 
-            <Route path="/admin" element={<Admin isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>} />
+            <Route
+              path="/admin"
+              element={<Admin isAdmin={isAdmin} setIsAdmin={setIsAdmin} />}
+            />
 
             <Route
               path="/adventure"
