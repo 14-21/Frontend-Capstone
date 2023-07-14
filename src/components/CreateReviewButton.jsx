@@ -29,7 +29,9 @@ function CreateReviewButton(props) {
 
     async function createReview() {
       try {
+        console.log(props.selectedGame, reviewbody, starRating)
               const token = localStorage.getItem("token");
+              console.log(token)
               const response = await fetch(`${BASE_URL}/games/post/review`, {
                   method: "POST",
                   headers: {
@@ -44,9 +46,12 @@ function CreateReviewButton(props) {
                 })
                   // Outside of fetch starting here.
               const result = await response.json();
-  
-              setReviewBody(result.reviewbody)
-              setStarRating(result.starRating)
+              const filteredReviewCopy = [...props.filteredReview]
+              filteredReviewCopy.unshift(result)
+              props.setFilteredReview(filteredReviewCopy)
+              console.log(filteredReviewCopy)
+              setReviewBody("")
+              setStarRating(0)
               console.log(result)
               // return result;
           

@@ -136,9 +136,9 @@ export const updateReview = async () => {
 
 // Comment methods
 
-export const fetchComments = async () => {
+export const fetchComments = async (origReviewId) => {
   try {
-    const response = await fetch(`${BASE_URL}/games/users/comments`);
+    const response = await fetch(`${BASE_URL}/games/users/comments/${origReviewId}`);
     const result = await response.json();
     return result;
   } catch (error) {

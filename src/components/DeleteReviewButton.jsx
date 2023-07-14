@@ -34,10 +34,10 @@ function DeleteReviewButton(props) {
         });  // Outside of fetch starting here.
         const result = await response.json()
         console.log(result)
-        if(result.success === true) {
+        if(result.length) {
             const deletedFilteredReview = props.filteredReview.filter((singleReview) => {
                 if(singleReview.reviewId !== reviewId){
-                    return singleReview
+                    return true
                 }
             })
 
