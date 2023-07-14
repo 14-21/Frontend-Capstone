@@ -45,7 +45,7 @@ function Login() {
             setIsLoggedIn(true)
             setLoginError(null)  
             console.log(isLoggedIn)
-            // navigate("/"); //Navigates back to Homepage after login.
+            navigate("/"); //Navigates back to Homepage after login.
           } else if (
             result.error
           ){
