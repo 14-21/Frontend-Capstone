@@ -31,7 +31,7 @@ function SingleGame(props) {
     }
   }, [props.allGames]);
 
-  console.log(selectedGame);
+  
 
   return (
     <div id="single-game-container">

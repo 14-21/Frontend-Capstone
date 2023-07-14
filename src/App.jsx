@@ -41,9 +41,11 @@ function App() {
     if (localStorage.getItem("token")) {
       let decodedToken = jwtDecode(localStorage.getItem("token"));
       setIsLoggedIn({
-        username: decodedToken.username
+        username: decodedToken.username,
+
       });
     }
+   
   }, []);
 
   // Fetching allAdmins && admin status
@@ -52,18 +54,25 @@ function App() {
       try {
         const response = await fetch(`${BASE_URL}/adminusers`);
         const result = await response.json();
-
+        //logging all admin objects
+        console.log(result)
         //Filtering thru allAdmins to match username to isLoggedIn.username
         const filteredAdmin = result.find((e) => {
           if (e.username === isLoggedIn) {
             return true;
+          } else {
+            console.log(e.username, "Username do not match")
           }
+          
+          console.log(isLoggedIn)
         });
         //If isLoggedIn.username matches filteredAdmin -- setting admin state.
         if (isLoggedIn && filteredAdmin) {
           setIsAdmin(true);
         } else {
           setIsAdmin(false);
+          console.log(isLoggedIn);
+          console.log(isAdmin)
         }
       } catch (error) {
         console.log(error);
@@ -85,7 +94,7 @@ function App() {
     }
     fetchGames();
   }, []);
-  console.log(isAdmin);
+ 
   return (
     <>
       {/* Giving access to login info to all components */}

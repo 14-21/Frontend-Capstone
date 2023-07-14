@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StarRating from "./StarRating";
 import "./reviews.css";
 
+
 function Reviews() {
   const [review, setReview] = useState([]);
   const [filteredReview, setFilteredReview] = useState([]);
@@ -16,7 +17,7 @@ function Reviews() {
     const getReviews = async () => {
       try {
         const renderReview = await fetchReviews();
-        console.log(renderReview);
+        // console.log(renderReview);
         setReview(renderReview);
       } catch (error) {
         console.log(error);
@@ -24,6 +25,7 @@ function Reviews() {
     };
     getReviews();
   }, []);
+   //hitting infinite loop when setting to review
 
   useEffect(() => {
     if (review.length) {
@@ -42,23 +44,23 @@ function Reviews() {
       }
     }
   }, [review]);
+   
+
 
   return (
     <div className="review-card">
       {filteredReview && filteredReview.length ? (
         filteredReview.map((reviewEl) => {
-          console.log(reviewEl);
+          // console.log(reviewEl);
           return (
             <div key={reviewEl.reviewId}>
-              <div className="title-center">
-                <h1 className="overall-impressions">Overall Impressions</h1>
-              </div>
               <p className="review-paragraph" id="review-user">
                 {reviewEl.reviewbody}
               </p>
               <StarRating
                 userscore={reviewEl.userscore}
                 gameId={reviewEl.reviewGameId}
+              
               />
             </div>
           );
