@@ -31,7 +31,7 @@ function SingleGame(props) {
     }
   }, [props.allGames]);
 
-  console.log(selectedGame);
+  
 
   return (
     <div id="single-game-container">
@@ -122,7 +122,7 @@ function SingleGame(props) {
         <Reviews />
         <CreateReviewButton selectedGame={selectedGame.gameId}/>
       </div>
-      <Comments />
+      {/* <Comments /> */}
     </div>
   );
 }
