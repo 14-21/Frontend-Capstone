@@ -26,7 +26,9 @@ import BottomNav from "./components/BottomNav";
 import UserReviews from "./components/UserReviews";
 import StarRating from "./components/StarRating";
 import Admin from "./components/Admin";
+// import AdminUsers from "./components/AdminAllUsers";
 import jwtDecode from "jwt-decode";
+import CreateGame from "./components/CreateGame";
 export const LoginContext = createContext();
 
 const BASE_URL = "http://localhost:8080";
@@ -126,8 +128,35 @@ function App() {
 
             <Route
               path="/admin"
-              element={<Admin isAdmin={isAdmin} setIsAdmin={setIsAdmin} />}
+              element={
+                <Admin
+                  isAdmin={isAdmin}
+                  setIsAdmin={setIsAdmin}
+                  allGames={allGames}
+                />
+              }
             />
+
+            <Route
+              path="/creategame"
+              element={
+                <CreateGame
+                  isAdmin={isAdmin}
+                  setIsAdmin={setIsAdmin}
+                  allGames={allGames}
+                />
+              }
+            />
+            {/* <Route
+              path="/adminusers"
+              element={
+                <AdminUsers
+                  isAdmin={isAdmin}
+                  setIsAdmin={setIsAdmin}
+                  allGames={allGames}
+                />
+              }
+            /> */}
 
             <Route
               path="/adventure"
