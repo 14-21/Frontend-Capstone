@@ -53,24 +53,24 @@ function App() {
         const response = await fetch(`${BASE_URL}/adminusers`);
         const result = await response.json();
         //logging all admin objects
-        console.log(result);
+        // console.log(result);
         //Filtering thru allAdmins to match username to isLoggedIn.username
         const filteredAdmin = result.find((e) => {
           if (e.username === isLoggedIn) {
             return true;
           } else {
-            console.log(e.username, "Username do not match");
+            // console.log(e.username, "Username do not match");
           }
 
-          console.log(isLoggedIn);
+          // console.log(isLoggedIn);
         });
         //If isLoggedIn.username matches filteredAdmin -- setting admin state.
         if (isLoggedIn && filteredAdmin) {
           setIsAdmin(true);
         } else {
           setIsAdmin(false);
-          console.log(isLoggedIn);
-          console.log(isAdmin);
+          // console.log(isLoggedIn);
+          // console.log(isAdmin);
         }
       } catch (error) {
         console.log(error);

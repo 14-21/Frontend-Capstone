@@ -22,7 +22,7 @@ function DeleteReviewButton(props) {
     try {
       const token = localStorage.getItem("token");
       console.log(token);
-      console.log(reviewId);
+      // console.log(reviewId);
       const response = await fetch(
         `${BASE_URL}/api/games/user/review/delete/${reviewId}`,
         {

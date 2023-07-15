@@ -82,7 +82,7 @@ function UserReviews(props) {
         {filteredReview && filteredReview.length ? (
           filteredReview.map((reviewEl) => {
             return (
-              <div>
+              <div key={reviewEl.reviewId}>
                 <h2 className="user-gametitle">{reviewGameTitle}</h2>
                 <p className="user-review-paragraph" id="review-user">
                   {reviewEl.reviewbody}

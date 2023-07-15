@@ -4,31 +4,39 @@ import StarRating from "./StarRating";
 import "./reviews.css";
 
 export const UpdateReviewsButton = (props) => {
-  const { id } = useParams();
+  const id = props.id;
+  console.log(props);
   const [reviewbody, setReviewBody] = useState("");
   const [starRating, setStarRating] = useState(null);
   const BASE_URL = "http://localhost:8080";
 
-  const sendPutRequest = async (e) => {
-    const id = props.id;
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        `${BASE_URL}/games/user/review/update/${reviewId}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({
-            body: {
-              reviewbody: reviewbody,
-              userscore: starRating,
-            },
-          }),
-        }
-      );
+      console.log("enter the submit");
+      const result = await sendPutRequest();
+      console.log(result, "test");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const sendPutRequest = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      console.log(token, reviewbody, starRating, props.id);
+      const response = await fetch(`${BASE_URL}/games/user/review/update`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          reviewbody: reviewbody,
+          userscore: starRating,
+          reviewId: id,
+        }),
+      });
       const result = await response.json();
       console.log(result);
 
@@ -39,7 +47,7 @@ export const UpdateReviewsButton = (props) => {
       });
 
       const newUpdatedAllReviews = [...updatedAllReviews, result];
-      props.setReviewBody(newUpdatedAllReviews);
+      props.setFilteredReview(newUpdatedAllReviews);
       console.log(result);
       return result;
     } catch (error) {
@@ -48,8 +56,8 @@ export const UpdateReviewsButton = (props) => {
   };
 
   return (
-    <div key={reviewId}>
-      <form onSubmit={sendPutRequest}>
+    <div>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="updatereview">
           <input
             className="review-body"
@@ -62,17 +70,17 @@ export const UpdateReviewsButton = (props) => {
             placeholder="update"
             value={reviewbody}
           ></input>
-          <StarRating
+          {/* <StarRating
             onChange={(e) => setStarRating(e.target.value)}
             name="usescore"
             type="text"
             value={starRating}
-          />
+          /> */}
         </label>
+        <button type="submit" className="review-field-buttons">
+          Edit ➡
+        </button>
       </form>
-      <button type="submit" className="review-field-buttons">
-        Edit ➡
-      </button>
     </div>
   );
 };
