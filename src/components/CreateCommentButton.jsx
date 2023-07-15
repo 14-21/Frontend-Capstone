@@ -25,7 +25,7 @@ function CreateCommentButton() {
       >
         <label htmlFor="title"></label>
         <input
-          class="review-body"
+          className="review-body"
           name="commentbody"
           type="text"
           placeholder="What did you think of the game"

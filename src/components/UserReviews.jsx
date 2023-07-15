@@ -12,9 +12,8 @@ const BASE_URL = "http://localhost:8080";
 
 function UserReviews(props) {
   const [filteredReview, setFilteredReview] = useState("");
-
+  const [user, setUser] = useState([]);
   const [reviewGameTitle, setReviewGameTitle] = useState("");
-
   // useEffect(() => {
   //   if(filteredReview.length) {
   //     const filteredGameReview = props.allGames.filter((singleGameTitle) => {

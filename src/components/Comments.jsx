@@ -8,11 +8,9 @@ import CreateCommentButton from "./CreateCommentButton";
 import "./reviews.css";
 import "./comments.css";
 
-function Comments({reviewId}) {
+function Comments({ reviewId }) {
   // const [comment, setComment] = useState([]);
   const [filteredComment, setFilteredComment] = useState([]);
-
-
 
   useEffect(() => {
     const getComments = async () => {
@@ -26,8 +24,6 @@ function Comments({reviewId}) {
     };
     getComments();
   }, []);
-
-
 
   useEffect(() => {
     if (filteredComment) {
@@ -52,16 +48,16 @@ function Comments({reviewId}) {
       <div className="title-center"></div>
       {filteredComment && filteredComment.length ? (
         filteredComment.map((commentEl) => {
-          console.log(commentEl); 
-            return ( 
-               <div>
-        {/* <CreateCommentButton /> */}
-        <p className="comment-paragraph" id="comment-user">
-            {commentEl.commentbody}
-        </p>
-      </div>
-       ); 
-       })
+          console.log(commentEl);
+          return (
+            <div>
+              <CreateCommentButton />
+              <p className="comment-paragraph" id="comment-user">
+                {commentEl.commentbody}
+              </p>
+            </div>
+          );
+        })
       ) : (
         <p>No Comments Yet</p>
       )}

@@ -156,12 +156,7 @@ export const deleteComments = async () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        body: {
-          reviewbody: reviewbody,
-          userscore: userscore,
-          reviewUserId: reviewUserId,
-          reviewGameId: reviewGameId,
-        },
+        body: {},
       }),
     });
     const result = await response.json();
@@ -181,10 +176,10 @@ export const updateComments = async () => {
       },
       body: JSON.stringify({
         body: {
-          reviewbody: reviewbody,
-          userscore: userscore,
-          reviewUserId: reviewUserId,
-          reviewGameId: reviewGameId,
+          commentbody: commentbody,
+          origUserId: origUserId,
+          origReviewId: origUserId,
+          commentId: commentId,
         },
       }),
     });

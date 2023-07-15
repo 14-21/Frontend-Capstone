@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./userReviews.css";
 import UpdateCommentButton from "./UpdateCommentButton";
+import DeleteCommentButton from "./DeleteComment";
 
 const BASE_URL = "http://localhost:8080";
 
@@ -59,6 +60,12 @@ function ProfileComments() {
                 </p>
 
                 <UpdateCommentButton
+                  id={commentEl.origReviewId}
+                  filteredComments={filteredComments}
+                  setFilteredComments={setFilteredComments}
+                />
+
+                <DeleteCommentButton
                   id={commentEl.origReviewId}
                   filteredComments={filteredComments}
                   setFilteredComments={setFilteredComments}
