@@ -34,9 +34,11 @@ export const UpdateCommentButton = (props) => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
+        //NEED TO ADD IDS
         body: JSON.stringify({
           commentbody: commentbody,
-          commentId: id
+          origReviewId: "",
+          origUserId: ""
         }),
       });
       const result = await response.json();
