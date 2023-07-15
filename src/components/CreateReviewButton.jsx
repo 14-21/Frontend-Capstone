@@ -22,6 +22,7 @@ function CreateReviewButton(props) {
             console.log(error)
         }
 
+
     }
 
     async function createReview() {
@@ -61,14 +62,6 @@ function CreateReviewButton(props) {
 
 
 
-
-
-
-
-
-
-
-
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -97,5 +90,6 @@ function CreateReviewButton(props) {
     </div>
   );
 }
+
 
 export default CreateReviewButton;
