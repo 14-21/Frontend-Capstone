@@ -15,7 +15,7 @@ function AdminUsers() {
   const [searchQuery, setSearchQuery] = useState(""); //Storing the search query.
 
   // This function allows lowercase letters to be included in the filter.
-  let filteredUser = allUsers.filter((user) => {
+  let filteredUser = userData.filter((user) => {
     let lowercaseUsername = user.username.toLowerCase();
     let lowercaseQuery = searchQuery.toLowerCase();
     if (lowercaseUsername.includes(lowercaseQuery)) {
@@ -47,23 +47,10 @@ function AdminUsers() {
         const token = localStorage.getItem("token");
         if (token) {
           const renderUser = await fetchUserData(token);
-
           console.log(renderUser);
           setUserData(renderUser);
+          setIsLoggedIn(renderUser.username);
         }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getUserData();
-  }, []);
-
-  useEffect(() => {
-    const getUserData = async () => {
-      try {
-        const renderAllUsers = await fetchUserData();
-        console.log(renderAllUsers);
-        setAllUsers(renderAllUsers);
       } catch (error) {
         console.log(error);
       }

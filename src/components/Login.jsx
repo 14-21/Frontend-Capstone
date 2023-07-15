@@ -9,55 +9,49 @@ const BASE_URL = "http://localhost:8080";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loginError, setLoginError] = useState(null)
+  const [loginError, setLoginError] = useState(null);
   const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
   const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-      //Prevents the page from doing a hard refresh.
-       e.preventDefault();
-        try {
-          const response = await fetch(`${BASE_URL}/games/users/login`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                username: username,
-                password: password,
-            }),
-          });
-          const result = await response.json();
-      
-          console.log(result)
-          if(result) {
-      
-            //Normally store the non-decryted JWT into localstorage first.
-            localStorage.setItem("token", result.token)
-            const decodedToken = await jwtDecode(result.token);
-      
-            console.log(decodedToken)
-      
-            let stringifiedObj = JSON.stringify(decodedToken);
-            localStorage.setItem("user", stringifiedObj);
-            // localStorage.setItem("is_admin", is_admin)
-            
-            setIsLoggedIn(true)
-            setLoginError(null)  
-            console.log(isLoggedIn)
-            navigate("/"); //Navigates back to Homepage after login.
-          } else if (
-            result.error
-          ){
+  const handleSubmit = async (e) => {
+    //Prevents the page from doing a hard refresh.
+    e.preventDefault();
+    try {
+      const response = await fetch(`${BASE_URL}/games/users/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: username,
+          password: password,
+        }),
+      });
+      const result = await response.json();
 
-            setLoginError(result.error.message)
-          }
-          
-        } catch (error) {
-          console.log(error);
-        }
+      console.log(result);
+      if (result) {
+        //Normally store the non-decryted JWT into localstorage first.
+        localStorage.setItem("token", result.token);
+        const decodedToken = await jwtDecode(result.token);
+
+        console.log(decodedToken);
+
+        let stringifiedObj = JSON.stringify(decodedToken);
+        localStorage.setItem("user", stringifiedObj);
+        // localStorage.setItem("is_admin", is_admin)
+
+        setIsLoggedIn(true);
+        setLoginError(null);
+        console.log(isLoggedIn);
+        navigate("/"); //Navigates back to Homepage after login.
+      } else if (result.error) {
+        setLoginError(result.error.message);
+      }
+    } catch (error) {
+      console.log(error);
     }
-
+  };
 
   return (
     <div id="login-container">
@@ -97,6 +91,5 @@ function Login() {
     </div>
   );
 }
-
 
 export default Login;

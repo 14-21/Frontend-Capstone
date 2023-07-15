@@ -42,7 +42,7 @@ export const registerUser = async (
 // Fetch User Data
 export const fetchUserData = async (token) => {
   try {
-    const response = await fetch(`${BASE_URL}/games/get/user`, {
+    const response = await fetch(`${BASE_URL}/games/users`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
