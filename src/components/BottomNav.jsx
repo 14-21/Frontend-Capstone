@@ -36,16 +36,18 @@ function BottomNav() {
           href="https://www.instagram.com/learnbuildteach"
           className="instagram social"
         >
-          <div className="insta-background">
-            <FontAwesomeIcon icon={faInstagram} size="2x" />
-          </div>
+          <FontAwesomeIcon
+            className="insta-background"
+            icon={faInstagram}
+            size="2x"
+          />
         </a>
       </div>
       <div className="links-container">
         <Link className="bottomNav-Link" to="/home">
           Home
         </Link>
-        <Link className="bottomNav-Link" to="/profile">
+        <Link className="bottomNav-Link" to="/profile/user">
           Profile
         </Link>
         <Link className="bottomNav-Link" to="/about">

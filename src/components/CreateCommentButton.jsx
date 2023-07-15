@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { createComment } from "../api-routes";
 import "./deleteReviewButton.css";
-import "./createCommentButton.css"
+import "./createCommentButton.css";
+import "./reviews.css";
 
 function CreateCommentButton() {
   const [newComment, setNewComment] = useState("");
@@ -24,7 +25,7 @@ function CreateCommentButton() {
       >
         <label htmlFor="title"></label>
         <input
-          id="comment-body"
+          class="review-body"
           name="commentbody"
           type="text"
           placeholder="What did you think of the game"

@@ -2,12 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchReviews } from "../api-routes";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StarRating from "./StarRating";
 import "./reviews.css";
 import Comments from "./Comments";
 import CreateReviewButton from "./CreateReviewButton";
-
 
 function Reviews(props) {
   const [review, setReview] = useState([]);
@@ -27,7 +25,7 @@ function Reviews(props) {
     };
     getReviews();
   }, []);
-   //hitting infinite loop when setting to review
+  //hitting infinite loop when setting to review
 
   useEffect(() => {
     if (review.length) {
@@ -46,14 +44,11 @@ function Reviews(props) {
       }
     }
   }, [review]);
-   
-
 
   return (
     <div className="review-card">
       {filteredReview && filteredReview.length ? (
         filteredReview.map((reviewEl) => {
-          // console.log(reviewEl);
           return (
             <div key={reviewEl.reviewId}>
               <p className="review-paragraph" id="review-user">

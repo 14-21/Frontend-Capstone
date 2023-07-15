@@ -21,7 +21,10 @@
 }
 
 .review-field-buttons {
-  border: 1px solid rgb(221, 219, 219);
+  border-left: 1px solid rgb(221, 219, 219);
+  border-bottom: 1px solid rgb(221, 219, 219);
+  border-top: none;
+  border-right: none;
   margin: 0;
   cursor: pointer;
 }

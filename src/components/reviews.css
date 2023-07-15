@@ -6,13 +6,12 @@
   border: solid blue;
 }
 
-#review-body,
+.review-body,
 .review-paragraph {
   height: 10rem;
   width: 50rem;
   display: flex;
   margin-top: 4rem;
-
 } 
 
 input::placeholder{
