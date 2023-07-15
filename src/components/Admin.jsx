@@ -48,6 +48,7 @@ function Admin(props) {
         const token = localStorage.getItem("token");
         if (token) {
           const renderUser = await fetchUserData(token);
+          console.log(renderUser);
           setUserData(renderUser);
           setIsLoggedIn(renderUser.username);
         }

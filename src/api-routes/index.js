@@ -57,6 +57,23 @@ export const fetchUserData = async (token) => {
   }
 };
 
+export const fetchAllUserData = async (token) => {
+  try {
+    const response = await fetch(`${BASE_URL}/games/users`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const result = await response.json();
+    // console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // User Reviews Methods
 export const fetchReviews = async () => {
   try {
