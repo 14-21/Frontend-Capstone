@@ -3,7 +3,7 @@ import "./deleteReviewButton.css";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "http://localhost:8080/";
 
 function DeleteReviewButton(props) {
   const id = props.id;
@@ -20,36 +20,26 @@ function DeleteReviewButton(props) {
 
   async function deleteReview(reviewId) {
     try {
-
-        const token = localStorage.getItem("token");
-        console.log(token)
-        console.log(reviewId)
-        const response = await fetch(`${BASE_URL}/api/games/user/review/delete/${reviewId}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-                'Authorization': `Bearer ${token}`
-            },
-
-        });  // Outside of fetch starting here.
-        const result = await response.json()
-        console.log(result)
-        if(result.length) {
-            const deletedFilteredReview = props.filteredReview.filter((singleReview) => {
-                if(singleReview.reviewId !== reviewId){
-                    return true
-                }
-            })
-            props.setFilteredReview(deletedFilteredReview)
+      const token = localStorage.getItem("token");
+      console.log(token);
+      console.log(reviewId);
+      const response = await fetch(
+        `${BASE_URL}/api/games/user/review/delete/${reviewId}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
         }
       ); // Outside of fetch starting here.
       const result = await response.json();
       console.log(result);
-      if (result.success === true) {
+      if (result.length) {
         const deletedFilteredReview = props.filteredReview.filter(
           (singleReview) => {
             if (singleReview.reviewId !== reviewId) {
-              return singleReview;
+              return true;
             }
           }
         );
