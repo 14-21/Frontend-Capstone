@@ -4,7 +4,7 @@ import "./starRating.css";
 
 function StarRating(props) {
   const [rating, setRating] = useState(null);
-  // const [hover, setHover] = useState(null);
+  const [hover, setHover] = useState(null);
   const setStarRating = props.setStarRating ? props.setStarRating : null;
   useEffect(() => {
     if (props.userscore) {
@@ -37,9 +37,9 @@ function StarRating(props) {
             <FaStar
               className="star"
               color={ratingValue <= rating ? "#ffc107" : "rgb(128, 128, 128)"}
-              // size={50}
-              // onMouseEnter={() => setHover(ratingValue)}
-              // onMouseLeave={() => setHover(null)}
+              size={50}
+              onMouseEnter={() => setHover(ratingValue)}
+              onMouseLeave={() => setHover(null)}
             />
           </label>
         );

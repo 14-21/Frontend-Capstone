@@ -2,7 +2,7 @@ import "./singlegames.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Reviews from "./Reviews";
-import Comments from "./Comments";
+// import Comments from "./Comments";
 import StarRating from "./StarRating";
 import CreateReviewButton from "./CreateReviewButton";
 
@@ -31,8 +31,6 @@ function SingleGame(props) {
     }
   }, [props.allGames]);
 
-  
-
   return (
     <div id="single-game-container">
       {selectedGame && selectedGame.title ? (
@@ -45,7 +43,6 @@ function SingleGame(props) {
           <div id="synopsis-container">
             <p id="synopsis">{selectedGame.synopsis}</p>
           </div>
-
           <br />
           <br />
           <hr></hr>

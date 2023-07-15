@@ -39,7 +39,6 @@ export const registerUser = async (
   return;
 };
 
-
 // Fetch User Data
 export const fetchUserData = async (token) => {
   try {
@@ -71,6 +70,7 @@ export const fetchReviews = async () => {
 
 
 
+
 export const updateReview = async () => {
   try {
     const response = await fetch(`${BASE_URL}/api/games/reviews`, {
@@ -95,6 +95,7 @@ export const updateReview = async () => {
   }
   return;
 };
+
 
 // Comment methods
 
