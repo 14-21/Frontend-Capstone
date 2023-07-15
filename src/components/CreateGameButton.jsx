@@ -39,7 +39,7 @@ const [notfor, setNotFor] = useState("");
             
             const token = localStorage.getItem("token");
 
-            const response = await fetch(`${BASE_URL}//games/create/game`, {
+            const response = await fetch(`${BASE_URL}/games/create/game`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -68,11 +68,30 @@ const [notfor, setNotFor] = useState("");
             const result = await response.json();
 
             //Needs to match props pass down from admin/games when rendered in admin dash
-            // const adminGamesCopy = [...props.adminGames]
-            // adminGamesCopy.unshift(result)
+            const allGamesCopy = [...props.allGames]
+            allGamesCopy.unshift(result)
+
+            props.setAllGames(allGamesCopy)
+            console.log(allGamesCopy)
 
 
-
+            setTitle("");
+            setPlatform("");
+            setGenre("");
+            setMsrp("");
+            setScore("");
+            setOurReview("");
+            setStudio("");
+            setOurScore("");
+            setPictureCard("");
+            setPictureHeader("");
+            setPictureBody("");
+            setPictureFooter("");
+            setSynopsis("");
+            setAbout("");
+            setForGamer("");
+            setNotFor("");
+            
 
         } catch (error) {
             console.log(error)
@@ -89,7 +108,7 @@ const [notfor, setNotFor] = useState("");
                     placeholder="Game Title"
                     value={title}
                     onChange={(e) => {
-                        console(e.target.value)
+                        console.log(e.target.value)
                         setTitle(e.target.value);
                     }}
                 />
@@ -100,7 +119,7 @@ const [notfor, setNotFor] = useState("");
                     placeholder="Game Platform"
                     value={platform}
                     onChange={(e) => {
-                        console(e.target.value)
+                        console.log(e.target.value)                        
                         setPlatform(e.target.value);
                     }}
                 />
@@ -111,7 +130,7 @@ const [notfor, setNotFor] = useState("");
                     placeholder="Game Genre"
                     value={genre}
                     onChange={(e) => {
-                        console(e.target.value)
+                        console.log(e.target.value)                        
                         setGenre(e.target.value);
                     }}
                 />
@@ -122,7 +141,7 @@ const [notfor, setNotFor] = useState("");
                     placeholder="Game MSRP"
                     value={msrp}
                     onChange={(e) => {
-                        console(e.target.value)
+                        console.log(e.target.value)                        
                         setMsrp(e.target.value);
                     }}
                 />
@@ -133,7 +152,7 @@ const [notfor, setNotFor] = useState("");
                     placeholder="Game Score"
                     value={score}
                     onChange={(e) => {
-                        console(e.target.value)
+                        console.log(e.target.value)                        
                         setScore(e.target.value);
                     }}
                 />
@@ -144,7 +163,7 @@ const [notfor, setNotFor] = useState("");
                     placeholder="Game Our Review"
                     value={ourreview}
                     onChange={(e) => {
-                        console(e.target.value)
+                        console.log(e.target.value)                        
                         setOurReview(e.target.value);
                     }}
                 />    
@@ -155,7 +174,7 @@ const [notfor, setNotFor] = useState("");
                     placeholder="Game Studio"
                     value={studio}
                     onChange={(e) => {
-                        console(e.target.value)
+                        console.log(e.target.value)                        
                         setStudio(e.target.value);
                     }}
                 />
@@ -166,7 +185,7 @@ const [notfor, setNotFor] = useState("");
                     placeholder="Game Our Score"
                     value={ourscore}
                     onChange={(e) => {
-                        console(e.target.value)
+                        console.log(e.target.value)                        
                         setOurScore(e.target.value);
                     }}
                 />
@@ -177,7 +196,7 @@ const [notfor, setNotFor] = useState("");
                     placeholder="Game Picture Card"
                     value={picturecard}
                     onChange={(e) => {
-                        console(e.target.value)
+                        console.log(e.target.value)                        
                         setPictureCard(e.target.value);
                     }}
                 />
@@ -188,7 +207,7 @@ const [notfor, setNotFor] = useState("");
                     placeholder="Game Picture Header"
                     value={pictureheader}
                     onChange={(e) => {
-                        console(e.target.value)
+                        console.log(e.target.value)                        
                         setPictureHeader(e.target.value);
                     }}
                 />
@@ -199,7 +218,7 @@ const [notfor, setNotFor] = useState("");
                     placeholder="Game Picture Body"
                     value={picturebody}
                     onChange={(e) => {
-                        console(e.target.value)
+                        console.log(e.target.value)                        
                         setPictureBody(e.target.value);
                     }}
                 />
@@ -210,7 +229,7 @@ const [notfor, setNotFor] = useState("");
                     placeholder="Game Picture Footer"
                     value={picturefooter}
                     onChange={(e) => {
-                        console(e.target.value)
+                        console.log(e.target.value)                        
                         setPictureFooter(e.target.value);
                     }}
                 />
@@ -221,7 +240,7 @@ const [notfor, setNotFor] = useState("");
                     placeholder="Synopsis"
                     value={synopsis}
                     onChange={(e) => {
-                        console(e.target.value)
+                        console.log(e.target.value)                        
                         setSynopsis(e.target.value);
                     }}
                 />
@@ -232,7 +251,7 @@ const [notfor, setNotFor] = useState("");
                     placeholder="About"
                     value={about}
                     onChange={(e) => {
-                        console(e.target.value)
+                        console.log(e.target.value)                        
                         setAbout(e.target.value);
                     }}
                 />
@@ -243,7 +262,7 @@ const [notfor, setNotFor] = useState("");
                     placeholder="Who it's for"
                     value={forgamer}
                     onChange={(e) => {
-                        console(e.target.value)
+                        console.log(e.target.value)                      
                         setForGamer(e.target.value);
                     }}
                 />
@@ -254,7 +273,7 @@ const [notfor, setNotFor] = useState("");
                     placeholder="Who it's not for"
                     value={notfor}
                     onChange={(e) => {
-                        console(e.target.value)
+                        console.log(e.target.value)                        
                         setNotFor(e.target.value);
                     }}
                 />

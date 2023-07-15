@@ -26,9 +26,6 @@ import BottomNav from "./components/BottomNav";
 import UserReviews from "./components/UserReviews";
 import StarRating from "./components/StarRating";
 import Admin from "./components/Admin";
-
-import CreateGameButton from "./components/CreateGameButton";
-
 import AdminUsers from "./components/AdminAllUsers";
 
 import jwtDecode from "jwt-decode";
@@ -149,6 +146,7 @@ function App() {
                   isAdmin={isAdmin}
                   setIsAdmin={setIsAdmin}
                   allGames={allGames}
+                  setAllGames={setAllGames}
                 />
               }
             />
