@@ -11,7 +11,6 @@ function CreateReviewButton(props) {
   const [reviewbody, setReviewBody] = useState("");
   //State for userscore
   const [starRating, setStarRating] = useState(0);
-  // const navigate = useNavigate()
 
   // submit function passed in OnSubmit in form below.
   const handleSubmit = async (e) => {
@@ -20,7 +19,8 @@ function CreateReviewButton(props) {
     try {
       const result = await createReview(); // Passing our async function in from below.
 
-      // navigate(`/games/${props.selectedGame}`)
+
+     
     } catch (error) {
       console.log(error);
     }
@@ -50,6 +50,7 @@ function CreateReviewButton(props) {
       // return result;
     } catch (error) {
       console.log(error);
+
     }
 
     async function createReview() {
@@ -71,10 +72,12 @@ function CreateReviewButton(props) {
                 })
                   // Outside of fetch starting here.
               const result = await response.json();
+
               const filteredReviewCopy = [...props.filteredReview]
               filteredReviewCopy.unshift(result)
               props.setFilteredReview(filteredReviewCopy)
-              console.log(filteredReviewCopy)
+              // console.log(filteredReviewCopy)
+
               setReviewBody("")
               setStarRating(0)
               console.log(result)

@@ -12,6 +12,10 @@
   width: 50rem;
   display: flex;
   margin-top: 4rem;
+
+
+  border: solid red;
+
 } 
 
 input::placeholder{

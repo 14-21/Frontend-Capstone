@@ -12,4 +12,6 @@
 .comment-card {
   display: flex;
   justify-content: center;
+
+  border: solid yellow;
 }
