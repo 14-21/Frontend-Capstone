@@ -54,10 +54,6 @@ function Profile() {
           </li>
           <li>
             {" "}
-            <Link to="/myarticles">Liked Articles</Link>
-          </li>
-          <li>
-            {" "}
             <Link to="/myreviews"  >Reviews</Link>
           </li>
         </ul>

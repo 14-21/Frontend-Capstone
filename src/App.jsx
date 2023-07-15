@@ -26,6 +26,7 @@ import BottomNav from "./components/BottomNav";
 import UserReviews from "./components/UserReviews";
 import StarRating from "./components/StarRating";
 import Admin from "./components/Admin";
+import CreateGameButton from "./components/CreateGameButton";
 import jwtDecode from "jwt-decode";
 export const LoginContext = createContext();
 
@@ -124,6 +125,7 @@ function App() {
             <Route path="/register" element={<Register />} />
 
             <Route path="/admin" element={<Admin isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>} />
+            <Route path="/admin/creategame" element={<CreateGameButton />}/>
 
             <Route
               path="/adventure"

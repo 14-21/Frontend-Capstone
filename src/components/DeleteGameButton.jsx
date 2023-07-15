@@ -1,29 +1,29 @@
-import "./deleteReviewButton.css";
+// import "./deleteReviewButton.css";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const BASE_URL = "http://localhost:8080";
 
 
-function DeleteReviewButton(props) {
+function DeleteGameButton(props) {
   const id = props.id
   // console.log(props)
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await deleteReview(id);
+      const result = await deleteGame(id);
       console.log(result)
     } catch (error) {
       console.log(error);
     }
   };
 
-  async function deleteReview(reviewId) {
+  async function deleteGame(gameId) {
     try {
         const token = localStorage.getItem("token");
         console.log(token)
-        console.log(reviewId)
-        const response = await fetch(`${BASE_URL}/api/games/user/review/delete/${reviewId}`, {
+        console.log(gameId)
+        const response = await fetch(`${BASE_URL}/api/games/delete`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -34,13 +34,14 @@ function DeleteReviewButton(props) {
         const result = await response.json()
         console.log(result)
         if(result.length) {
-            const deletedFilteredReview = props.filteredReview.filter((singleReview) => {
-                if(singleReview.reviewId !== reviewId){
+            //props. needs to be changed
+            const deletedFilteredGame = props.filteredReview.filter((singleGame) => {
+                if(singleGame.gameId !== gameId){
                     return true
                 }
             })
-
-            props.setFilteredReview(deletedFilteredReview)
+             //props. needs to be changed
+            // props.setFilteredReview(deletedFilteredGame)
         }
     } catch (error) {
         console.log(error)
@@ -59,4 +60,4 @@ function DeleteReviewButton(props) {
   );
 }
 
-export default DeleteReviewButton;
+export default DeleteGameButton;

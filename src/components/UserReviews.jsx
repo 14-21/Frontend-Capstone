@@ -13,10 +13,24 @@ const BASE_URL = "http://localhost:8080";
 function UserReviews(props) {
   const [filteredReview, setFilteredReview] = useState("");
   const [reviewGameTitle, setReviewGameTitle] = useState("")
-  // console.log(props)
+
+// useEffect(() => {
+//   if(filteredReview.length) {
+//     const filteredGameReview = props.allGames.filter((singleGameTitle) => {
+//       if(singleGameTitle.gameId === filteredReview.reviewGameId){
+//         return true
+//       }
+//     })
+//     setReviewGameTitle(filteredGameReview)
+//   }
+// }, [])
+
+
   // useEffect(() => {
-  //   if (props.allGames.gameId === filteredReview.reviewGameId) {
+  //   if (props.allGames.gameId === filteredReview.reviewGameId){
+  //     console.log(filteredReview)
   //     setReviewGameTitle(props.allGames.title);
+  //     console.log(reviewGameTitle)
   //   } 
   // }, []);
 
@@ -34,6 +48,7 @@ function UserReviews(props) {
         
         // Outside of fetch starting here.
         const result = await response.json();
+
         // console.log(result);
         // console.log(props.userData)
         setFilteredReview(result);
@@ -44,14 +59,7 @@ function UserReviews(props) {
     }
     userReviewPage();
   }, []); 
-  //hitting infinite loop when setting to filteredReview
 
-  // useEffect(() => {
-  //   if (props.allGames.gameId === filteredReview.reviewGameId) {
-  //     setReviewGameTitle(props.allGames.title);
-  //     console.log(reviewGameTitle)
-  //   } 
-  // }, []);
 
 
 
@@ -61,10 +69,6 @@ function UserReviews(props) {
         <ul>
           <li>
             <Link to="/mycomments">Comments</Link>
-          </li>
-          <li>
-            {" "}
-            <Link to="/myarticles">Liked Articles</Link>
           </li>
           <li>
             {" "}
@@ -83,7 +87,7 @@ function UserReviews(props) {
         filteredReview.map((reviewEl) => {
         return (
         <div>
-          <h2 className="user-gametitle">{reviewGameTitle}</h2>
+          <h2 className="user-gametitle">{reviewEl.reviewGameId}</h2>
           <p className="user-review-paragraph" id="review-user">
             {reviewEl.reviewbody}
           </p>
