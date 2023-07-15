@@ -20,17 +20,27 @@ function DeleteReviewButton(props) {
 
   async function deleteReview(reviewId) {
     try {
-      const token = localStorage.getItem("token");
-      console.log(token);
-      // console.log(reviewId);
-      const response = await fetch(
-        `${BASE_URL}/api/games/user/review/delete/${reviewId}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
+
+        const token = localStorage.getItem("token");
+        console.log(token)
+        console.log(reviewId)
+        const response = await fetch(`${BASE_URL}/api/games/user/review/delete/${reviewId}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
+            },
+
+        });  // Outside of fetch starting here.
+        const result = await response.json()
+        console.log(result)
+        if(result.length) {
+            const deletedFilteredReview = props.filteredReview.filter((singleReview) => {
+                if(singleReview.reviewId !== reviewId){
+                    return true
+                }
+            })
+            props.setFilteredReview(deletedFilteredReview)
         }
       ); // Outside of fetch starting here.
       const result = await response.json();

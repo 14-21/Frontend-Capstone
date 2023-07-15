@@ -43,7 +43,6 @@ function SingleGame(props) {
           <div id="synopsis-container">
             <p id="synopsis">{selectedGame.synopsis}</p>
           </div>
-
           <br />
           <br />
           <hr></hr>
@@ -116,9 +115,9 @@ function SingleGame(props) {
       {/* USERS REVIEWS    */}
       <div className="input-cards">
         <h1 id="overall-imp-header">OVERALL IMPRESSIONS</h1>
-        <br />
-        <Reviews />
-        <CreateReviewButton selectedGame={selectedGame.gameId} />
+        <br/>
+        <Reviews selectedGame={selectedGame.gameId}/>
+        {/* <CreateReviewButton selectedGame={selectedGame.gameId}/> */}
       </div>
       {/* <Comments /> */}
     </div>

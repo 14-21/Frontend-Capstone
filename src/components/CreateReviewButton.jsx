@@ -51,6 +51,38 @@ function CreateReviewButton(props) {
     } catch (error) {
       console.log(error);
     }
+
+    async function createReview() {
+      try {
+        console.log(props.selectedGame, reviewbody, starRating)
+              const token = localStorage.getItem("token");
+              console.log(token)
+              const response = await fetch(`${BASE_URL}/games/post/review`, {
+                  method: "POST",
+                  headers: {
+                      "Content-Type": "application/json",
+                      'Authorization': `Bearer ${token}`
+                  },
+                  body: JSON.stringify({
+                    reviewbody: reviewbody,
+                    userscore: starRating,
+                    reviewGameId: props.selectedGame
+                  }), 
+                })
+                  // Outside of fetch starting here.
+              const result = await response.json();
+              const filteredReviewCopy = [...props.filteredReview]
+              filteredReviewCopy.unshift(result)
+              props.setFilteredReview(filteredReviewCopy)
+              console.log(filteredReviewCopy)
+              setReviewBody("")
+              setStarRating(0)
+              console.log(result)
+              // return result;
+          
+      } catch (error) {
+          console.log(error)
+      }
   }
 
   return (
