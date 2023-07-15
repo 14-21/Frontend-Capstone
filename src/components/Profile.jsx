@@ -48,7 +48,9 @@ function Profile() {
           </li>
           <li>
             {" "}
+
             <Link to="/myreviews">Reviews</Link>
+
           </li>
         </ul>
         <div className="border-line"></div>

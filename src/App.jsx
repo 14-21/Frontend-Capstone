@@ -26,7 +26,11 @@ import BottomNav from "./components/BottomNav";
 import UserReviews from "./components/UserReviews";
 import StarRating from "./components/StarRating";
 import Admin from "./components/Admin";
-// import AdminUsers from "./components/AdminAllUsers";
+
+import CreateGameButton from "./components/CreateGameButton";
+
+import AdminUsers from "./components/AdminAllUsers";
+
 import jwtDecode from "jwt-decode";
 import CreateGame from "./components/CreateGame";
 export const LoginContext = createContext();
@@ -126,6 +130,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
 
+
             <Route
               path="/admin"
               element={
@@ -157,6 +162,7 @@ function App() {
                 />
               }
             /> */}
+
 
             <Route
               path="/adventure"

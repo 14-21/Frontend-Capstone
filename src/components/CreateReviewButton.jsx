@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
 import StarRating from "./StarRating";
 import "./deleteReviewButton.css";
 import "./reviews.css";
