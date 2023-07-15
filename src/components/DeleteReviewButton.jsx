@@ -2,7 +2,7 @@ import "./deleteReviewButton.css";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const BASE_URL = "http://localhost:8080/";
+const BASE_URL = "http://localhost:8080";
 
 function DeleteReviewButton(props) {
   const id = props.id;
