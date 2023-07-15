@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { useState, useEffect } from "react";
 import { fetchUserData } from "../api-routes";
 import { Link } from "react-router-dom";
+import DeleteGameButton from "./DeleteGameButton";
 
 function Admin(props) {
   const [username, setUsername] = useState({});
@@ -103,7 +104,9 @@ function Admin(props) {
                 <Link to={`/games/${e.gameId}`}>
                   <p id="gametitle">{e.title}</p>
                 </Link>
+                <DeleteGameButton id={e.gameId} setAllGames={props.setAllGames} allGames={props.allGames}/>
               </div>
+              
             );
           })
         ) : (

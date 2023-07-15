@@ -17,7 +17,7 @@ export const UpdateCommentButton = (props) => {
     e.preventDefault();
     try {
       console.log("enter the submit");
-      const result = await sendPutRequest();
+      const result = await sendPutRequest(id);
       console.log(result, "test");
     } catch (error) {
       console.log(error);
@@ -37,15 +37,15 @@ export const UpdateCommentButton = (props) => {
         //NEED TO ADD IDS
         body: JSON.stringify({
           commentbody: commentbody,
-          origReviewId: "",
-          origUserId: ""
+          origReviewId: props.filteredComments.origReviewId,
+          origUserId: props.filteredComments.origUserId
         }),
       });
       const result = await response.json();
       console.log(result);
 
-      const updatedAllComments = props.filteredReview.filter((singleComment) => {
-        if (singleComment.origReviewId !== id) {
+      const updatedAllComments = props.filteredComments.filter((singleComment) => {
+        if (singleComment.commentId !== id) {
           return singleComment;
         }
       });
@@ -53,6 +53,7 @@ export const UpdateCommentButton = (props) => {
 
       const newUpdatedAllComments = [...updatedAllComments, result];
       props.setFilteredComments(newUpdatedAllComments);
+      
       console.log(result);
       return result;
     } catch (error) {
