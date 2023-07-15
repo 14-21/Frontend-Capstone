@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { fetchReviews } from "../api-routes";
 import StarRating from "./StarRating";
-import CreateReviewButton from "./CreateReviewButton";
 import "./userReviews.css";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

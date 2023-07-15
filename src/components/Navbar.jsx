@@ -30,7 +30,6 @@ function Navbar(props) {
                 <Link className="links" to="/games">
                   All Games
                 </Link>
-
                 <button
                   id="logout-button"
                   onClick={() => {

@@ -4,8 +4,7 @@ import StarRating from "./StarRating";
 import "./reviews.css";
 
 export const UpdateReviewsButton = (props) => {
-  const id = props.id;
-  console.log(props);
+  const reviewId = props.id;
   const [reviewbody, setReviewBody] = useState("");
   const [starRating, setStarRating] = useState(null);
   const BASE_URL = "http://localhost:8080";
@@ -13,7 +12,6 @@ export const UpdateReviewsButton = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log("enter the submit");
       const result = await sendPutRequest();
       console.log(result, "test");
     } catch (error) {
@@ -24,7 +22,7 @@ export const UpdateReviewsButton = (props) => {
   const sendPutRequest = async () => {
     try {
       const token = localStorage.getItem("token");
-      console.log(token, reviewbody, starRating, props.id);
+      console.log(token, reviewbody, starRating, reviewId);
       const response = await fetch(`${BASE_URL}/games/user/review/update`, {
         method: "PUT",
         headers: {
@@ -32,16 +30,17 @@ export const UpdateReviewsButton = (props) => {
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          reviewbody: reviewbody,
           userscore: starRating,
-          reviewId: id,
+          reviewUserId: props.user,
+          reviewbody: reviewbody,
+          reviewId: reviewId,
         }),
       });
       const result = await response.json();
       console.log(result);
 
       const updatedAllReviews = props.filteredReview.filter((singleReview) => {
-        if (singleReview.reviewId !== id) {
+        if (singleReview.reviewId !== reviewId) {
           return singleReview;
         }
       });
@@ -70,12 +69,12 @@ export const UpdateReviewsButton = (props) => {
             placeholder="update"
             value={reviewbody}
           ></input>
-          {/* <StarRating
+          <StarRating
             onChange={(e) => setStarRating(e.target.value)}
-            name="usescore"
+            name="userscore"
             type="text"
             value={starRating}
-          /> */}
+          />
         </label>
         <button type="submit" className="review-field-buttons">
           Edit ➡

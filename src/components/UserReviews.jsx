@@ -13,12 +13,21 @@ const BASE_URL = "http://localhost:8080";
 function UserReviews(props) {
   const [filteredReview, setFilteredReview] = useState("");
   const [reviewGameTitle, setReviewGameTitle] = useState("");
+  const [user, setUser] = useState("");
   // console.log(props)
   // useEffect(() => {
   //   if (props.allGames.gameId === filteredReview.reviewGameId) {
   //     setReviewGameTitle(props.allGames.title);
   //   }
   // }, []);
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      // console.log(user);
+      setUser(JSON.parse(user));
+    }
+  }, []);
 
   useEffect(() => {
     async function userReviewPage() {
@@ -92,6 +101,7 @@ function UserReviews(props) {
                   id={reviewEl.reviewId}
                   filteredReview={filteredReview}
                   setFilteredReview={setFilteredReview}
+                  user={user.id}
                 />
 
                 <DeleteReviewButton

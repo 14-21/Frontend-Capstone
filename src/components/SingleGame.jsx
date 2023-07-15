@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import Reviews from "./Reviews";
 // import Comments from "./Comments";
 import StarRating from "./StarRating";
-import CreateReviewButton from "./CreateReviewButton";
 
 // import { fetchReviews } from "../api-routes";
 
@@ -115,11 +114,9 @@ function SingleGame(props) {
       {/* USERS REVIEWS    */}
       <div className="input-cards">
         <h1 id="overall-imp-header">OVERALL IMPRESSIONS</h1>
-        <br/>
-        <Reviews selectedGame={selectedGame.gameId}/>
-        {/* <CreateReviewButton selectedGame={selectedGame.gameId}/> */}
+        <br />
+        <Reviews selectedGame={selectedGame.gameId} />
       </div>
-
     </div>
   );
 }

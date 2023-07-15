@@ -29,6 +29,7 @@ import Admin from "./components/Admin";
 // import AdminUsers from "./components/AdminAllUsers";
 import jwtDecode from "jwt-decode";
 import CreateGame from "./components/CreateGame";
+import AdminUsers from "./components/AdminAllUsers";
 export const LoginContext = createContext();
 
 const BASE_URL = "http://localhost:8080";
@@ -135,6 +136,11 @@ function App() {
                   allGames={allGames}
                 />
               }
+            />
+
+            <Route
+              path="/adminusers"
+              element={<AdminUsers isAdmin={isAdmin} setIsAdmin={setIsAdmin} />}
             />
 
             <Route

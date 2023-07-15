@@ -12,13 +12,10 @@
   width: 50rem;
   display: flex;
   margin-top: 4rem;
-
-
   border: solid red;
+}
 
-} 
-
-input::placeholder{
+input::placeholder {
   color: rgba(0, 0, 0, 0.833);
 }
 
@@ -31,22 +28,5 @@ input::placeholder{
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-}
-
-#reviewbutton-container{
-  display: flex;
-  justify-content: center;
-  margin-bottom: 3rem;
-  margin-top: -1rem;
-
-  /* border: solid rebeccapurple; */
-}
-
-.button-reviews {
-
-  width: 10rem;
-  font-size: larger;
-
-  /* margin-top: 1rem; */
+  align-items: center;
 }

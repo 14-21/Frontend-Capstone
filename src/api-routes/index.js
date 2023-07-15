@@ -81,7 +81,7 @@ export const updateReview = async () => {
           reviewbody: reviewbody,
           userscore: userscore,
           reviewUserId: reviewUserId,
-          reviewGameId: reviewGameId,
+          reviewId: reviewId,
         },
       }),
     });

@@ -26,7 +26,6 @@ function Reviews(props) {
     getReviews();
   }, []);
 
-
   useEffect(() => {
     if (review.length) {
       const foundReview = review.filter((e) => {
@@ -58,14 +57,21 @@ function Reviews(props) {
                 userscore={reviewEl.userscore}
                 gameId={reviewEl.reviewGameId}
               />
-              <Comments reviewId={reviewEl.reviewId}/>
+              <Comments reviewId={reviewEl.reviewId} />
             </div>
           );
         })
       ) : (
         <p>No Reviews Yet.</p>
       )}
-      <CreateReviewButton selectedGame={props.selectedGame} filteredReview={filteredReview} setFilteredReview={setFilteredReview}/>
+      <div id="greenbox">
+        <CreateReviewButton
+          selectedGame={props.selectedGame}
+          filteredReview={filteredReview}
+          setFilteredReview={setFilteredReview}
+        />
+      </div>
+      <p>test</p>
     </div>
   );
 }
