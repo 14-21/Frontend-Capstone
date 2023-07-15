@@ -27,7 +27,6 @@ function Reviews(props) {
     };
     getReviews();
   }, []);
-   //hitting infinite loop when setting to review
 
   useEffect(() => {
     if (review.length) {

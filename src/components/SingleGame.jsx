@@ -122,7 +122,7 @@ function SingleGame(props) {
         <Reviews selectedGame={selectedGame.gameId}/>
         {/* <CreateReviewButton selectedGame={selectedGame.gameId}/> */}
       </div>
-      {/* <Comments /> */}
+
     </div>
   );
 }
