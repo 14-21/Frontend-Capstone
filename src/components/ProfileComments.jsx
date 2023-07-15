@@ -59,7 +59,7 @@ function ProfileComments() {
                 </p>
 
                 <UpdateCommentButton
-                  id={commentEl.origReviewId}
+                  id={commentEl.commentId}
                   filteredComments={filteredComments}
                   setFilteredComments={setFilteredComments}
                 />

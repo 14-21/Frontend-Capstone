@@ -135,6 +135,7 @@ function App() {
                   isAdmin={isAdmin}
                   setIsAdmin={setIsAdmin}
                   allGames={allGames}
+                  setAllGames={setAllGames}
                 />
               }
             />
