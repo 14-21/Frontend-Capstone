@@ -72,3 +72,14 @@ Link {
   /* Shouldn't be white text */
   text-decoration: none;
 }
+
+#admin-allgames {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) 10rem;
+  gap: 3rem;
+  justify-items: left;
+}
+
+.admin-game-card {
+  height: 5rem;
+}

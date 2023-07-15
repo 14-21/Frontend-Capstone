@@ -74,11 +74,15 @@
 }
 
 .bottomNav-h3 {
-  color: #fff;
   font-size: 1rem;
   margin: 0;
 }
 
-a {
-  text-decoration: none;
+.bottomNav-Link {
+  color: #fff;
+}
+
+.insta-background {
+  padding: 0 1px 0 1px;
+  border-radius: 10px;
 }

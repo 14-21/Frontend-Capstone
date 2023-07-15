@@ -26,8 +26,13 @@ import BottomNav from "./components/BottomNav";
 import UserReviews from "./components/UserReviews";
 import StarRating from "./components/StarRating";
 import Admin from "./components/Admin";
+
 import CreateGameButton from "./components/CreateGameButton";
+
+import AdminUsers from "./components/AdminAllUsers";
+
 import jwtDecode from "jwt-decode";
+import CreateGame from "./components/CreateGame";
 export const LoginContext = createContext();
 
 const BASE_URL = "http://localhost:8080";
@@ -43,10 +48,8 @@ function App() {
       let decodedToken = jwtDecode(localStorage.getItem("token"));
       setIsLoggedIn({
         username: decodedToken.username,
-
       });
     }
-   
   }, []);
 
   // Fetching allAdmins && admin status
@@ -56,24 +59,24 @@ function App() {
         const response = await fetch(`${BASE_URL}/adminusers`);
         const result = await response.json();
         //logging all admin objects
-        console.log(result)
+        // console.log(result);
         //Filtering thru allAdmins to match username to isLoggedIn.username
         const filteredAdmin = result.find((e) => {
           if (e.username === isLoggedIn) {
             return true;
           } else {
-            console.log(e.username, "Username do not match")
+            // console.log(e.username, "Username do not match");
           }
-          
-          console.log(isLoggedIn)
+
+          // console.log(isLoggedIn);
         });
         //If isLoggedIn.username matches filteredAdmin -- setting admin state.
         if (isLoggedIn && filteredAdmin) {
           setIsAdmin(true);
         } else {
           setIsAdmin(false);
-          console.log(isLoggedIn);
-          console.log(isAdmin)
+          // console.log(isLoggedIn);
+          // console.log(isAdmin);
         }
       } catch (error) {
         console.log(error);
@@ -95,7 +98,7 @@ function App() {
     }
     fetchGames();
   }, []);
- 
+
   return (
     <>
       {/* Giving access to login info to all components */}
@@ -109,7 +112,10 @@ function App() {
             />
             <Route path="/profile/user" element={<Profile />} />
             <Route path="/star" element={<StarRating />} />
-            <Route path="/myreviews" element={<UserReviews allGames={allGames}/>} />
+            <Route
+              path="/myreviews"
+              element={<UserReviews allGames={allGames} />}
+            />
             <Route path="/mycomments" element={<ProfileComments />} />
             <Route
               path="/games"
@@ -124,8 +130,39 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
 
-            <Route path="/admin" element={<Admin isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>} />
-            <Route path="/admin/creategame" element={<CreateGameButton />}/>
+
+            <Route
+              path="/admin"
+              element={
+                <Admin
+                  isAdmin={isAdmin}
+                  setIsAdmin={setIsAdmin}
+                  allGames={allGames}
+                />
+              }
+            />
+
+            <Route
+              path="/creategame"
+              element={
+                <CreateGame
+                  isAdmin={isAdmin}
+                  setIsAdmin={setIsAdmin}
+                  allGames={allGames}
+                />
+              }
+            />
+            {/* <Route
+              path="/adminusers"
+              element={
+                <AdminUsers
+                  isAdmin={isAdmin}
+                  setIsAdmin={setIsAdmin}
+                  allGames={allGames}
+                />
+              }
+            /> */}
+
 
             <Route
               path="/adventure"

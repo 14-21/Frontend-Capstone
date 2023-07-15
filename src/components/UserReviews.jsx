@@ -6,12 +6,13 @@ import "./userReviews.css";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DeleteReviewButton from "./DeleteReviewButton";
+import { UpdateReviewsButton } from "./UpdateReviewButton";
 
 const BASE_URL = "http://localhost:8080";
 
-
 function UserReviews(props) {
   const [filteredReview, setFilteredReview] = useState("");
+
   const [reviewGameTitle, setReviewGameTitle] = useState("")
 
 // useEffect(() => {
@@ -26,26 +27,33 @@ function UserReviews(props) {
 // }, [])
 
 
+
+
   // useEffect(() => {
   //   if (props.allGames.gameId === filteredReview.reviewGameId){
   //     console.log(filteredReview)
   //     setReviewGameTitle(props.allGames.title);
+
   //     console.log(reviewGameTitle)
   //   } 
+
+
   // }, []);
 
   useEffect(() => {
     async function userReviewPage() {
       try {
         const token = localStorage.getItem("token");
-        const response = await fetch(`${BASE_URL}/api/games/user/specific/reviews`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          
-        });
-        
+        const response = await fetch(
+          `${BASE_URL}/api/games/user/specific/reviews`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
         // Outside of fetch starting here.
         const result = await response.json();
 
@@ -58,9 +66,17 @@ function UserReviews(props) {
       }
     }
     userReviewPage();
+
   }, []); 
 
 
+
+  // useEffect(() => {
+  //   if (props.allGames.gameId === filteredReview.reviewGameId) {
+  //     setReviewGameTitle(props.allGames.title);
+  //     console.log(reviewGameTitle)
+  //   }
+  // }, []);
 
 
   return (
@@ -84,6 +100,7 @@ function UserReviews(props) {
           <h1>Your Reviews</h1>
         </div>
         {filteredReview && filteredReview.length ? (
+
         filteredReview.map((reviewEl) => {
         return (
         <div>
@@ -94,24 +111,26 @@ function UserReviews(props) {
     
           <StarRating  userscore={reviewEl.userscore} gameId={reviewEl.reviewGameId} />
 
-          <button className="review-field-buttons">
-          Edit <FontAwesomeIcon icon={faArrowRight} size="1x" />
-          </button> 
+                <UpdateReviewsButton
+                  id={reviewEl.reviewId}
+                  filteredReview={filteredReview}
+                  setFilteredReview={setFilteredReview}
+                />
 
-
-          <DeleteReviewButton id={reviewEl.reviewId} filteredReview={filteredReview} setFilteredReview={setFilteredReview}/> 
-         
-
-        </div>
+                <DeleteReviewButton
+                  id={reviewEl.reviewId}
+                  filteredReview={filteredReview}
+                  setFilteredReview={setFilteredReview}
+                />
+              </div>
             );
-        })
-      ) : (
-        <p>No Reviews Yet</p>
-      )}
+          })
+        ) : (
+          <p>No Reviews Yet</p>
+        )}
       </div>
     </>
   );
 }
 
 export default UserReviews;
-

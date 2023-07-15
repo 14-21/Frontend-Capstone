@@ -6,12 +6,10 @@ import { useState, useEffect } from "react";
 import { fetchUserData } from "../api-routes";
 import { Link } from "react-router-dom";
 
-
 function Profile() {
   const [username, setUsername] = useState({});
   const [userData, setUserData] = useState([]);
   const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
-
 
   //Fetching username so it can display on each user profile page.
   useEffect(() => {
@@ -19,7 +17,6 @@ function Profile() {
     if (user) {
       // console.log(user);
       setUsername(JSON.parse(user));
-     
     }
   }, []);
 
@@ -32,11 +29,8 @@ function Profile() {
           const renderUser = await fetchUserData(token);
           console.log(renderUser);
           setUserData(renderUser);
-          setIsLoggedIn(renderUser.username)
-          console.log(isLoggedIn)
-          
-     
-          
+          setIsLoggedIn(renderUser.username);
+          console.log(isLoggedIn);
         }
       } catch (error) {
         console.log(error);
@@ -54,7 +48,9 @@ function Profile() {
           </li>
           <li>
             {" "}
-            <Link to="/myreviews"  >Reviews</Link>
+
+            <Link to="/myreviews">Reviews</Link>
+
           </li>
         </ul>
         <div className="border-line"></div>

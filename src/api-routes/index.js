@@ -39,7 +39,6 @@ export const registerUser = async (
   return;
 };
 
-
 // Fetch User Data
 export const fetchUserData = async (token) => {
   try {
@@ -51,7 +50,7 @@ export const fetchUserData = async (token) => {
       },
     });
     const result = await response.json();
-    console.log(result);
+    // console.log(result);
     return result;
   } catch (error) {
     console.log(error);
@@ -68,8 +67,6 @@ export const fetchReviews = async () => {
     console.log(error);
   }
 };
-
-
 
 export const updateReview = async () => {
   try {
@@ -100,7 +97,9 @@ export const updateReview = async () => {
 
 export const fetchComments = async (origReviewId) => {
   try {
-    const response = await fetch(`${BASE_URL}/games/users/comments/${origReviewId}`);
+    const response = await fetch(
+      `${BASE_URL}/games/users/comments/${origReviewId}`
+    );
     const result = await response.json();
     return result;
   } catch (error) {
