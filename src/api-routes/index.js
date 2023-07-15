@@ -42,6 +42,23 @@ export const registerUser = async (
 // Fetch User Data
 export const fetchUserData = async (token) => {
   try {
+    const response = await fetch(`${BASE_URL}/games/get/user`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const result = await response.json();
+    // console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchAllUserData = async (token) => {
+  try {
     const response = await fetch(`${BASE_URL}/games/users`, {
       method: "GET",
       headers: {
