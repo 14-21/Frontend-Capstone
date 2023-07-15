@@ -21,33 +21,7 @@ function CreateReviewButton(props) {
       console.log(error);
     }
   };
-
-  async function createReview() {
-    try {
-      const token = localStorage.getItem("token");
-      const response = await fetch(`${BASE_URL}/games/post/review`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          reviewbody: reviewbody,
-          userscore: starRating,
-          reviewGameId: props.selectedGame,
-        }),
-      });
-      // Outside of fetch starting here.
-      const result = await response.json();
-
-      setReviewBody(result.reviewbody);
-      setStarRating(result.starRating);
-      console.log(result);
-      // return result;
-    } catch (error) {
-      console.log(error);
-    }
-
+  
     async function createReview() {
       try {
         console.log(props.selectedGame, reviewbody, starRating);
@@ -112,5 +86,5 @@ function CreateReviewButton(props) {
       </div>
     );
   }
-}
+
 export default CreateReviewButton;
