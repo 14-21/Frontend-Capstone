@@ -26,7 +26,8 @@ import BottomNav from "./components/BottomNav";
 import UserReviews from "./components/UserReviews";
 import StarRating from "./components/StarRating";
 import Admin from "./components/Admin";
-// import AdminUsers from "./components/AdminAllUsers";
+import AdminAllUsers from "./components/AdminAllUsers";
+
 import jwtDecode from "jwt-decode";
 import CreateGame from "./components/CreateGame";
 import AdminUsers from "./components/AdminAllUsers";
@@ -140,7 +141,9 @@ function App() {
 
             <Route
               path="/adminusers"
-              element={<AdminUsers isAdmin={isAdmin} setIsAdmin={setIsAdmin} />}
+              element={
+                <AdminAllUsers isAdmin={isAdmin} setIsAdmin={setIsAdmin} />
+              }
             />
 
             <Route
@@ -150,6 +153,7 @@ function App() {
                   isAdmin={isAdmin}
                   setIsAdmin={setIsAdmin}
                   allGames={allGames}
+                  setAllGames={setAllGames}
                 />
               }
             />

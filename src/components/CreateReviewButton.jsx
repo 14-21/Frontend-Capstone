@@ -6,7 +6,6 @@ import "./reviews.css";
 const BASE_URL = "http://localhost:8080";
 
 function CreateReviewButton(props) {
-  const id = props.id;
   const [reviewbody, setReviewBody] = useState("");
   //State for userscore
   const [starRating, setStarRating] = useState(0);
@@ -41,11 +40,11 @@ function CreateReviewButton(props) {
       });
       // Outside of fetch starting here.
       const result = await response.json();
-
       const filteredReviewCopy = [...props.filteredReview];
       filteredReviewCopy.unshift(result);
+
       props.setFilteredReview(filteredReviewCopy);
-      // console.log(filteredReviewCopy)
+      console.log(filteredReviewCopy);
 
       setReviewBody("");
       setStarRating(0);
@@ -61,7 +60,7 @@ function CreateReviewButton(props) {
       <form onSubmit={handleSubmit}>
         <label htmlFor="new review"></label>
         <input
-          className="review-body"
+          id="review-body"
           name="reviewbody"
           type="text"
           placeholder="What did you think of the game?"
@@ -77,6 +76,7 @@ function CreateReviewButton(props) {
           gameId={null}
           setStarRating={setStarRating}
         />
+
         <div id="reviewbutton-container">
           <button className="button-reviews" type="submit">
             Review

@@ -3,10 +3,14 @@ import "../index.css";
 import { LoginContext } from "../App";
 import { useContext } from "react";
 import { useState, useEffect } from "react";
-import { fetchUserData } from "../api-routes";
+import CreateGameButton from "./CreateGameButton";
+// import { fetchUserData } from "../api-routes";
 import { Link } from "react-router-dom";
 
-function CreateGame() {
+function CreateGame(props) {
+  const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
+
+
   return (
     <div className="profile-nav">
       <ul>
@@ -23,7 +27,11 @@ function CreateGame() {
         </li>
       </ul>
       <div className="border-line"></div>
-      <div></div>
+      
+      {/* CREATE GAME FORM */}
+
+      <CreateGameButton allGames={props.allGames} setAllGames={props.setAllGames}/>
+
     </div>
   );
 }
