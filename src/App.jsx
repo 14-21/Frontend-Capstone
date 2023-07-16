@@ -98,7 +98,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div id="main-container">
       {/* Giving access to login info to all components */}
       <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
         <Navbar isAdmin={isAdmin} />
@@ -197,7 +197,7 @@ function App() {
         </div>
       </LoginContext.Provider>
       <BottomNav />
-    </>
+    </div>
   );
 }
 

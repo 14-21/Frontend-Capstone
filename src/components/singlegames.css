@@ -6,8 +6,6 @@
   justify-content: center;
   margin: 2rem 20rem 15rem 20rem;
   padding: 2rem;
-
-  border: solid orange;
 }
 
 #selected-pictureheader {
@@ -21,7 +19,7 @@
 }
 
 #picheader {
-  width: auto;
+  max-width: 40rem;
   height: auto;
   /* border: solid purple; */
 }
@@ -118,8 +116,6 @@
   justify-content: center;
   align-items: center;
   margin: 2rem;
-
-  border: solid red;
 }
 
 #ourReview-title {
@@ -127,8 +123,6 @@
   letter-spacing: 0.25rem;
   font-size: 3rem;
   margin: 1rem;
-
-  border: solid blue;
 }
 
 #our-review {
