@@ -61,6 +61,7 @@ function CreateReviewButton(props) {
         <label htmlFor="new review"></label>
         <input
           id="review-body"
+          className="reviw-input"
           name="reviewbody"
           type="text"
           placeholder="What did you think of the game?"
