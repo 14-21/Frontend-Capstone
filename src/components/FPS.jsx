@@ -7,6 +7,7 @@ function FPS(props) {
         <section id="genre-mainpage">
          <br/>
          <br/>
+         <h1 id="genre-pages-header">FPS</h1>
          <br/>
          <br/>
             <div id="genre-subcontainer">

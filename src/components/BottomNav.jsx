@@ -44,7 +44,7 @@ function BottomNav() {
         </a>
       </div>
       <div className="links-container">
-        <Link className="bottomNav-Link" to="/home">
+        <Link className="bottomNav-Link" to="/">
           Home
         </Link>
         <Link className="bottomNav-Link" to="/profile/user">

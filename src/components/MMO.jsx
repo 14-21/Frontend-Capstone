@@ -7,6 +7,7 @@ function MMO(props) {
         <section id="genre-mainpage">
          <br/>
          <br/>
+         <h1 id="genre-pages-header">MMO</h1>
          <br/>
          <br/>
             <div id="genre-subcontainer">
