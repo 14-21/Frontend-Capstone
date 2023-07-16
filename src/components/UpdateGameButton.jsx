@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const BASE_URL = "http://localhost:8080";
 
 
-function CreateGameButton(props) {
+function UpdateGameButton(props) {
+//Game id
+const id = props.id
+console.log(props.isAdmin)
 const [title, setTitle] = useState("");
 const [platform, setPlatform] = useState("");
 const [genre, setGenre] = useState("");
@@ -28,7 +29,7 @@ const [notfor, setNotFor] = useState("");
         e.preventDefault()
        
         try {
-            const result = await createNewGame(); // Passing our async function in from below.
+            const result = await updateGame(); // Passing our async function in from below.
      
         } catch (error) {
                 console.log(error)
@@ -36,13 +37,13 @@ const [notfor, setNotFor] = useState("");
     }
 
 
-    async function createNewGame() {
+    async function updateGame() {
         try {
-            
             const token = localStorage.getItem("token");
+            props.setIsAdmin(true)
 
-            const response = await fetch(`${BASE_URL}/games/create/game`, {
-                method: "POST",
+            const response = await fetch(`${BASE_URL}/api/games/updategame/`, {
+                method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`
@@ -63,7 +64,8 @@ const [notfor, setNotFor] = useState("");
                     synopsis: synopsis,
                     about: about,
                     forgamer: forgamer,
-                    notfor: notfor 
+                    notfor: notfor,
+                    gameId: id,
                 }),
             })
             // OUTSIDE FETCH
@@ -281,9 +283,9 @@ const [notfor, setNotFor] = useState("");
                 />
                 </label>
 
-            <div id="editgame-button-container">
-                <button onSubmit={handleSubmit} type="submit" className="review-field-buttons">
-                 Edit ➡ <FontAwesomeIcon icon={faArrowRight} size="1x" />
+            <div id="creategame-button-container">
+                <button className="button-creategame" type="submit">
+                 Edit
                 </button>
              </div>         
             </form>
@@ -293,4 +295,4 @@ const [notfor, setNotFor] = useState("");
 }
 
 
-export default CreateGameButton;
+export default UpdateGameButton;
