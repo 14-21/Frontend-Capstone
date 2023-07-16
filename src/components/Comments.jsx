@@ -7,11 +7,10 @@ import StarRating from "./StarRating";
 import CreateCommentButton from "./CreateCommentButton";
 import "./reviews.css";
 import "./comments.css";
+import "./profile.css";
 
 function Comments(props) {
   const [filteredComment, setFilteredComment] = useState([]);
-
-
 
   useEffect(() => {
     const getComments = async () => {
@@ -26,8 +25,6 @@ function Comments(props) {
     getComments();
   }, []);
 
-
-
   useEffect(() => {
     if (filteredComment) {
       const foundComment = filteredComment.filter((e) => {
@@ -38,7 +35,7 @@ function Comments(props) {
           return false;
         }
       });
-      console.log(filteredComment)
+      console.log(filteredComment);
       if (foundComment) {
         setFilteredComment(foundComment);
       } else {
@@ -52,21 +49,25 @@ function Comments(props) {
       <div className="title-center"></div>
       {filteredComment && filteredComment.length ? (
         filteredComment.map((commentEl) => {
-          // console.log(commentEl); 
-         
-            return ( 
-               <div>
-                  <p className="comment-paragraph" id="comment-user">
-                      {commentEl.commentbody}
-                  </p>
-              </div>
-          ); 
-       })
+          // console.log(commentEl);
+
+          return (
+            <div>
+              <p className="review-paragraph" id="comment-user">
+                {commentEl.commentbody}
+              </p>
+              <div className="border-line"></div>
+            </div>
+          );
+        })
       ) : (
         <p>No Comments Yet</p>
       )}
-      <CreateCommentButton filteredComment={filteredComment} setFilteredComment={setFilteredComment} reviewId={props.reviewId}/>
-
+      <CreateCommentButton
+        filteredComment={filteredComment}
+        setFilteredComment={setFilteredComment}
+        reviewId={props.reviewId}
+      />
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import StarRating from "./StarRating";
-import "./deleteReviewButton.css";
 import "./reviews.css";
 
 const BASE_URL = "http://localhost:8080";
@@ -76,7 +75,6 @@ function CreateReviewButton(props) {
           gameId={null}
           setStarRating={setStarRating}
         />
-
         <div id="reviewbutton-container">
           <button className="button-reviews" type="submit">
             Review

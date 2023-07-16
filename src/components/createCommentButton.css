@@ -1,11 +1,11 @@
-.button-comments {
-  margin-top: 1rem;
-}
-
 .review-body,
 .review-paragraph {
   height: 10rem;
   width: 50rem;
   display: flex;
   margin-top: 4rem;
+}
+
+.review-btn {
+  cursor: pointer;
 }

@@ -28,6 +28,10 @@
 .twitter {
   color: rgb(29, 161, 242);
 }
+
+.instagram {
+  color: #fff;
+}
 .insta-background {
   background: #f09433;
   background: -moz-linear-gradient(
@@ -83,6 +87,6 @@
 }
 
 .insta-background {
-  padding: 0 1px 0 1px;
+  padding: 0 2px 0 2px;
   border-radius: 10px;
 }
