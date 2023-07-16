@@ -9,7 +9,6 @@ import CreateReviewButton from "./CreateReviewButton";
 
 function Reviews(props) {
   const [review, setReview] = useState([]);
-  const [user, setUser] = useState([])
   const [filteredReview, setFilteredReview] = useState([]);
 
   const { id } = useParams();
