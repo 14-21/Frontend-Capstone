@@ -37,22 +37,22 @@ export const UpdateCommentButton = (props) => {
         //NEED TO ADD IDS
         body: JSON.stringify({
           commentbody: commentbody,
-          origReviewId: props.filteredComments.origReviewId,
-          origUserId: props.filteredComments.origUserId
+          origReviewId: props.filteredComment.origReviewId,
+          origUserId: props.filteredComment.origUserId
         }),
       });
       const result = await response.json();
       console.log(result);
 
-      const updatedAllComments = props.filteredComments.filter((singleComment) => {
+      const updatedAllComment = props.filteredComment.filter((singleComment) => {
         if (singleComment.commentId !== id) {
           return singleComment;
         }
       });
 
 
-      const newUpdatedAllComments = [...updatedAllComments, result];
-      props.setFilteredComments(newUpdatedAllComments);
+      const newUpdatedAllComment = [...updatedAllComment, result];
+      props.setFilteredComment(newUpdatedAllComment);
       
       console.log(result);
       return result;
