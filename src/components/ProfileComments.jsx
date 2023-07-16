@@ -2,12 +2,13 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./userReviews.css";
+import DeleteComment from "./DeleteComment";
 import UpdateCommentButton from "./UpdateCommentButton";
 
 const BASE_URL = "http://localhost:8080";
 
 function ProfileComments() {
-  const [filteredComments, setFilteredComments] = useState([]);
+  const [filteredComment, setFilteredComment] = useState([]);
 
   useEffect(() => {
     async function userCommentPage() {
@@ -21,7 +22,7 @@ function ProfileComments() {
         });
         // Outside of fetch starting here.
         const result = await response.json();
-        setFilteredComments(result);
+        setFilteredComment(result);
       } catch (error) {
         console.log(error);
       }
@@ -49,8 +50,8 @@ function ProfileComments() {
         <div className="user-title-center">
           <h1>Your Comments</h1>
         </div>
-        {filteredComments && filteredComments.length ? (
-          filteredComments.map((commentEl) => {
+        {filteredComment && filteredComment.length ? (
+          filteredComment.map((commentEl) => {
             return (
               <div>
                 <h2 className="user-gametitle">Title</h2>
@@ -60,9 +61,19 @@ function ProfileComments() {
 
                 <UpdateCommentButton
                   id={commentEl.commentId}
-                  filteredComments={filteredComments}
-                  setFilteredComments={setFilteredComments}
+                  filteredComment={filteredComment}
+                  setFilteredComment={setFilteredComment}
                 />
+
+              {/* Test again */}
+                <DeleteComment  
+                  id={commentEl.commentId}
+                  filteredComment={filteredComment}
+                  setFilteredComment={setFilteredComment}
+                />
+
+
+
               </div>
             );
           })

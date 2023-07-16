@@ -71,7 +71,7 @@ function Reviews(props) {
           setFilteredReview={setFilteredReview}
         />
       </div>
-      <p>test</p>
+  
     </div>
   );
 }
