@@ -283,7 +283,7 @@ const [notfor, setNotFor] = useState("");
 
             <div id="editgame-button-container">
                 <button onSubmit={handleSubmit} type="submit" className="review-field-buttons">
-                 Edit ➡ <FontAwesomeIcon icon={faArrowRight} size="1x" />
+                 Edit <FontAwesomeIcon icon={faArrowRight} size="1x" />
                 </button>
              </div>         
             </form>
