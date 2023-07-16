@@ -65,15 +65,12 @@ function ProfileComments() {
                   setFilteredComment={setFilteredComment}
                 />
 
-              {/* Test again */}
-                <DeleteComment  
+                {/* Test again */}
+                <DeleteComment
                   id={commentEl.commentId}
                   filteredComment={filteredComment}
                   setFilteredComment={setFilteredComment}
                 />
-
-
-
               </div>
             );
           })

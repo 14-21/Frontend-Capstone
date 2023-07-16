@@ -60,12 +60,17 @@ h3 {
 }
 
 button {
-  margin-top: 3rem;
+  margin-top: 1rem;
   height: 2.3rem;
   width: 6.2rem;
   background-color: #fff;
   border-radius: 4px;
-  border: 1px solid #fea828;
+  border: 1px solid;
+  border-left: 1px solid #fea828;
+  border-bottom: 1px solid #fea828;
+  border-top: none;
+  border-right: none;
+  cursor: pointer;
 }
 
 Link {

@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "./deleteReviewButton.css";
 import "./createCommentButton.css";
 import "./reviews.css";
 
 const BASE_URL = "http://localhost:8080";
 
-
 function CreateCommentButton(props) {
   const [commentbody, setCommentBody] = useState("");
-  const [user, setUser] = useState("")
-
+  const [user, setUser] = useState("");
 
   // Pulling local storage for userId
   useEffect(() => {
@@ -20,14 +17,12 @@ function CreateCommentButton(props) {
     }
   }, []);
 
-
   // submit function passed in OnSubmit in form below.
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
       const result = await createComment();
-
     } catch (error) {
       console.log(error);
     }
@@ -35,7 +30,6 @@ function CreateCommentButton(props) {
 
   async function createComment() {
     try {
-  
       const token = localStorage.getItem("token");
       console.log(token);
 
@@ -48,7 +42,7 @@ function CreateCommentButton(props) {
         body: JSON.stringify({
           commentbody: commentbody,
           origUserId: user.id,
-          origReviewId: props.reviewId
+          origReviewId: props.reviewId,
         }),
       });
       // Outside of fetch starting here.
@@ -61,34 +55,30 @@ function CreateCommentButton(props) {
       console.log(filteredCommentCopy);
 
       setCommentBody("");
-   
+
       console.log(result);
-  
     } catch (error) {
       console.log(error);
     }
   }
 
-
-
-
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className="form-container" onSubmit={handleSubmit}>
         <label htmlFor="new comment"></label>
         <input
-          id="comment body"
+          id="review-body"
           name="commentbody"
           type="text"
           placeholder="Leave a comment."
           value={commentbody}
           onChange={(e) => {
-            console.log(e.target.value)
+            console.log(e.target.value);
             setCommentBody(e.target.value);
           }}
         />
 
-        <button className="button-comments" type="submit">
+        <button className="button-reviews" type="submit">
           Comment
         </button>
       </form>

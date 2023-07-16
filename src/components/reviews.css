@@ -5,14 +5,18 @@
   border: solid blue;
 }
 
-.review-body,
+#review-body {
+  height: 5rem;
+  width: 30rem;
+  margin-top: 2rem;
+}
+
 .review-paragraph {
   height: 10rem;
   width: 50rem;
   display: flex;
   flex-direction: column;
   margin-top: 4rem;
-  border: solid red;
 }
 
 .review-container {
@@ -20,15 +24,12 @@
   flex-direction: column;
 }
 
-.review-input {
-  height: 5rem;
-}
-
 input::placeholder {
   color: rgba(0, 0, 0, 0.833);
 }
 
 .review-paragraph {
+  font-size: 1.4rem;
   margin-top: 1rem;
   margin-bottom: -6rem;
 }
@@ -38,4 +39,16 @@ input::placeholder {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#comment-user {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: rgb(75, 75, 75);
+  padding-left: 4rem;
 }
