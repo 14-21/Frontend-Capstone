@@ -2,9 +2,10 @@ import "./deleteReviewButton.css";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const BASE_URL = "http://localhost:8080/";
+const BASE_URL = "http://localhost:8080";
 
 function DeleteCommentButton(props) {
+  console.log(props.id);
   const id = props.id;
   // console.log(props)
   const handleSubmit = async (e) => {

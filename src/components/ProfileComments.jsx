@@ -66,7 +66,7 @@ function ProfileComments() {
                 />
 
                 <DeleteCommentButton
-                  id={commentEl.origReviewId}
+                  id={commentEl.commentId}
                   filteredComments={filteredComments}
                   setFilteredComments={setFilteredComments}
                 />
