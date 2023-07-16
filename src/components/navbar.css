@@ -52,6 +52,7 @@ nav {
   display: flex;
   width: 30rem;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .nav-bar-profile-picture {
@@ -77,5 +78,5 @@ a {
   width: 4.5rem;
   height: 1.5rem;
   border: none;
-  margin-top: 1rem;
+  margin: 0;
 }
