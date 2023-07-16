@@ -27,6 +27,7 @@ import UserReviews from "./components/UserReviews";
 import StarRating from "./components/StarRating";
 import Admin from "./components/Admin";
 import AdminAllUsers from "./components/AdminAllUsers";
+import UpdateGameButton from "./components/UpdateGameButton";
 
 import jwtDecode from "jwt-decode";
 import CreateGame from "./components/CreateGame";
@@ -56,14 +57,14 @@ function App() {
       try {
         const response = await fetch(`${BASE_URL}/adminusers`);
         const result = await response.json();
-        //logging all admin objects
-        // console.log(result);
+        // logging all admin objects
+        console.log(result);
         //Filtering thru allAdmins to match username to isLoggedIn.username
         const filteredAdmin = result.find((e) => {
           if (e.username === isLoggedIn) {
             return true;
           } else {
-            // console.log(e.username, "Username do not match");
+            console.log(e.username, "Username do not match");
           }
 
           // console.log(isLoggedIn);
@@ -74,7 +75,7 @@ function App() {
         } else {
           setIsAdmin(false);
           // console.log(isLoggedIn);
-          // console.log(isAdmin);
+          console.log(isAdmin);
         }
       } catch (error) {
         console.log(error);
@@ -125,7 +126,7 @@ function App() {
               path="/games/:id"
               element={<SingleGame allGames={allGames} />}
             />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>} />
             <Route path="/register" element={<Register />} />
 
             <Route
@@ -155,9 +156,10 @@ function App() {
                   setIsAdmin={setIsAdmin}
                   allGames={allGames}
                   setAllGames={setAllGames}
-                />
-              }
-            />
+                />}/>
+
+            <Route path="/games/edit/:id" element={<UpdateGameButton allGames={allGames} setAllGames={setAllGames} isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>}/>  
+
             {/* <Route
               path="/adminusers"
               element={

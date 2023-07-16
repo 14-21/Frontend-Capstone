@@ -8,6 +8,7 @@ import ProfileNav from "./ProfileNav";
 function Navbar(props) {
   const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
   const navigate = useNavigate();
+  console.log(props.isAdmin)
 
   return (
     <>
