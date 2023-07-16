@@ -87,6 +87,7 @@ function Login() {
           Submit
         </button>
       </form>
+      {/* not updating error in field */}
       {loginError ? <p>{loginError}</p> : null}
     </div>
   );

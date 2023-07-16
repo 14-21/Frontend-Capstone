@@ -75,6 +75,10 @@ function Admin(props) {
             {" "}
             <Link to="/adminusers">All Users</Link>
           </li>
+          <li>
+            {" "}
+            <Link to="/profile/user">Profile</Link>
+          </li>
         </ul>
         <div className="border-line"></div>
         <div></div>
@@ -104,9 +108,12 @@ function Admin(props) {
                 <Link to={`/games/${e.gameId}`}>
                   <p id="gametitle">{e.title}</p>
                 </Link>
-                <DeleteGameButton id={e.gameId} setAllGames={props.setAllGames} allGames={props.allGames}/>
+                <DeleteGameButton
+                  id={e.gameId}
+                  setAllGames={props.setAllGames}
+                  allGames={props.allGames}
+                />
               </div>
-              
             );
           })
         ) : (
