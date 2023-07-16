@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const BASE_URL = "http://localhost:8080";
 
@@ -6,6 +7,8 @@ const BASE_URL = "http://localhost:8080";
 function UpdateGameButton(props) {
 //Game id
 const id = props.id
+const navigate = useNavigate();
+
 console.log(props.isAdmin)
 const [title, setTitle] = useState("");
 const [platform, setPlatform] = useState("");
@@ -42,7 +45,7 @@ const [notfor, setNotFor] = useState("");
             const token = localStorage.getItem("token");
             props.setIsAdmin(true)
 
-            const response = await fetch(`${BASE_URL}/api/games/updategame/`, {
+            const response = await fetch(`${BASE_URL}/api/games/updategame`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -96,7 +99,7 @@ const [notfor, setNotFor] = useState("");
             setForGamer("");
             setNotFor("");
             
-
+            navigate("/admin")
         } catch (error) {
             console.log(error)
         }

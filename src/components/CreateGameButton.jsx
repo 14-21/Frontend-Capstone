@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 
 const BASE_URL = "http://localhost:8080";
 
@@ -22,6 +23,8 @@ const [synopsis, setSynopsis] = useState("");
 const [about, setAbout] = useState("");
 const [forgamer, setForGamer] = useState("");
 const [notfor, setNotFor] = useState("");
+
+const navigate = useNavigate();
 
  // submit function passed in OnSubmit in form below.
     const handleSubmit = async(e) => {
@@ -94,7 +97,7 @@ const [notfor, setNotFor] = useState("");
             setForGamer("");
             setNotFor("");
             
-
+            navigate("/admin")    
         } catch (error) {
             console.log(error)
         }
@@ -283,7 +286,7 @@ const [notfor, setNotFor] = useState("");
 
             <div id="editgame-button-container">
                 <button onSubmit={handleSubmit} type="submit" className="review-field-buttons">
-                 Edit <FontAwesomeIcon icon={faArrowRight} size="1x" />
+                 Create Game <FontAwesomeIcon icon={faArrowRight} size="1x" />
                 </button>
              </div>         
             </form>

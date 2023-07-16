@@ -6,6 +6,7 @@ function Simulation(props) {
         <section id="genre-mainpage">
          <br/>
          <br/>
+         <h1 id="genre-pages-header">Simulation</h1>
          <br/>
          <br/>
             <div id="genre-subcontainer">

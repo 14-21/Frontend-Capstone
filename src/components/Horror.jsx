@@ -7,6 +7,7 @@ function Horror(props) {
         <section id="genre-mainpage">
          <br/>
          <br/>
+         <h1 id="genre-pages-header">Horror</h1>
          <br/>
          <br/>
             <div id="genre-subcontainer">

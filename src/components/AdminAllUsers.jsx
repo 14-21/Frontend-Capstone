@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { fetchAllUserData } from "../api-routes";
 import { Link } from "react-router-dom";
 
-function AdminUsers() {
+function AdminAllUsers() {
   const [userData, setUserData] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
   const [username, setUsername] = useState([]);
@@ -45,11 +45,12 @@ function AdminUsers() {
     const getUserData = async () => {
       try {
         const token = localStorage.getItem("token");
+        console.log(token)
         if (token) {
           const renderUser = await fetchAllUserData(token);
           console.log(renderUser);
           setUserData(renderUser);
-          setIsLoggedIn(renderUser.username);
+          setIsLoggedIn(renderUser);
         }
       } catch (error) {
         console.log(error);
@@ -113,4 +114,4 @@ function AdminUsers() {
   );
 }
 
-export default AdminUsers;
+export default AdminAllUsers;

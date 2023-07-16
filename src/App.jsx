@@ -28,10 +28,8 @@ import StarRating from "./components/StarRating";
 import Admin from "./components/Admin";
 import AdminAllUsers from "./components/AdminAllUsers";
 import UpdateGameButton from "./components/UpdateGameButton";
-
 import jwtDecode from "jwt-decode";
 import CreateGame from "./components/CreateGame";
-import AdminUsers from "./components/AdminAllUsers";
 export const LoginContext = createContext();
 
 const BASE_URL = "http://localhost:8080";
@@ -74,7 +72,7 @@ function App() {
           setIsAdmin(true);
         } else {
           setIsAdmin(false);
-          // console.log(isLoggedIn);
+          console.log(isLoggedIn);
           console.log(isAdmin);
         }
       } catch (error) {

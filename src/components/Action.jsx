@@ -7,6 +7,7 @@ function Action(props) {
         <section id="genre-mainpage">
          <br/>
          <br/>
+         <h1 id="genre-pages-header">Action</h1>
          <br/>
          <br/>
             <div id="genre-subcontainer">
