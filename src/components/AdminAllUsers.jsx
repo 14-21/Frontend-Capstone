@@ -24,18 +24,18 @@ function AdminUsers() {
   });
 
   // Fetching all games from A-Z
-  const handleClick = () => {
-    const arrayUsernames = allUsers.values(username);
-    const sortedNames = arrayUsernames.sort((a, b) => a - b);
+  // const handleClick = () => {
+  //   const arrayUsernames = allUsers.values(username);
+  //   const sortedNames = arrayUsernames.sort((a, b) => a - b);
 
-    return sortedNames;
-  };
+  //   return sortedNames;
+  // };
 
   //Fetching username so it can display on each user profile page.
   useEffect(() => {
     const user = localStorage.getItem("user");
     if (user) {
-      // console.log(user);
+      console.log(user);
       setUsername(JSON.parse(user));
     }
   }, []);
@@ -94,13 +94,17 @@ function AdminUsers() {
         ></input>
       </form>
 
-      <div id="admin-allusers">
+      <div id="admin-allgames">
         {filteredUser.length ? (
           filteredUser.map((e) => {
             return (
-              <div className="admin-game-card" key={e.gameId}>
+              <div className="admin-game-card admin-user-card" key={e.gameId}>
                 <Link to={`/games/users/${e.userId}`}>
-                  <p id="gametitle">{e.username}</p>
+                  <ul className="admin-user-list">
+                    <li className="user-field">{e.fname}</li>
+                    <li className="user-field">{e.lname}</li>
+                    <li className="user-field">UserId: {e.userId}</li>
+                  </ul>
                 </Link>
               </div>
             );

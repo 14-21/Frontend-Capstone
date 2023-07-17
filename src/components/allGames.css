@@ -35,6 +35,11 @@
   /* border: solid red; */
 }
 
+.centerbutton {
+  display: flex;
+  justify-content: center;
+}
+
 .single-game-card {
   height: 20rem;
   width: 18rem;

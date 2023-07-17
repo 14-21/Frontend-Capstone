@@ -97,7 +97,26 @@ Link {
   gap: 3rem;
   justify-items: left;
 }
-
-.admin-game-card {
+/* move to dedicated admin page css */
+.admin-user-card {
+  display: flex;
+  background-color: rgb(219, 220, 221);
+  padding: 0.5rem 4rem 0.5rem 1rem;
+  border-radius: 10px;
   height: 5rem;
+  width: 15rem;
+}
+.admin-user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.user-field {
+  color: black;
+  font-size: 1rem;
+  font-weight: bolder;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+  height: 1rem;
 }
