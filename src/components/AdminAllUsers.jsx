@@ -94,18 +94,18 @@ function AdminUsers() {
         ></input>
       </form>
 
-      <div id="admin-allgames">
+      <div id="admin-allUsers">
         {filteredUser.length ? (
           filteredUser.map((e) => {
             return (
               <div className="admin-game-card admin-user-card" key={e.gameId}>
-                <Link to={`/games/users/${e.userId}`}>
-                  <ul className="admin-user-list">
-                    <li className="user-field">{e.fname}</li>
-                    <li className="user-field">{e.lname}</li>
-                    <li className="user-field">UserId: {e.userId}</li>
-                  </ul>
-                </Link>
+                {/* <Link to={`/games/users/${e.userId}`}> */}
+                <ul className="admin-user-list">
+                  <li className="user-field">{e.fname}</li>
+                  <li className="user-field">{e.lname}</li>
+                  <li className="user-field">UserId: {e.userId}</li>
+                </ul>
+                {/* </Link> */}
               </div>
             );
           })

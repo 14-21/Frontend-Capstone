@@ -97,14 +97,21 @@ Link {
   gap: 3rem;
   justify-items: left;
 }
+
+#admin-allUsers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) 10rem;
+  gap: 2rem;
+  justify-items: left;
+}
 /* move to dedicated admin page css */
 .admin-user-card {
   display: flex;
   background-color: rgb(219, 220, 221);
-  padding: 0.5rem 4rem 0.5rem 1rem;
+  padding: 0.5rem 2rem 0.5rem 1rem;
   border-radius: 10px;
   height: 5rem;
-  width: 15rem;
+  width: 10rem;
 }
 .admin-user-list {
   display: flex;
@@ -119,4 +126,8 @@ Link {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: left;
   height: 1rem;
+}
+
+#profile-line-spacer {
+  margin: 2rem 0 1rem 0;
 }

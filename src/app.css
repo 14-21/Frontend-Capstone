@@ -3,6 +3,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(204, 46, 3, 1) 0%,
+    rgb(167, 36, 172) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
 
 #main-body {
@@ -10,4 +16,6 @@
   min-height: 100vh;
   max-width: 80rem;
   flex-direction: column;
+  background-color: #fff;
+  padding: 2rem;
 }

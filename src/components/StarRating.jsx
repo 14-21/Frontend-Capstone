@@ -5,7 +5,7 @@ import "./starRating.css";
 function StarRating(props) {
   const [rating, setRating] = useState(Number);
   // const [hover, setHover] = useState(Number);
-  const setStarRating = props.setStarRating ? props.setStarRating : Number;
+  const setStarRating = props.setStarRating ? props.setStarRating : null;
   useEffect(() => {
     if (props.userscore) {
       setRating(props.userscore);

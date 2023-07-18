@@ -8,6 +8,7 @@ import CreateCommentButton from "./CreateCommentButton";
 import "./reviews.css";
 import "./comments.css";
 import "./profile.css";
+import UserCommentLocalEdit from "./UserCommentLocalEdit";
 
 function Comments(props) {
   const [filteredComment, setFilteredComment] = useState([]);
@@ -49,8 +50,6 @@ function Comments(props) {
       <div className="title-center"></div>
       {filteredComment && filteredComment.length ? (
         filteredComment.map((commentEl) => {
-          // console.log(commentEl);
-
           return (
             <div>
               <p className="review-paragraph" id="comment-user">
@@ -63,6 +62,7 @@ function Comments(props) {
       ) : (
         <p>No Comments Yet</p>
       )}
+
       <CreateCommentButton
         filteredComment={filteredComment}
         setFilteredComment={setFilteredComment}

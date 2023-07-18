@@ -30,7 +30,7 @@ function Login() {
       const result = await response.json();
 
       console.log(result);
-      if (result) {
+      if (result.token) {
         //Normally store the non-decryted JWT into localstorage first.
         localStorage.setItem("token", result.token);
         const decodedToken = await jwtDecode(result.token);
