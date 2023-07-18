@@ -48,9 +48,7 @@ function Profile() {
           </li>
           <li>
             {" "}
-
             <Link to="/myreviews">Reviews</Link>
-
           </li>
         </ul>
         <div className="border-line"></div>
@@ -60,11 +58,10 @@ function Profile() {
           <div id="profile-img">
             <img src={userData.profilepic} />
           </div>
-          <h2>
+          <h2 id="profile-line-spacer">
             {userData.fname} {userData.lname}
           </h2>
           <h3>{userData.username}</h3>
-          <button>Edit Profile</button>
         </div>
       </div>
     </>

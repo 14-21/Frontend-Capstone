@@ -43,13 +43,11 @@ function AllGames(props) {
           }}
         ></input>
       </form>
-      <button type="submit" onClick={handleClick}>
-        Sort by title
-      </button>
-
-      <br />
-      <br />
-
+      <div className="centerbutton">
+        <button type="submit" onClick={handleClick}>
+          Sort by title
+        </button>
+      </div>
       <h1 id="allgames-header">All Games</h1>
       <div id="allgames">
         {filteredGame.length ? (

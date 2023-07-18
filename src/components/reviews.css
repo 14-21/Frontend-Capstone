@@ -51,3 +51,20 @@ input::placeholder {
   color: rgb(75, 75, 75);
   padding-left: 4rem;
 }
+
+.buttons-align {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-edit {
+  margin-right: 1rem;
+}
+
+.submit {
+  background-color: #fea828;
+}
+
+.delete {
+  background-color: rgb(242, 56, 56);
+}

@@ -2,8 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./userReviews.css";
-import DeleteComment from "./DeleteComment";
-import UpdateCommentButton from "./UpdateCommentButton";
+import UserCommentLocalEdit from "./UserCommentLocalEdit";
 
 const BASE_URL = "http://localhost:8080";
 
@@ -20,7 +19,6 @@ function ProfileComments() {
             Authorization: `Bearer ${token}`,
           },
         });
-        // Outside of fetch starting here.
         const result = await response.json();
         setFilteredComment(result);
       } catch (error) {
@@ -53,25 +51,11 @@ function ProfileComments() {
         {filteredComment && filteredComment.length ? (
           filteredComment.map((commentEl) => {
             return (
-              <div>
-                <h2 className="user-gametitle">Title</h2>
-                <p className="user-review-paragraph" id="review-user">
-                  {commentEl.commentbody}
-                </p>
-
-                <UpdateCommentButton
-                  id={commentEl.commentId}
-                  filteredComment={filteredComment}
-                  setFilteredComment={setFilteredComment}
-                />
-
-                {/* Test again */}
-                <DeleteComment
-                  id={commentEl.commentId}
-                  filteredComment={filteredComment}
-                  setFilteredComment={setFilteredComment}
-                />
-              </div>
+              <UserCommentLocalEdit
+                commentEl={commentEl}
+                filteredComment={filteredComment}
+                setFilteredComment={setFilteredComment}
+              />
             );
           })
         ) : (

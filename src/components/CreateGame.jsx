@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 function CreateGame(props) {
   const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
 
-
   return (
     <div className="profile-nav">
       <ul>
@@ -25,13 +24,19 @@ function CreateGame(props) {
           {" "}
           <Link to="/adminusers">All Users</Link>
         </li>
+        <li>
+          {" "}
+          <Link to="/profile/user">Profile</Link>
+        </li>
       </ul>
       <div className="border-line"></div>
-      
+
       {/* CREATE GAME FORM */}
 
-      <CreateGameButton allGames={props.allGames} setAllGames={props.setAllGames}/>
-
+      <CreateGameButton
+        allGames={props.allGames}
+        setAllGames={props.setAllGames}
+      />
     </div>
   );
 }

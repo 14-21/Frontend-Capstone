@@ -6,7 +6,8 @@ import "./userReviews.css";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DeleteReviewButton from "./DeleteReviewButton";
-import { UpdateReviewsButton } from "./UpdateReviewButton";
+// import { UpdateReviewsButton } from "./UpdateReviewButton";
+import UserReviewLocalEdit from "./UserReviewLocalEdit";
 
 const BASE_URL = "http://localhost:8080";
 
@@ -102,30 +103,12 @@ function UserReviews(props) {
         {filteredReview && filteredReview.length ? (
           filteredReview.map((reviewEl) => {
             return (
-              <div>
-                <h2 className="user-gametitle">{reviewEl.reviewGameId}</h2>
-                <p className="user-review-paragraph" id="review-user">
-                  {reviewEl.reviewbody}
-                </p>
-
-                <StarRating
-                  userscore={reviewEl.userscore}
-                  gameId={reviewEl.reviewGameId}
-                />
-
-                <UpdateReviewsButton
-                  id={reviewEl.reviewId}
-                  filteredReview={filteredReview}
-                  setFilteredReview={setFilteredReview}
-                  user={user.id}
-                />
-
-                <DeleteReviewButton
-                  id={reviewEl.reviewId}
-                  filteredReview={filteredReview}
-                  setFilteredReview={setFilteredReview}
-                />
-              </div>
+              <UserReviewLocalEdit
+                reviewEl={reviewEl}
+                user={user}
+                filteredReview={filteredReview}
+                setFilteredReview={setFilteredReview}
+              />
             );
           })
         ) : (

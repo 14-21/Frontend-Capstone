@@ -1,17 +1,30 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState, useEffect } from "react";
 import "./reviews.css";
 
 const BASE_URL = "http://localhost:8080";
 
 export const UpdateCommentButton = (props) => {
-    //id = commentEl.origReviewId
+  const commentId = props.id;
   const id = props.id;
   console.log(props);
   const [commentbody, setCommentBody] = useState("");
 
+  useEffect(() => {
+    if (props.filteredComment.length) {
+      console.log(props.filteredComment, commentId);
+      const singleUpdatedAllComments = props.filteredComment.find(
+        (singleComment) => {
+          if (singleComment.commentId === commentId) {
+            return singleComment;
+          }
+        }
+      );
+      console.log(singleUpdatedAllComments);
+      if (singleUpdatedAllComments) {
+        setCommentBody(singleUpdatedAllComments.commentbody);
+      }
+    }
+  }, [props.filteredComment]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,32 +41,35 @@ export const UpdateCommentButton = (props) => {
     try {
       const token = localStorage.getItem("token");
       console.log(token, commentbody, props.id);
-      const response = await fetch(`${BASE_URL}/api/games/reviews/update/comments/${commentId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        //NEED TO ADD IDS
-        body: JSON.stringify({
-          commentbody: commentbody,
-          origReviewId: props.filteredComment.origReviewId,
-          origUserId: props.filteredComment.origUserId
-        }),
-      });
+      const response = await fetch(
+        `${BASE_URL}/api/games/reviews/update/comments/${commentId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            commentbody: commentbody,
+            origReviewId: props.filteredComment.origReviewId,
+            origUserId: props.filteredComment.origUserId,
+          }),
+        }
+      );
       const result = await response.json();
       console.log(result);
 
-      const updatedAllComment = props.filteredComment.filter((singleComment) => {
-        if (singleComment.commentId !== id) {
-          return singleComment;
+      const updatedAllComment = props.filteredComment.filter(
+        (singleComment) => {
+          if (singleComment.commentId === commentId) {
+            return singleComment;
+          }
         }
-      });
-
+      );
 
       const newUpdatedAllComment = [...updatedAllComment, result];
       props.setFilteredComment(newUpdatedAllComment);
-      
+
       console.log(result);
       return result;
     } catch (error) {
@@ -68,17 +84,20 @@ export const UpdateCommentButton = (props) => {
           <input
             className="review-body"
             type="text"
-            placeholder="update"
             value={commentbody}
             onChange={(e) => {
-              console.log(e.target.value);
+              // console.log(e.target.value);
               setCommentBody(e.target.value);
             }}
           ></input>
         </label>
 
-        <button onSubmit={handleSubmit} type="submit" className="review-field-buttons">
-          Edit ➡ <FontAwesomeIcon icon={faArrowRight} size="1x" />
+        <button
+          onSubmit={handleSubmit}
+          type="submit"
+          className="review-field-buttons submit"
+        >
+          Submit ➡
         </button>
       </form>
     </div>

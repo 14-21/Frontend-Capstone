@@ -1,5 +1,4 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./reviews.css";
 
 const BASE_URL = "http://localhost:8080";
 
@@ -51,8 +50,8 @@ function DeleteReviewButton(props) {
 
   return (
     <div>
-      <button onClick={handleSubmit} className="review-field-buttons">
-        Delete <FontAwesomeIcon icon={faArrowRight} size="1x" />
+      <button onClick={handleSubmit} className="review-field-buttons delete">
+        Delete ➡
       </button>
     </div>
   );

@@ -35,7 +35,7 @@ export const fetchAllUserData = async (token) => {
       },
     });
     const result = await response.json();
-    // console.log(result);
+    console.log(result);
     return result;
   } catch (error) {
     console.log(error);
@@ -91,5 +91,3 @@ export const fetchComments = async (origReviewId) => {
     console.log(error);
   }
 };
-
-
