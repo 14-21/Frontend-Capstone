@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const BASE_URL = "http://localhost:8080";
 
 
 function UpdateGameButton(props) {
 //Game id
-const id = props.id
+const {id} = useParams();
+console.log(id, "props")
 const navigate = useNavigate();
 
 console.log(props.isAdmin)
@@ -73,13 +74,18 @@ const [notfor, setNotFor] = useState("");
             })
             // OUTSIDE FETCH
             const result = await response.json();
-
+            console.log(result)
+            if(result.error) {
+                console.log(result.error)
+            } else if (result.gameId){
+                const allGamesCopy = [...props.allGames]
+                allGamesCopy.unshift(result)
+    
+                props.setAllGames(allGamesCopy)
+                console.log(allGamesCopy)  
+            }
             //Needs to match props pass down from admin/games when rendered in admin dash
-            const allGamesCopy = [...props.allGames]
-            allGamesCopy.unshift(result)
-
-            props.setAllGames(allGamesCopy)
-            console.log(allGamesCopy)
+            
 
 
             setTitle("");
