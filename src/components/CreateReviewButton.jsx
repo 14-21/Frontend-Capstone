@@ -62,7 +62,7 @@ function CreateReviewButton(props) {
           id="review-body"
           name="reviewbody"
           type="text"
-          placeholder="What did you think of the game?"
+          placeholder="Leave a review!"
           value={reviewbody}
           onChange={(e) => {
             console.log(e.target.value);
