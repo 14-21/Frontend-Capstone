@@ -23,15 +23,6 @@ function AdminAllUsers() {
     }
   });
 
-  // Fetching all games from A-Z
-  // const handleClick = () => {
-  //   const arrayUsernames = allUsers.values(username);
-  //   const sortedNames = arrayUsernames.sort((a, b) => a - b);
-
-  //   return sortedNames;
-  // };
-
-  //Fetching username so it can display on each user profile page.
   useEffect(() => {
     const user = localStorage.getItem("user");
     if (user) {
@@ -45,7 +36,7 @@ function AdminAllUsers() {
     const getUserData = async () => {
       try {
         const token = localStorage.getItem("token");
-        console.log(token)
+        console.log(token);
         if (token) {
           const renderUser = await fetchAllUserData(token);
           console.log(renderUser);
