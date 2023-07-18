@@ -301,6 +301,7 @@ function CreateGameButton(props) {
           <button id="button-creategame" type="submit">
             Create Game
           </button>
+
         </div>
       </form>
     </div>
