@@ -39,9 +39,6 @@ ul {
 
 #profile-img {
   display: flex;
-  vertical-align: center;
-  justify-content: center;
-  align-items: center;
   background: linear-gradient(
     90deg,
     rgba(204, 46, 3, 1) 0%,

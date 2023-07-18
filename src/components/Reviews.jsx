@@ -64,14 +64,13 @@ function Reviews(props) {
       ) : (
         <p>No Reviews Yet.</p>
       )}
-      <div id="greenbox">
+      <div>
         <CreateReviewButton
           selectedGame={props.selectedGame}
           filteredReview={filteredReview}
           setFilteredReview={setFilteredReview}
         />
       </div>
-  
     </div>
   );
 }
