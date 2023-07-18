@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { fetchAllUserData } from "../api-routes";
 import { Link } from "react-router-dom";
 
-function AdminAllUsers() {
+function AdminAllUsers(props) {
   const [userData, setUserData] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
   const [username, setUsername] = useState([]);
@@ -50,7 +50,8 @@ function AdminAllUsers() {
           const renderUser = await fetchAllUserData(token);
           console.log(renderUser);
           setUserData(renderUser);
-          setIsLoggedIn(renderUser);
+         
+        
         }
       } catch (error) {
         console.log(error);
@@ -104,13 +105,11 @@ function AdminAllUsers() {
           filteredUser.map((e) => {
             return (
               <div className="admin-game-card admin-user-card" key={e.gameId}>
-                {/* <Link to={`/games/users/${e.userId}`}> */}
                 <ul className="admin-user-list">
                   <li className="user-field">{e.fname}</li>
                   <li className="user-field">{e.lname}</li>
                   <li className="user-field">UserId: {e.userId}</li>
                 </ul>
-                {/* </Link> */}
               </div>
             );
           })

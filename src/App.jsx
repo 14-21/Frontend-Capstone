@@ -158,16 +158,7 @@ function App() {
 
             <Route path="/games/edit/:id" element={<UpdateGameButton allGames={allGames} setAllGames={setAllGames} isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>}/>  
 
-            {/* <Route
-              path="/adminusers"
-              element={
-                <AdminUsers
-                  isAdmin={isAdmin}
-                  setIsAdmin={setIsAdmin}
-                  allGames={allGames}
-                />
-              }
-            /> */}
+          
 
             <Route
               path="/adventure"
