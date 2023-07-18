@@ -14,33 +14,10 @@ const BASE_URL = "http://localhost:8080";
 function UserReviews(props) {
   const [filteredReview, setFilteredReview] = useState("");
   const [user, setUser] = useState([]);
-  const [reviewGameTitle, setReviewGameTitle] = useState("");
-
-  // useEffect(() => {
-  //   if(filteredReview.length) {
-  //     const filteredGameReview = props.allGames.filter((singleGameTitle) => {
-  //       if(singleGameTitle.gameId === filteredReview.reviewGameId){
-  //         return true
-  //       }
-  //     })
-  //     setReviewGameTitle(filteredGameReview)
-  //   }
-  // }, [])
-
-  // useEffect(() => {
-  //   if (props.allGames.gameId === filteredReview.reviewGameId){
-  //     console.log(filteredReview)
-  //     setReviewGameTitle(props.allGames.title);
-
-  //     console.log(reviewGameTitle)
-  //   }
-
-  // }, []);
 
   useEffect(() => {
     const user = localStorage.getItem("user");
     if (user) {
-      // console.log(user);
       setUser(JSON.parse(user));
     }
   }, []);
@@ -61,24 +38,13 @@ function UserReviews(props) {
 
         // Outside of fetch starting here.
         const result = await response.json();
-
-        // console.log(result);
-        // console.log(props.userData)
         setFilteredReview(result);
-        // return result;
       } catch (error) {
         console.log(error);
       }
     }
     userReviewPage();
   }, []);
-
-  // useEffect(() => {
-  //   if (props.allGames.gameId === filteredReview.reviewGameId) {
-  //     setReviewGameTitle(props.allGames.title);
-  //     console.log(reviewGameTitle)
-  //   }
-  // }, []);
 
   return (
     <>

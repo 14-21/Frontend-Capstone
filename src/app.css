@@ -14,8 +14,18 @@
 #main-body {
   display: flex;
   min-height: 100vh;
+  min-width: 80rem;
   max-width: 80rem;
   flex-direction: column;
   background-color: #fff;
   padding: 2rem;
+}
+
+.dark {
+  background-color: #333;
+  color: #fff;
+}
+.light {
+  background-color: #fff;
+  color: #333;
 }

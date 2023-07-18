@@ -31,13 +31,27 @@ import UpdateGameButton from "./components/UpdateGameButton";
 import jwtDecode from "jwt-decode";
 import CreateGame from "./components/CreateGame";
 export const LoginContext = createContext();
+import "../src/components/darkMode.css";
 
 const BASE_URL = "http://localhost:8080";
 
 function App() {
+  const [theme, setTheme] = useState("light");
   const [isLoggedIn, setIsLoggedIn] = useState(undefined);
   const [isAdmin, setIsAdmin] = useState(false);
   const [allGames, setAllGames] = useState([]);
+
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   // Checking if & who is logged in with token.
   useEffect(() => {
@@ -100,7 +114,7 @@ function App() {
     <div id="main-container">
       {/* Giving access to login info to all components */}
       <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-        <Navbar isAdmin={isAdmin} />
+        <Navbar isAdmin={isAdmin} theme={theme} setTheme={setTheme} />
         <div id="main-body">
           <Routes>
             <Route
@@ -124,7 +138,10 @@ function App() {
               path="/games/:id"
               element={<SingleGame allGames={allGames} />}
             />
-            <Route path="/login" element={<Login isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>} />
+            <Route
+              path="/login"
+              element={<Login isAdmin={isAdmin} setIsAdmin={setIsAdmin} />}
+            />
             <Route path="/register" element={<Register />} />
 
             <Route
@@ -154,9 +171,21 @@ function App() {
                   setIsAdmin={setIsAdmin}
                   allGames={allGames}
                   setAllGames={setAllGames}
-                />}/>
+                />
+              }
+            />
 
-            <Route path="/games/edit/:id" element={<UpdateGameButton allGames={allGames} setAllGames={setAllGames} isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>}/>  
+            <Route
+              path="/games/edit/:id"
+              element={
+                <UpdateGameButton
+                  allGames={allGames}
+                  setAllGames={setAllGames}
+                  isAdmin={isAdmin}
+                  setIsAdmin={setIsAdmin}
+                />
+              }
+            />
 
             {/* <Route
               path="/adminusers"

@@ -8,7 +8,7 @@ import ProfileNav from "./ProfileNav";
 function Navbar(props) {
   const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
   const navigate = useNavigate();
-  console.log(props.isAdmin)
+  console.log(props.isAdmin);
 
   return (
     <>
@@ -57,6 +57,10 @@ function Navbar(props) {
                 <Link className="links" to="/games">
                   All Games
                 </Link>
+                <label class="switch">
+                  <input type="checkbox" />
+                  <span class="slider round"></span>
+                </label>
 
                 <button
                   id="logout-button"
