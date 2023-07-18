@@ -304,6 +304,11 @@ function CreateGameButton(props) {
             Create Game
           </button>
 =======
+
+
+
+
+
 const [title, setTitle] = useState("");
 const [platform, setPlatform] = useState("");
 const [genre, setGenre] = useState("");
@@ -399,6 +404,11 @@ const navigate = useNavigate();
             console.log(error)
         }
     }
+
+
+
+
+
 
     return(
         <div id="creategame-container">
