@@ -73,6 +73,10 @@ function AdminUsers() {
             {" "}
             <Link to="/adminusers">All Users</Link>
           </li>
+          <li>
+            {" "}
+            <Link to="/profile/user">Profile</Link>
+          </li>
         </ul>
         <div className="border-line"></div>
         <div></div>
