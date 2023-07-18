@@ -6,7 +6,7 @@ import jwtDecode from "jwt-decode";
 
 const BASE_URL = "http://localhost:8080";
 
-function Login() {
+function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState(null);
@@ -39,11 +39,13 @@ function Login() {
 
         let stringifiedObj = JSON.stringify(decodedToken);
         localStorage.setItem("user", stringifiedObj);
-        // localStorage.setItem("is_admin", is_admin)
 
         setIsLoggedIn(true);
         setLoginError(null);
         console.log(isLoggedIn);
+        console.log(props.isAdmin)
+
+        
         navigate("/"); //Navigates back to Homepage after login.
       } else if (result.error) {
         setLoginError(result.error.message);

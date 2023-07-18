@@ -7,6 +7,10 @@
   align-items: center;
 }
 
+/* .genre-pages-header{
+  font-size: 20rem;
+} */
+
 #genre-subcontainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

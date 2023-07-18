@@ -1,8 +1,12 @@
 import "./register.css";
-import { registerUser } from "../api-routes";
 import { useState, useContext } from "react";
 import { LoginContext } from "../App";
 import { useNavigate } from "react-router-dom";
+import jwtDecode from "jwt-decode";
+
+
+const BASE_URL = "http://localhost:8080";
+
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -10,35 +14,62 @@ function Register() {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
-  const [pic, setPic] = useState("");
-  const { setIsLoggedIn } = useContext(LoginContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
   const navigate = useNavigate();
 
   // submit function passed in OnSubmit in form below.
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     console.log(username);
     try {
-      const result = await registerUser(
-        username,
-        password,
-        fname,
-        lname,
-        email,
-        pic
-      ); // Passing async function in from below.
+      const response = await fetch(`${BASE_URL}/games/users/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fname: fname,
+          lname: lname,
+          username: username,
+          password: password,
+          email: email,
+        }),
+      }); 
+      const result = await response.json();
       console.log(result);
 
-      //Need to verfiy token is being stored once we have our API.
-      localStorage.setItem("token", result.token); // Storing only key-value pair for token.
-      localStorage.setItem("user", result.user.username); // Can delete later - for testing purposes.
-      setIsLoggedIn(true); // Telling program login is true.
+      if (result) {
+        //Normally store the non-decryted JWT into localstorage first.
+        localStorage.setItem("token", result.data.newJWTToken);
+        const decodedToken = await jwtDecode(result.data.newJWTToken);
 
+        console.log(decodedToken);
+
+        let stringifiedObj = JSON.stringify(decodedToken);
+        localStorage.setItem("user", stringifiedObj);
+
+        setIsLoggedIn(true);
+        setLoginError(null);
+        console.log(isLoggedIn);
+
+      } else if (result.error) {
+        setLoginError(result.error.message);
+      }
+
+
+  
+
+
+
+      
       navigate("/"); //Navigates back to Homepage after register.
     } catch (error) {
       console.log(error);
     }
   };
+
+
 
   return (
     <div id="register-container">
@@ -110,19 +141,6 @@ function Register() {
           />
         </label>
 
-        <label className="labels">
-          Profile Picture:
-          <input
-            className="register-inputs"
-            type="file"
-            value={pic}
-            accept="image/*"
-            onChange={(e) => {
-              console.log(e.target.value);
-              setPic(e.target.value);
-            }}
-          />
-        </label>
 
         <button id="registerbutton" type="submit">
           Submit

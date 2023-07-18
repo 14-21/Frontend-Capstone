@@ -6,6 +6,7 @@ function Sports(props) {
         <section id="genre-mainpage">
          <br/>
          <br/>
+         <h1 id="genre-pages-header">Sports</h1>
          <br/>
          <br/>
             <div id="genre-subcontainer">

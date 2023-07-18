@@ -5,39 +5,7 @@ import { useParams } from "react-router-dom";
 
 const BASE_URL = "http://localhost:8080";
 
-// REGISTER
-export const registerUser = async (
-  username,
-  password,
-  fname,
-  lname,
-  email,
-  pic
-) => {
-  try {
-    const response = await fetch(`${BASE_URL}/games/users/register`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        user: {
-          username: username,
-          password: password,
-          fname: fname,
-          lname: lname,
-          email: email,
-          pic: pic,
-        },
-      }),
-    });
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    console.log(error);
-  }
-  return;
-};
+
 
 // Fetch User Data
 export const fetchUserData = async (token) => {
