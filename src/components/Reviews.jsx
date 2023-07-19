@@ -6,6 +6,7 @@ import StarRating from "./StarRating";
 import "./reviews.css";
 import Comments from "./Comments";
 import CreateReviewButton from "./CreateReviewButton";
+import "./profile.css";
 
 function Reviews(props) {
   const [review, setReview] = useState([]);
@@ -65,6 +66,7 @@ function Reviews(props) {
         <p>No Reviews Yet.</p>
       )}
       <div>
+        <div className="border-line"></div>
         <CreateReviewButton
           selectedGame={props.selectedGame}
           filteredReview={filteredReview}
