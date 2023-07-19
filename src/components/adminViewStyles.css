@@ -49,6 +49,8 @@
 .large-input {
   border-radius: 10px;
   border: none;
+  font-size: 1.4rem;
+  padding-left: 1rem;
 }
 
 #button-creategame {
