@@ -15,13 +15,9 @@ function UserReviews(props) {
   const [filteredReview, setFilteredReview] = useState("");
   const [user, setUser] = useState([]);
 
-
-
-
   useEffect(() => {
     const user = localStorage.getItem("user");
     if (user) {
-      // console.log(user);
       setUser(JSON.parse(user));
     }
   }, []);
@@ -42,24 +38,13 @@ function UserReviews(props) {
 
         // Outside of fetch starting here.
         const result = await response.json();
-
-        // console.log(result);
-        // console.log(props.userData)
         setFilteredReview(result);
-        // return result;
       } catch (error) {
         console.log(error);
       }
     }
     userReviewPage();
   }, []);
-
-  // useEffect(() => {
-  //   if (props.allGames.gameId === filteredReview.reviewGameId) {
-  //     setReviewGameTitle(props.allGames.title);
-  //     console.log(reviewGameTitle)
-  //   }
-  // }, []);
 
   return (
     <>

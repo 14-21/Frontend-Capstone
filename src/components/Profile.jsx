@@ -11,15 +11,6 @@ function Profile() {
   const [userData, setUserData] = useState([]);
   const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
 
-  //Fetching username so it can display on each user profile page.
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-    if (user) {
-      // console.log(user);
-      setUsername(JSON.parse(user));
-    }
-  }, []);
-
   useEffect(() => {
     //Retrigger each time someone logs in or out
     const getUserData = async () => {

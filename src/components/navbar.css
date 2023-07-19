@@ -7,6 +7,7 @@ nav {
 .website-name {
   font-family: gentium-plus;
   font-style: italic;
+  margin-right: 2rem;
 }
 
 .website-name-sub {
@@ -72,6 +73,7 @@ a {
 .links {
   align-self: center;
   color: #fff;
+  margin: 0 1rem;
 }
 
 #logout-button {
@@ -79,4 +81,5 @@ a {
   height: 1.5rem;
   border: none;
   margin: 0;
+  padding: 0 0.5rem;
 }

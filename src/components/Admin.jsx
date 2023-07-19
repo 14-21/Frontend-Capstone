@@ -87,19 +87,20 @@ function Admin(props) {
       </div>
       <br />
       <form id="searchbar">
-        <label htmlFor="title"></label>
-        <input
-          id="search"
-          name="search-query"
-          type="text"
-          placeholder="Search"
-          value={searchQuery}
-          onChange={(event) => {
-            //This allows users to change the search box.
-            console.log(event.target.value);
-            setSearchQuery(event.target.value);
-          }}
-        ></input>
+        <label htmlFor="title">
+          <input
+            id="search"
+            name="search-query"
+            type="text"
+            placeholder="Search"
+            value={searchQuery}
+            onChange={(event) => {
+              //This allows users to change the search box.
+              console.log(event.target.value);
+              setSearchQuery(event.target.value);
+            }}
+          ></input>
+        </label>
       </form>
 
       <div id="admin-allgames">
@@ -115,7 +116,6 @@ function Admin(props) {
                   setAllGames={props.setAllGames}
                   allGames={props.allGames}
                 />
-
                 <Link to={`/games/edit/${e.gameId}`}>
                   <button className="review-field-buttons">Edit ➡</button>
                 </Link>

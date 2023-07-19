@@ -39,16 +39,11 @@ ul {
 
 #profile-img {
   display: flex;
-  background: linear-gradient(
-    90deg,
-    rgba(204, 46, 3, 1) 0%,
-    rgb(167, 36, 172) 50%,
-    rgba(0, 212, 255, 1) 100%
-  );
   height: 5rem;
   width: 5rem;
   border-radius: 50%;
   overflow: hidden;
+  margin: 0 1rem;
 }
 
 .profile-loading {
