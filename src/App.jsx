@@ -124,7 +124,10 @@ function App() {
               path="/games/:id"
               element={<SingleGame allGames={allGames} />}
             />
-            <Route path="/login" element={<Login isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>} />
+            <Route
+              path="/login"
+              element={<Login isAdmin={isAdmin} setIsAdmin={setIsAdmin} />}
+            />
             <Route path="/register" element={<Register />} />
 
             <Route
@@ -154,11 +157,21 @@ function App() {
                   setIsAdmin={setIsAdmin}
                   allGames={allGames}
                   setAllGames={setAllGames}
-                />}/>
+                />
+              }
+            />
 
-            <Route path="/games/edit/:id" element={<UpdateGameButton allGames={allGames} setAllGames={setAllGames} isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>}/>  
-
-          
+            <Route
+              path="/games/edit/:id"
+              element={
+                <UpdateGameButton
+                  allGames={allGames}
+                  setAllGames={setAllGames}
+                  isAdmin={isAdmin}
+                  setIsAdmin={setIsAdmin}
+                />
+              }
+            />
 
             <Route
               path="/adventure"
