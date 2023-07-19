@@ -69,6 +69,7 @@
 }
 
 .light #main-body {
+
   background-color: #fff;
   color: #333;
 }
@@ -96,4 +97,8 @@
 
 .dark .profile-block {
   background-color: #383636;
+}
+
+input {
+  font-size: 2rem;
 }

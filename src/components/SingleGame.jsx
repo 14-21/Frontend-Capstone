@@ -14,6 +14,10 @@ function SingleGame(props) {
   const { id } = useParams();
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const foundGame = props.allGames.find((e) => {
       if (e.gameId == id) {
         return true;

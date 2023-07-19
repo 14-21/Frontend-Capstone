@@ -31,6 +31,7 @@ function DeleteGameButton(props) {
       if (result.length) {
         const deletedFilteredGame = props.allGames.filter((singleGame) => {
           if (singleGame.gameId !== id) {
+            console.log(deletedFilteredGame);
             return true;
           }
         });

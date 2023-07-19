@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 function AllGames(props) {
   const [searchQuery, setSearchQuery] = useState(""); //Storing the search query.
-  // const [gamesAZ, setGamesAZ] = useState([])
 
   // This function allows lowercase letters to be included in the filter.
   let filteredGame = props.allGames.filter((game) => {
@@ -16,13 +15,6 @@ function AllGames(props) {
     }
   });
 
-  // Fetching all games from A-Z
-  const handleClick = () => {
-    const arrayTitles = props.allGames.values(title);
-    const sortedGames = arrayTitles.sort((a, b) => a - b);
-
-    return sortedGames;
-  };
 
   return (
     <>
@@ -42,11 +34,7 @@ function AllGames(props) {
           }}
         ></input>
       </form>
-      <div className="centerbutton">
-        <button type="submit" onClick={handleClick}>
-          Sort by title
-        </button>
-      </div>
+    
       <h1 id="allgames-header">All Games</h1>
       <div id="allgames">
         {filteredGame.length ? (

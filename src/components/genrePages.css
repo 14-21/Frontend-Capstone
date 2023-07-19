@@ -19,6 +19,17 @@
   align-items: center;
 }
 
+#genre-pages-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  height: 5rem;
+  font-size: 3rem;
+  background-color: #383636;
+  width: 80rem;
+}
+
 .gamecard {
   height: 25rem;
   width: 80%;

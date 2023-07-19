@@ -1,14 +1,12 @@
 import "./profile.css";
 import "../index.css";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./reviews.css";
 import { LoginContext } from "../App";
 import { useContext } from "react";
 import { useState, useEffect } from "react";
 import { fetchUserData } from "../api-routes";
 import { Link } from "react-router-dom";
 import DeleteGameButton from "./DeleteGameButton";
-import UpdateGameButton from "./UpdateGameButton";
 
 function Admin(props) {
   const [username, setUsername] = useState({});
@@ -118,11 +116,8 @@ function Admin(props) {
                   setAllGames={props.setAllGames}
                   allGames={props.allGames}
                 />
-
                 <Link to={`/games/edit/${e.gameId}`}>
-                  <button className="review-field-buttons">
-                    Edit <FontAwesomeIcon icon={faArrowRight} size="1x" />
-                  </button>
+                  <button className="review-field-buttons">Edit ➡</button>
                 </Link>
               </div>
             );
