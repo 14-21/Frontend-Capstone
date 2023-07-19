@@ -57,12 +57,12 @@ function Register() {
         setLoginError(result.error.message);
       }
 
+      setFname("")
+      setLname("")
+      setEmail("")
+      setUsername("")
+      setPassword("")
 
-  
-
-
-
-      
       navigate("/"); //Navigates back to Homepage after register.
     } catch (error) {
       console.log(error);
