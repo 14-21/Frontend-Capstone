@@ -9,7 +9,7 @@ function UserReviewLocalEdit(props) {
   const user = props.user;
   const filteredReview = props.filteredReview;
   const setFilteredReview = props.setFilteredReview;
-  const [toggleEdit, setToggleEdit] = useState(false);
+  const [toggleEdit, setToggleEdit] = useState(true);
   console.log(reviewEl);
   return (
     <div>

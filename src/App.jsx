@@ -178,7 +178,7 @@ function App() {
             />
             <Route path="/sports" element={<Sports allGames={allGames} />} />
             <Route
-              path="/stragety"
+              path="/strategy"
               element={<Strategy allGames={allGames} />}
             />
             <Route path="/racing" element={<Racing allGames={allGames} />} />

@@ -109,7 +109,7 @@ function UpdateGameButton(props) {
 
   return (
     <div id="creategame-container">
-      <p id="creategame-title">Create New Game Form</p>
+      <p id="creategame-title">Update Game Form</p>
       <form onSubmit={handleSubmit}>
         <label id="creategame-main-body" htmlFor="create game">
           <section id="creategame-first-section">
