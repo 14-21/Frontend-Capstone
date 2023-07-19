@@ -15,7 +15,12 @@
   display: flex;
   min-height: 100vh;
   max-width: 80rem;
+  min-width: 80rem;
   flex-direction: column;
   background-color: #fff;
   padding: 2rem;
+}
+
+input {
+  font-size: 2rem;
 }
