@@ -8,7 +8,7 @@ function CreateCommentButton(props) {
   const [commentbody, setCommentBody] = useState("");
   const [user, setUser] = useState("");
 
-  // Pulling local storage for userId
+
   useEffect(() => {
     const user = localStorage.getItem("user");
     if (user) {
@@ -47,12 +47,16 @@ function CreateCommentButton(props) {
       });
       // Outside of fetch starting here.
       const result = await response.json();
+      // console.log("results", result)
+      // console.log("callback", props)
+      if(props.filteredComment.length) {
+        props.setFilteredComment([...props.filteredComment, result.data[0]])
 
-      const filteredCommentCopy = [...props.filteredComment];
-      filteredCommentCopy.unshift(result);
-
-      props.setFilteredComment(filteredCommentCopy);
-      console.log(filteredCommentCopy);
+      } else {
+        props.setFilteredComment([result.data[0]])
+      }
+     
+    
 
       setCommentBody("");
 

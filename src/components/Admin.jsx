@@ -12,9 +12,8 @@ function Admin(props) {
   const [username, setUsername] = useState({});
   const [userData, setUserData] = useState([]);
   const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
-
   const [searchQuery, setSearchQuery] = useState(""); //Storing the search query.
-  // const [gamesAZ, setGamesAZ] = useState([])
+
 
   // This function allows lowercase letters to be included in the filter.
   let filteredGame = props.allGames.filter((game) => {
@@ -26,13 +25,6 @@ function Admin(props) {
     }
   });
 
-  // Fetching all games from A-Z
-  const handleClick = () => {
-    const arrayTitles = props.allGames.values(title);
-    const sortedGames = arrayTitles.sort((a, b) => a - b);
-
-    return sortedGames;
-  };
 
   //Fetching username so it can display on each user profile page.
   useEffect(() => {

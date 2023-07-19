@@ -75,7 +75,7 @@ function App() {
             console.log(e.username, "Username do not match");
           }
 
-          // console.log(isLoggedIn);
+          
         });
         //If isLoggedIn.username matches filteredAdmin -- setting admin state.
         if (isLoggedIn && filteredAdmin) {
@@ -83,7 +83,7 @@ function App() {
         } else {
           setIsAdmin(false);
           console.log(isLoggedIn);
-          console.log(isAdmin);
+          // console.log(isAdmin);
         }
       } catch (error) {
         console.log(error);

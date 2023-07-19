@@ -5,10 +5,12 @@ import "./reviews.css";
 
 function UserCommentLocalEdit(props) {
   const commentEl = props.commentEl;
-  const user = props.user;
+  const user = props.commentEl.origUserId;
   const filteredComment = props.filteredComment;
   const setFilteredComment = props.setFilteredComment;
   const [toggleEdit, setToggleEdit] = useState(true);
+  console.log("commentEl", commentEl)
+ 
 
   return (
     <div>
@@ -23,8 +25,10 @@ function UserCommentLocalEdit(props) {
         <>
           <UpdateCommentButton
             id={commentEl.commentId}
+            reviewId={commentEl.origReviewId}
             filteredComment={props.filteredComment}
             setFilteredComment={props.setFilteredComment}
+            user={user}
           />
         </>
       )}
@@ -39,8 +43,8 @@ function UserCommentLocalEdit(props) {
         </button>
         <DeleteComment
           id={commentEl.commentId}
-          filteredComment={filteredComment}
-          setFilteredComment={setFilteredComment}
+          filteredComment={props.filteredComment}
+          setFilteredComment={props.setFilteredComment}
         />
       </div>
     </div>

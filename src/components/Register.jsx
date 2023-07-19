@@ -14,6 +14,7 @@ function Register() {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
+  const [loginError, setLoginError] = useState(null);
   const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
   const navigate = useNavigate();
 
@@ -21,7 +22,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(username);
+    // console.log(username);
     try {
       const response = await fetch(`${BASE_URL}/games/users/register`, {
         method: "POST",
@@ -53,17 +54,13 @@ function Register() {
         setLoginError(null);
         console.log(isLoggedIn);
 
+
+
       } else if (result.error) {
         setLoginError(result.error.message);
       }
 
-      setFname("")
-      setLname("")
-      setEmail("")
-      setUsername("")
-      setPassword("")
-
-      navigate("/"); //Navigates back to Homepage after register.
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
