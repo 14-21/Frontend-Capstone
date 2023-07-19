@@ -46,8 +46,8 @@ function Profile() {
       </div>
       <div className="profile-container">
         <div className="profile-block">
-          <div id="profile-img">
-            <img src={userData.profilepic} />
+          <div className="profile-img">
+            <img className="profile-img" src={userData.profilepic} />
           </div>
           <h2 id="profile-line-spacer">
             {userData.fname} {userData.lname}

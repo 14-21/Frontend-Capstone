@@ -47,11 +47,24 @@
   color: #fff;
 }
 
+.dark .genre-game-title {
+  color: #fff;
+}
+
 .dark #comment-user {
   color: #fff;
 }
-.dark #gametitle {
-  color: #fff;
+
+.dark .youtube {
+  color: rgb(255, 0, 0);
+}
+
+.dark .facebook {
+  color: rgb(24, 119, 242);
+}
+
+.dark .twitter {
+  color: rgb(29, 161, 242);
 }
 
 .dark #our-review {
@@ -69,7 +82,6 @@
 }
 
 .light #main-body {
-
   background-color: #fff;
   color: #333;
 }
@@ -89,6 +101,15 @@
 
 .dark #creategame-container {
   background-color: #383636;
+}
+
+.dark #creategame-container {
+  background-color: #383636;
+}
+
+.dark #genre-pages-header {
+  background-color: #fff;
+  color: #000;
 }
 
 .dark #creategame-container {

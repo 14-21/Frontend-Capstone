@@ -50,9 +50,6 @@ function BottomNav() {
         <Link className="bottomNav-Link" to="/profile/user">
           Profile
         </Link>
-        <Link className="bottomNav-Link" to="/about">
-          About
-        </Link>
       </div>
       <h3 className="bottomNav-h3">Established 2023</h3>
     </div>

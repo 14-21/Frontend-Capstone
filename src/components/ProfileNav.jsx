@@ -41,7 +41,7 @@ function ProfileNav() {
   return (
     <div>
       <Link to="/profile/user">
-        <img id="profile-img" src={userData.profilepic}></img>
+        <img className="profile-img" src={userData.profilepic}></img>
       </Link>
     </div>
   );
