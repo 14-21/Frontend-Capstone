@@ -1,10 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import StarRating from "./StarRating";
 import "./userReviews.css";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DeleteReviewButton from "./DeleteReviewButton";
 // import { UpdateReviewsButton } from "./UpdateReviewButton";
 import UserReviewLocalEdit from "./UserReviewLocalEdit";

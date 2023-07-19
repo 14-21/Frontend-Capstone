@@ -8,6 +8,17 @@ const BASE_URL = "http://localhost:8080";
 
 function ProfileComments() {
   const [filteredComment, setFilteredComment] = useState([]);
+  const [user, setUser] = useState([]);
+
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      // console.log(user);
+      setUser(JSON.parse(user));
+    }
+  }, []);
+
 
   useEffect(() => {
     async function userCommentPage() {
@@ -21,6 +32,7 @@ function ProfileComments() {
         });
         const result = await response.json();
         setFilteredComment(result);
+        console.log("i am result", result)
       } catch (error) {
         console.log(error);
       }
@@ -55,6 +67,7 @@ function ProfileComments() {
                 commentEl={commentEl}
                 filteredComment={filteredComment}
                 setFilteredComment={setFilteredComment}
+                user={user}
               />
             );
           })

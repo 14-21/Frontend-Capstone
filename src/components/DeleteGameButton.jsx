@@ -2,13 +2,13 @@ const BASE_URL = "http://localhost:8080";
 
 function DeleteGameButton(props) {
   const id = props.id;
-  // console.log(props)
+  // console.log(props, "i am props")
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const result = await deleteGame(id);
-      // console.log(result)
+      console.log(result)
     } catch (error) {
       console.log(error);
     }
@@ -18,7 +18,7 @@ function DeleteGameButton(props) {
     try {
       const token = localStorage.getItem("token");
       console.log(token);
-      // console.log(gameId)
+      console.log(gameId)
       const response = await fetch(`${BASE_URL}/api/games/delete/${gameId}`, {
         method: "DELETE",
         headers: {
@@ -27,16 +27,16 @@ function DeleteGameButton(props) {
         },
       }); // Outside of fetch starting here.
       const result = await response.json();
-      console.log(result);
-      if (result.length) {
+      console.log(result), "i am result";
+      if (result.data) {
         const deletedFilteredGame = props.allGames.filter((singleGame) => {
           if (singleGame.gameId !== id) {
-            console.log(deletedFilteredGame);
-            return true;
+            return singleGame;
           }
         });
         //Not updating real time?
         props.setAllGames(deletedFilteredGame);
+        console.log(deletedFilteredGame, "deletedgames")
       }
     } catch (error) {
       console.log(error);
