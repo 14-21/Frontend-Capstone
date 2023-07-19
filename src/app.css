@@ -48,7 +48,12 @@
 }
 
 .dark .genre-game-title {
-  color: #fff;
+  background-color: #fff;
+  height: 2rem;
+  border-radius: 10px;
+}
+.dark .genre-dark {
+  color: #000;
 }
 
 .dark #comment-user {
