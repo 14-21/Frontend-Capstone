@@ -1,6 +1,5 @@
 import "./profile.css";
 import "../index.css";
-import "./darkMode.css";
 import { LoginContext } from "../App";
 import { useContext } from "react";
 import { useState, useEffect } from "react";

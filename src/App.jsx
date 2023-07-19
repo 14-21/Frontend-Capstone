@@ -31,9 +31,9 @@ import UpdateGameButton from "./components/UpdateGameButton";
 import jwtDecode from "jwt-decode";
 import CreateGame from "./components/CreateGame";
 export const LoginContext = createContext();
-import "../src/components/darkMode.css";
 
 const BASE_URL = "http://localhost:8080";
+export const ThemeContext = createContext(null);
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -42,11 +42,7 @@ function App() {
   const [allGames, setAllGames] = useState([]);
 
   const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
   };
 
   useEffect(() => {
@@ -111,122 +107,116 @@ function App() {
   }, []);
 
   return (
-    <div id="main-container">
-      {/* Giving access to login info to all components */}
-      <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-        <Navbar isAdmin={isAdmin} theme={theme} setTheme={setTheme} />
-        <div id="main-body">
-          <Routes>
-            <Route
-              path="/"
-              element={<Home allGames={allGames} setAllGames={setAllGames} />}
-            />
-            <Route path="/profile/user" element={<Profile />} />
-            <Route path="/star" element={<StarRating />} />
-            <Route
-              path="/myreviews"
-              element={<UserReviews allGames={allGames} />}
-            />
-            <Route path="/mycomments" element={<ProfileComments />} />
-            <Route
-              path="/games"
-              element={
-                <AllGames allGames={allGames} setAllGames={setAllGames} />
-              }
-            />
-            <Route
-              path="/games/:id"
-              element={<SingleGame allGames={allGames} />}
-            />
-            <Route
-              path="/login"
-              element={<Login isAdmin={isAdmin} setIsAdmin={setIsAdmin} />}
-            />
-            <Route path="/register" element={<Register />} />
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <div id="main-container" theme={theme}>
+        {/* Giving access to login info to all components */}
+        <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+          <Navbar
+            isAdmin={isAdmin}
+            toggleTheme={toggleTheme}
+            checked={theme === "dark"}
+          />
+          <div id="main-body">
+            <Routes>
+              <Route
+                path="/"
+                element={<Home allGames={allGames} setAllGames={setAllGames} />}
+              />
+              <Route path="/profile/user" element={<Profile />} />
+              <Route path="/star" element={<StarRating />} />
+              <Route
+                path="/myreviews"
+                element={<UserReviews allGames={allGames} />}
+              />
+              <Route path="/mycomments" element={<ProfileComments />} />
+              <Route
+                path="/games"
+                element={
+                  <AllGames allGames={allGames} setAllGames={setAllGames} />
+                }
+              />
+              <Route
+                path="/games/:id"
+                element={<SingleGame allGames={allGames} />}
+              />
+              <Route
+                path="/login"
+                element={<Login isAdmin={isAdmin} setIsAdmin={setIsAdmin} />}
+              />
+              <Route path="/register" element={<Register />} />
 
-            <Route
-              path="/admin"
-              element={
-                <Admin
-                  isAdmin={isAdmin}
-                  setIsAdmin={setIsAdmin}
-                  allGames={allGames}
-                  setAllGames={setAllGames}
-                />
-              }
-            />
+              <Route
+                path="/admin"
+                element={
+                  <Admin
+                    isAdmin={isAdmin}
+                    setIsAdmin={setIsAdmin}
+                    allGames={allGames}
+                    setAllGames={setAllGames}
+                  />
+                }
+              />
 
-            <Route
-              path="/adminusers"
-              element={
-                <AdminAllUsers isAdmin={isAdmin} setIsAdmin={setIsAdmin} />
-              }
-            />
+              <Route
+                path="/adminusers"
+                element={
+                  <AdminAllUsers isAdmin={isAdmin} setIsAdmin={setIsAdmin} />
+                }
+              />
 
-            <Route
-              path="/creategame"
-              element={
-                <CreateGame
-                  isAdmin={isAdmin}
-                  setIsAdmin={setIsAdmin}
-                  allGames={allGames}
-                  setAllGames={setAllGames}
-                />
-              }
-            />
+              <Route
+                path="/creategame"
+                element={
+                  <CreateGame
+                    isAdmin={isAdmin}
+                    setIsAdmin={setIsAdmin}
+                    allGames={allGames}
+                    setAllGames={setAllGames}
+                  />
+                }
+              />
 
-            <Route
-              path="/games/edit/:id"
-              element={
-                <UpdateGameButton
-                  allGames={allGames}
-                  setAllGames={setAllGames}
-                  isAdmin={isAdmin}
-                  setIsAdmin={setIsAdmin}
-                />
-              }
-            />
-
-            {/* <Route
-              path="/adminusers"
-              element={
-                <AdminUsers
-                  isAdmin={isAdmin}
-                  setIsAdmin={setIsAdmin}
-                  allGames={allGames}
-                />
-              }
-            /> */}
-
-            <Route
-              path="/adventure"
-              element={<Adventure allGames={allGames} />}
-            />
-            <Route path="/action" element={<Action allGames={allGames} />} />
-            <Route
-              path="/survival"
-              element={<Survival allGames={allGames} />}
-            />
-            <Route path="/rpg" element={<RPG allGames={allGames} />} />
-            <Route path="/horror" element={<Horror allGames={allGames} />} />
-            <Route path="/fps" element={<FPS allGames={allGames} />} />
-            <Route
-              path="/simulation"
-              element={<Simulation allGames={allGames} />}
-            />
-            <Route path="/sports" element={<Sports allGames={allGames} />} />
-            <Route
-              path="/stragety"
-              element={<Strategy allGames={allGames} />}
-            />
-            <Route path="/racing" element={<Racing allGames={allGames} />} />
-            <Route path="/mmo" element={<MMO allGames={allGames} />} />
-            <Route path="/moba" element={<MOBA allGames={allGames} />} />
-          </Routes>
-        </div>
-      </LoginContext.Provider>
-      <BottomNav />
-    </div>
+              <Route
+                path="/games/edit/:id"
+                element={
+                  <UpdateGameButton
+                    allGames={allGames}
+                    setAllGames={setAllGames}
+                    isAdmin={isAdmin}
+                    setIsAdmin={setIsAdmin}
+                  />
+                }
+              />
+              <Route
+                path="/adventure"
+                element={<Adventure allGames={allGames} />}
+              />
+              <Route path="/action" element={<Action allGames={allGames} />} />
+              <Route
+                path="/survival"
+                element={<Survival allGames={allGames} />}
+              />
+              <Route path="/rpg" element={<RPG allGames={allGames} />} />
+              <Route path="/horror" element={<Horror allGames={allGames} />} />
+              <Route path="/fps" element={<FPS allGames={allGames} />} />
+              <Route
+                path="/simulation"
+                element={<Simulation allGames={allGames} />}
+              />
+              <Route path="/sports" element={<Sports allGames={allGames} />} />
+              <Route
+                path="/stragety"
+                element={<Strategy allGames={allGames} />}
+              />
+              <Route path="/racing" element={<Racing allGames={allGames} />} />
+              <Route path="/mmo" element={<MMO allGames={allGames} />} />
+              <Route path="/moba" element={<MOBA allGames={allGames} />} />
+            </Routes>
+          </div>
+        </LoginContext.Provider>
+        <BottomNav />
+      </div>
+    </ThemeContext.Provider>
   );
 }
 

@@ -11,9 +11,13 @@
 
 #search {
   width: 45rem;
+  height: 2rem;
+  padding-left: 1rem;
+  font-size: 1.4rem;
   border: 2px solid rgb(211, 208, 208);
   border-radius: 10rem;
 }
+
 ::placeholder {
   background: transparent;
   color: rgb(168, 167, 167);
@@ -66,7 +70,7 @@
 
 #gametitle {
   color: black;
-  font-size: 1rem;
+  font-size: 1.4rem;
   font-weight: bolder;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;

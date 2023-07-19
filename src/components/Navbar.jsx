@@ -43,6 +43,12 @@ function Navbar(props) {
                   Logout
                 </button>
                 <ProfileNav />
+                <p id="darkmode-toggle">Dark Mode</p>
+                <input
+                  type="checkbox"
+                  id="switch"
+                  onChange={props.toggleTheme}
+                />
               </div>
             ) : //NAVBAR FOR REGULAR USERS
             isLoggedIn ? (
@@ -57,9 +63,8 @@ function Navbar(props) {
                 <Link className="links" to="/games">
                   All Games
                 </Link>
-                <label class="switch">
-                  <input type="checkbox" />
-                  <span class="slider round"></span>
+                <label className="switch">
+                  <span className="slider round"></span>
                 </label>
 
                 <button
@@ -74,6 +79,12 @@ function Navbar(props) {
                   Logout
                 </button>
                 <ProfileNav />
+                <p id="darkmode-toggle">Dark Mode</p>
+                <input
+                  type="checkbox"
+                  id="switch"
+                  onChange={props.toggleTheme}
+                />
               </div>
             ) : (
               <div className="topnav-link-bar">
