@@ -42,7 +42,7 @@ export const UpdateCommentButton = (props) => {
       const token = localStorage.getItem("token");
       console.log(token, commentbody, props.id);
       const response = await fetch(
-        `${BASE_URL}/api/games/reviews/update/comments/${commentId}`,
+        `${BASE_URL}/api/comments/update/${commentId}`,
         {
           method: "PUT",
           headers: {

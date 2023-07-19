@@ -8,7 +8,7 @@ function UserCommentLocalEdit(props) {
   const user = props.user;
   const filteredComment = props.filteredComment;
   const setFilteredComment = props.setFilteredComment;
-  const [toggleEdit, setToggleEdit] = useState(false);
+  const [toggleEdit, setToggleEdit] = useState(true);
 
   return (
     <div>
@@ -23,8 +23,8 @@ function UserCommentLocalEdit(props) {
         <>
           <UpdateCommentButton
             id={commentEl.commentId}
-            filteredComment={filteredComment}
-            setFilteredComment={setFilteredComment}
+            filteredComment={props.filteredComment}
+            setFilteredComment={props.setFilteredComment}
           />
         </>
       )}

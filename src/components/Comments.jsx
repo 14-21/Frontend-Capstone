@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchComments } from "../api-routes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import StarRating from "./StarRating";
 import CreateCommentButton from "./CreateCommentButton";
 import "./reviews.css";
 import "./comments.css";
