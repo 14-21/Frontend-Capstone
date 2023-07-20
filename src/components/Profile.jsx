@@ -11,15 +11,6 @@ function Profile() {
   const [userData, setUserData] = useState([]);
   const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
 
-  //Fetching username so it can display on each user profile page.
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-    if (user) {
-      // console.log(user);
-      setUsername(JSON.parse(user));
-    }
-  }, []);
-
   useEffect(() => {
     //Retrigger each time someone logs in or out
     const getUserData = async () => {
@@ -55,8 +46,8 @@ function Profile() {
       </div>
       <div className="profile-container">
         <div className="profile-block">
-          <div id="profile-img">
-            <img src={userData.profilepic} />
+          <div className="profile-img">
+            <img className="profile-img" src={userData.profilepic} />
           </div>
           <h2 id="profile-line-spacer">
             {userData.fname} {userData.lname}

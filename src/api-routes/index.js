@@ -1,5 +1,4 @@
-import { FaCommentSlash } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+
 // import { LoginContext } from "../App";
 // import jwtDecode from "jwt-decode";
 

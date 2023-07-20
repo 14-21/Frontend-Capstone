@@ -4,10 +4,10 @@ import "./reviews.css";
 const BASE_URL = "http://localhost:8080";
 
 export const UpdateCommentButton = (props) => {
-  const commentId = props.id;
-  const id = props.id;
-  console.log(props);
   const [commentbody, setCommentBody] = useState("");
+  const commentId = props.id;
+  const userId = props.user
+
 
   useEffect(() => {
     if (props.filteredComment.length) {
@@ -30,7 +30,7 @@ export const UpdateCommentButton = (props) => {
     e.preventDefault();
     try {
       console.log("enter the submit");
-      const result = await sendPutRequest(id);
+      const result = await sendPutRequest(commentId);
       console.log(result, "test");
     } catch (error) {
       console.log(error);
@@ -39,10 +39,20 @@ export const UpdateCommentButton = (props) => {
 
   const sendPutRequest = async (commentId) => {
     try {
+      console.log("i am commment element", props.commentEl)
       const token = localStorage.getItem("token");
-      console.log(token, commentbody, props.id);
+      console.log(props.reviewId);
+
+      const updatedAllComment = props.filteredComment.filter(
+        (singleComment) => {
+          if (singleComment.commentId !== commentId) {
+            return singleComment;
+          }
+        }
+      );
+
       const response = await fetch(
-        `${BASE_URL}/api/games/reviews/update/comments/${commentId}`,
+        `${BASE_URL}/api/comments/update/${commentId}`,
         {
           method: "PUT",
           headers: {
@@ -51,21 +61,15 @@ export const UpdateCommentButton = (props) => {
           },
           body: JSON.stringify({
             commentbody: commentbody,
-            origReviewId: props.filteredComment.origReviewId,
-            origUserId: props.filteredComment.origUserId,
+            origReviewId: updatedAllComment[0].origReviewId,
+            origUserId: userId,
           }),
         }
       );
       const result = await response.json();
       console.log(result);
 
-      const updatedAllComment = props.filteredComment.filter(
-        (singleComment) => {
-          if (singleComment.commentId === commentId) {
-            return singleComment;
-          }
-        }
-      );
+     
 
       const newUpdatedAllComment = [...updatedAllComment, result];
       props.setFilteredComment(newUpdatedAllComment);

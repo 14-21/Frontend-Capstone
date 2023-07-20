@@ -79,7 +79,7 @@ function Home(props) {
             props.allGames.map((e) => {
               if (e.genre == "Adventure") {
                 return (
-                  // <Link to="/adventure">
+              
                   <div key={e.gameId} className="genre-gamecard">
                     <Link to="/adventure">
                       <img className="genre-game-pic" src={e.picturecard} />
@@ -102,7 +102,7 @@ function Home(props) {
             props.allGames.map((e) => {
               if (e.genre == "Action") {
                 return (
-                  // <Link to="/adventure">
+                
                   <div key={e.gameId} className="genre-gamecard">
                     <Link to="/action">
                       <img className="genre-game-pic" src={e.picturecard} />
@@ -125,7 +125,6 @@ function Home(props) {
             props.allGames.map((e) => {
               if (e.genre == "Survival") {
                 return (
-                  // <Link to="/adventure">
                   <div key={e.gameId} className="genre-gamecard">
                     <Link to="/survival">
                       <img className="genre-game-pic" src={e.picturecard} />
@@ -148,7 +147,6 @@ function Home(props) {
             props.allGames.map((e) => {
               if (e.genre == "RPG") {
                 return (
-                  // <Link to="/adventure">
                   <div key={e.gameId} className="genre-gamecard">
                     <Link to="/rpg">
                       <img className="genre-game-pic" src={e.picturecard} />
@@ -171,7 +169,6 @@ function Home(props) {
             props.allGames.map((e) => {
               if (e.genre == "Horror") {
                 return (
-                  // <Link to="/adventure">
                   <div key={e.gameId} className="genre-gamecard">
                     <Link to="/horror">
                       <img className="genre-game-pic" src={e.picturecard} />
@@ -273,6 +270,7 @@ function Home(props) {
             <p>Loading</p>
           )}
         </div>
+
 
         <Link to="/racing">
           <h2 className="genre-type">Racing</h2>

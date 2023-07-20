@@ -37,8 +37,9 @@ ul {
   border: 1px solid rgb(107, 183, 249);
 }
 
-#profile-img {
+.profile-img {
   display: flex;
+<<<<<<< HEAD
   background: linear-gradient(
     90deg,
     rgba(204, 46, 3, 1) 0%,
@@ -47,8 +48,14 @@ ul {
   );
   height: 4rem;
   width: 4rem;
+=======
+  justify-content: center;
+  height: 5rem;
+  width: 5rem;
+>>>>>>> main
   border-radius: 50%;
   overflow: hidden;
+  margin-left: 1rem;
 }
 
 .profile-loading {

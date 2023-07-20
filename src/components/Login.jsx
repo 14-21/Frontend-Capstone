@@ -46,7 +46,7 @@ function Login(props) {
         console.log(props.isAdmin)
 
         
-        navigate("/"); //Navigates back to Homepage after login.
+        navigate("/"); 
       } else if (result.error) {
         setLoginError(result.error.message);
       }
@@ -89,7 +89,6 @@ function Login(props) {
           Submit
         </button>
       </form>
-      {/* not updating error in field */}
       {loginError ? <p>{loginError}</p> : null}
     </div>
   );

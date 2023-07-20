@@ -9,6 +9,7 @@ function DeleteCommentButton(props) {
     try {
       const result = await deleteComment(id);
       console.log(result);
+      console.log(id)
     } catch (error) {
       console.log(error);
     }
@@ -31,7 +32,7 @@ function DeleteCommentButton(props) {
       ); // Outside of fetch starting here.
       const result = await response.json();
       console.log(result);
-      if (result.length) {
+      if (result.data) {
         const deletedFilteredComment = props.filteredComment.filter(
           (singleComment) => {
             if (singleComment.commentId !== commentId) {
@@ -45,6 +46,8 @@ function DeleteCommentButton(props) {
       console.log(error);
     }
   }
+
+  
 
   return (
     <div>

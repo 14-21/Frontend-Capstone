@@ -1,14 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { fetchComments } from "../api-routes";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import StarRating from "./StarRating";
 import CreateCommentButton from "./CreateCommentButton";
 import "./reviews.css";
 import "./comments.css";
 import "./profile.css";
-import UserCommentLocalEdit from "./UserCommentLocalEdit";
 
 function Comments(props) {
   const [filteredComment, setFilteredComment] = useState([]);
@@ -17,7 +13,7 @@ function Comments(props) {
     const getComments = async () => {
       try {
         const renderComment = await fetchComments(props.reviewId);
-        console.log(renderComment);
+        console.log("reanderCOmmments", renderComment);
         setFilteredComment(renderComment);
       } catch (error) {
         console.log(error);
@@ -51,12 +47,16 @@ function Comments(props) {
       {filteredComment && filteredComment.length ? (
         filteredComment.map((commentEl) => {
           return (
+            <>
             <div>
               <p className="review-paragraph" id="comment-user">
                 {commentEl.commentbody}
               </p>
               <div className="border-line"></div>
+              
             </div>
+      
+            </>
           );
         })
       ) : (
@@ -64,7 +64,7 @@ function Comments(props) {
       )}
 
       <CreateCommentButton
-        filteredComment={filteredComment}
+        filteredComment={filteredComment && filteredComment.length ? filteredComment : []}
         setFilteredComment={setFilteredComment}
         reviewId={props.reviewId}
       />

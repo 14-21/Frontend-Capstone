@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import "./adminViewStyles.css";
 
 const BASE_URL = "http://localhost:8080";
@@ -301,7 +300,6 @@ function CreateGameButton(props) {
           <button id="button-creategame" type="submit">
             Create Game ➡
           </button>
-
         </div>
       </form>
     </div>
